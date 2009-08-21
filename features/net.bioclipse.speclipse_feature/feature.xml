@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="net.bioclipse.speclipse_feature"
+      label="Speclipse_feature Feature"
+      version="2.0.0.v20090707"
+      provider-name="The Bioclipse Team@EBI"
+      plugin="net.bioclipse.nmrshiftdb">
+
+   <description>
+      This feature collects plugins for working with spectral data.
+   </description>
+
+   <copyright>
+      (C) 2005-2009 The Bioclipse Project contributors
+   </copyright>
+
+   <license url="http://www.eclipse.org/org/documents/epl-v10.php">
+      This feature and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 + exception, putting no constraints on choice of backend and/or license for creating plugins for Bioclipse; it is totally open for both open source plugins as well as commercial. The exception allows GPL plugins to be written and run in any combination with EPL licensed plugins, addressing incompatibility between the EPL and the GPL v.2. The Eclipse Public License accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+   </license>
+
+   <url>
+      <update label="Speclipse Update Site" url="http://www.ebi.ac.uk/steinbeck-srv/speclipse/net.bioclipse.speclipse-updatesite/"/>
+      <discovery label="The NMRShiftDB home page" url="http://www.nmrshiftdb.org/"/>
+   </url>
+
+   <requires>
+      <import feature="net.bioclipse.chemoinformatics_feature" version="2.0.0.B20090520"/>
+   </requires>
+
+   <plugin
+         id="net.bioclipse.nmrshiftdb"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.specmol"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.spectrum"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.bibtex"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.webservices"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.logging"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.xmlpull.xpp3"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="net.bioclipse.cml"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.xmlcml.cmlxom"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.xom"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.data.speclipse"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.data"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.runtime"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.doc.speclipse"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
