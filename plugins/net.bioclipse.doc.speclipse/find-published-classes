@@ -1,0 +1,28 @@
+#!/usr/bin/perl -w
+use strict;
+
+my @allReleasedPlugins;
+
+my $cmd = "./find-released-speclipse-plugins |";
+open (CMD, "$cmd");
+my @features;
+while (<CMD>) {
+  push(@allReleasedPlugins, $_);
+}
+
+my %uniquePlugins;
+@uniquePlugins{@allReleasedPlugins} = ();
+my @pluginsToSearch = sort keys %uniquePlugins;
+
+my @publishedClasses;
+
+for my $plugin (@pluginsToSearch) {
+  $plugin =~ s/\n|\r//g;
+  my $cmd = "grep -Rl \@PublishedClass ../$plugin | grep \\.java | grep -v \\.svn |";
+  open (CMD, "$cmd");
+  while (<CMD>) {
+    push(@publishedClasses, $_);
+  }
+}
+
+print @publishedClasses;

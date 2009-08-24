@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="NMRShiftDB plugin">
+	<topic label="About NMRShiftDB plugin"  href="html/maintopic.html"> 
+		<topic label="Search in NMRShiftDB" href="html/search.html"/> 
+		<topic label="Predict NMR spectrum" href="html/predict.html"/> 
+		<topic label="Submit to NMRShiftDB" href="html/submit.html"/> 
+		<topic label="Assign spectrum by prediction" href="html/assign.html"/> 
+		<topic label="Check spectrum" href="html/check.html"/>
+	</topic>
+</toc>

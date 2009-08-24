@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>The Spectrum Editor</title>
+  <link rel="stylesheet" href="../../PRODUCT_PLUGIN/narrow_book.css" type="text/css">
+</head>
+
+<body>
+<h1>The Spectrum Editor</h1>
+The Spectrum Editor is an editor for viewing and editing spectral data in one of the allowed 
+<a href="formats.html">formats</a>. If the spectrum opened contains continuous data, there is a 
+"Pick Peaks" icon <img src="../icons/peaks.gif"> in the toolbar. This does a peak picking on the spectrum and adds the peaks found 
+to it. The icon "Calculate Integrals" <img src="../icons/integral.gif"> calculates the integrals of the continuous spectrum and draws 
+them in the chart. The editor contains four different tabs. There is also a <a href="new.html">new spectrum wizard</a>. These are: <br>
+<h2>The Metadata Tab(s)</h2>
+<p>There is a varying number of metadata tabs. These tabs give the user access to the metadata stored within the spectrum file. The visualization of the data is 
+done within a table tree with the metadata grouped, if possible, into the following groups:
+<ul>
+	<li>Metadata keys</li>
+	<li>Substance keys</li>
+	<li>Condition keys</li>
+</ul> 
+Every of this groups can, by the user be expanded or collapsed and therewith the regarding entries being hidden 
+or made visible. You 
+are able to edit existing or add new entries by just clicking into the regarding cell and enter the value.</p>
+<p>There are two types of metadata pages: Some originating from mapping files and one for individual metadata. The pages 
+from mapping files have a fixed set of entries with fixed names. The page will show all the entries no matter if contained 
+in the current spectrum file or not. Right now, there is one mapping file for JCAMP-DX data. You can edit all mapping files 
+and add new one by using the <img src="../icons/add_metadata.gif"> symbol in the toolbar. The "Unclassified metadata" page is for 
+metadata in the file not in any mapping file. You can only edit existing data here. Note that in here, metadata items need an id or name, substance items an id or dictref and condition items 
+an id or dictref to show up here. All other items can be edited in the text file.</p>
+<h2>The Peak Table Tab</h2>
+<p>The Peak Table view is showing existing peaks in an editable peak table and gives
+the user the possibility to add, delete and edit spectrum peaks.</p>
+<p>The table can be sorted for x- and y-values 
+by just single clicing on the regarding columns header.<br> 
+For editing the single entries, just click into the field you like to edit and enter the new value. If you like to remove 
+a peak, select the regarding row and hit the "delete" button at the bottom of the view. To add a peak, hit the 
+"add" button and a new row will be added to the table, where you then can enter the new peaks values.</p>
+<h2>The Chart Tab</h2>
+The chart tab, which is using the JFreeChart package, visualizes spectral information, 
+either peak or continuous data, contained in the file. This is a view-only tab. It is possible to stepless zoom in and out the
+spectrum as well as setting some displaying properties via a context menu provided
+by JFreeChart.<p>
+<p>The tab contains two charts, one for displaying continuous and the other peak data.
+It is possible to stepless zoom in and out the spectrum, with the two charts (if peak and continuous data is provided)
+being synchronized to each other, so that a zooming in one of the charts is reflected in the other one, too. This 
+results in the two charts having the same x-axis scaling at any time. Via a context menu, 
+which you activate via a right click into the chart area of one of the charts, you can set some properties, like toggle antialiasing on or off, and get 
+the possibility to print the selected spectrum, save the spectrum as png file and to adjust the zooming factor. The peak chart 
+can display the value of the peaks. This can be selected via the preferences in the main menu via "Window -> Preferences -> Spectrum Editor".</p>
+<h2>The Source Tab</h2>
+<p>This shows the source code of the file with the current changes. It can be edited and saved. Note 
+that if you want to change the format, you have to do a "Save as...".</p> 
+</body>
+</html>

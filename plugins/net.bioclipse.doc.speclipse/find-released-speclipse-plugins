@@ -1,0 +1,23 @@
+#!/usr/bin/perl -w
+use strict;
+
+my @features = `xpath -q -e "//plugin/\@id" ../net.bioclipse.speclipse_feature/feature.xml | cut -d'"' -f2`;
+
+my @allFeatures;
+
+#warn @features;
+#warn "fsdafas\n";
+
+# need some proper recursion here
+for my $feature (@features) {
+  #warn "______";
+  #warn $feature;
+  push(@allFeatures, $feature) if ($feature =~ m/net.bioclipse/);
+  #$feature =~ s/\n|\r//g;
+  #my @subFeatures = `xpath -q -e "//includes/\@id" ../$feature/feature.xml | cut -d'"' -f2`;
+  #for my $subFeature (@subFeatures) {
+  #  push(@allFeatures, $subFeature) if ($subFeature =~ m/net.bioclipse/);
+  #}
+}
+
+print @allFeatures;

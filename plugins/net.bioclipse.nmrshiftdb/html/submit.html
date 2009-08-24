@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Submit to NMRShiftDB</title>
+</head>
+
+<body>
+<h1>Submitting Data to NMRShiftDB</h1>
+<p>Via this function you can submit data from bioclipse to NMRShiftDB. The data must be available as an Assigned Spectrum file. For an explanation, 
+how to create one, see the <a href="/help/topic/net.bioclipse.specmol/html/creating.html">help for the Assigned Spectrum plugin</a>. The idea behind this is that the SpecMol resource enables you to reuse existing data as much as possible. 
+E. g. you can use a JCAMP-DX file you already have and a mol file you drew for you latest paper. In this way, an NMRShiftDB submission is a logical step without much work 
+for your exising data. Obviously, you can also create a SpecMol resource from scratch. A resource you want to submit must have one structure and at least one spectrum of 
+type NMR. For doing a submit, right click on the SpecMol resource in the BioResource navigator and choose "Submit to NMRShiftDB".</p>
+<p>You get a window showing several panes, one for the molecule and one for each spectrum. Here you can enter additional information about 
+the molecule and each spectum. Some of the fields may already show content, which you entered in the Spectrum or the Structure editor. If you fill in data here, 
+they will be saved in the SpecMolResource after the submit. Each spectrum tab also contains a checkbox, which excludes this spectrum from the submit if unchecked.</p>
+<p>When ready, press "Next". This gives you a page where you need to enter your NMRShiftDB username and password (if you do not
+yet have one, go to <a href="http://www.nmrshiftdb.org">http://www.nmrshiftdb.org/</a> for registration) and choose an NMRShiftDB server (the default should be fine). You can then press "Finish" and your submission should go to the server. If you want 
+to have a literature reference for a spectrum, you need have it in a BibTex file (you can use the BibTex pluging to create one). When you have a spectrum open in the SpecMol editor, you can add an entry to it (see BibTex plugin help).</a>
+<p>If your submit was succesfully handled, you will get a message saying this. The submit will go to the normal NMRShiftDB review process (for details, see the online help at 
+<a href="http://www.nmrshiftdb.org">http://www.nmrshiftdb.org/</a>). If you get an error message, you should first try to resolve the problem (e. g. when you mistyped the password). If you cannot solve it, send the smr file to 
+the administrator email mentioned at <a href="http://www.nmrshiftdb.org">http://www.nmrshiftdb.org/</a>. They will take care of it. In no case your data are lost when the submit fails.</p>
+<p>Once you did the submit, there exist two copies of the data: Locally in Bioclipse and in the NMRShiftdb system. Obviously, these are not synchronized, meaning that if the data change on the server (an edit is done), 
+they do not change locally. When you changed data locally, you can do a submit again. If the data (meaning the particular spectrum in the smr file) have already been submitted before, 
+this is considered an edit, i. e. no new entry in NMRShiftDB is done, but your new data get merged into the existing entry.</p>
+<p>Right clicking on an smr file gives you the "Clone this submit to a new submit ..." option. This will copy the smr file to a new smr file with the same content, but without the association to an 
+NMRShiftDB entry, meaning submitting the new file will not be an edit (as with the old file), but a new submit. You can use this to submit two similar entries by submitting the first entry, cloning it, changing the clone 
+(which will be easier than making a new entry) and submitting the clone.</p>
+</body>
+</html>

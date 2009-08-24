@@ -1,0 +1,34 @@
+##TITLE=1,2-Ethanediamine, N'-ethyl-N,N-dimethyl-
+##JCAMP-DX=4.24
+##DATA TYPE=MASS SPECTRUM
+##ORIGIN=Japan AIST/NIMC Database- Spectrum MS-IW-4035
+##OWNER=NIST Mass Spectrometry Data Center
+Collection (C) 2002 copyright by the U.S. Secretary of Commerce
+on behalf of the United States of America. All rights reserved.
+##CAS REGISTRY NO=123-83-1
+##$EPA MASS SPEC NO=239371
+##MOLFORM=C6H16N2
+##MW=116
+##$NIST SOURCE=MSDC
+##.IONIZATION ENERGY=70
+##XUNITS=M/Z
+##YUNITS=RELATIVE ABUNDANCE
+##XFACTOR=1
+##YFACTOR=1
+##FIRSTX=15
+##LASTX=117
+##FIRSTY=9
+##MAXX=117
+##MINX=15
+##MAXY=999
+##MINY=1
+##NPOINTS=34
+##PEAK TABLE=(XY..XY)
+15,9 27,10 28,22 29,20 30,114
+31,1 39,1 41,8 42,58 43,21
+44,42 45,5 46,1 50,3 54,3
+55,2 56,31 57,25 58,999 59,301
+60,10 68,1 69,2 70,6 71,9
+72,29 73,4 83,1 85,2 86,2
+99,1 113,2 116,36 117,3
+##END=

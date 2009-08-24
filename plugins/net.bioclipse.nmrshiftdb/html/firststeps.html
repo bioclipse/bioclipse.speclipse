@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Getting started with Speclipse</title>
+  <link rel="stylesheet" href="../../PRODUCT_PLUGIN/narrow_book.css" type="text/css">
+</head>
+
+<body>
+<h1>Getting started with Speclipse</h1>
+<h2>Introduction</h2>
+<p>Speclipse is an extension for Bioclipse to work with 
+spectral data. Since you read this, you have installed it 
+properly. Here, we show you what you can now do</p>
+<h2>Install sample data</h2>
+<p>You should install the sample data. This can be done by choosing File->New
+->Data->Speclipse Sample Data Project from the menu. Leave the defaults and 
+choose Next and Finish. The new Project will contain two subfolders, which 
+represent the two data types Speclipse handles: spectra and assigned peak 
+spectra.</p>
+<h2>Work with spectra</h2>
+<img src="images/speceditor.png">
+<p>This screenshot shows several elements of what you can do with spectra:
+<ul>
+<li>Continuous spectrum and peak visible, peaks can be picked and the integral 
+shown</li>
+<li>Metadata are visible in the outline and can be edited on other tabs</li>
+<li>You can save in different <a href="/help/topic/net.bioclipse.spectrum/doc/formats.html">formats</a></li>
+</ul>
+<p>Go to Help->Cheat Sheets->Spectra->General Spectrum Cheat Sheet to get more 
+details on this</p>
+<h2>Assigend Spectra</h2>
+</body>
+<img src="images/assignedspec.png">
+<p>In Speclipse, you can combine a structure and one or more spectrum in one 
+CML file and assign the peaks. The screenshot shows a file opened in the 
+editor and some hints on what you can do. See the <a href=
+"/help/topic/net.bioclipse.specmol/html/maintopic.html">Assigned Spectrum help</a> for 
+details.</p>
+<h2>Scripting</h2>
+<p>The functionalities of the plugins are also available via the Bioclipse 
+scripting language. See the <a href="/help/topic/net.bioclipse.doc/html/scriptingBioclipse.html">general scripting help</a> 
+and the <a href="/help/topic/net.bioclipse.doc.speclipse/html/index.html">Speclipse 
+scripting help</a> for details. The following script is an example, which 
+loads a continuous spectrum and picks its peaks and saves the result as 
+a CML file:<p>
+<pre>contspectrum = spectrum.loadSpectrum("/Sample Data1/Speclipse/spectra/aug07.dx")
+peaks = spectrum.pickPeaks(contspectrum)
+spectrum.saveSpectrum(peaks, "/Sample Data 1/test.cml", "cml")</pre>
+</html>

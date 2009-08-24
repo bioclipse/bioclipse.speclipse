@@ -1,0 +1,46 @@
+<cml xmlns="http://www.xml-cml.org/schema">
+	<spectrum xmlns:cml="http://www.xml-cml.org/dict/cml"
+		xmlns:cmlDict="http://www.xml-cml.org/dict/cmlDict"
+		xmlns:macie="http://www.xml-cml.org/dict/macie"
+		xmlns:nmr="http://www.nmrshiftdb.org/dict"
+		xmlns:siUnits="http://www.xml-cml.org/units/siUnits"
+		xmlns:subst="http://www.xml-cml.org/dict/substDict"
+		xmlns:units="http://www.xml-cml.org/units/units" id="nmrshiftdb3727"
+		moleculeRef="nmrshiftdb2505" type="NMR">
+		<conditionList>
+			<scalar dataType="xsd:string" dictRef="cml:temp"
+				units="siUnits:k">298</scalar>
+			<scalar dataType="xsd:string" dictRef="cml:field"
+				units="siUnits:hertz">125</scalar>
+		</conditionList>
+		<metadataList>
+			<metadata name="nmr:OBSERVENUCLEUS" content="13C" />
+		</metadataList>
+		<peakList>
+			<peak xValue="104.5999984741211" xUnits="units:ppm"
+				peakShape="sharp" id="p0" atomRefs="a2" />
+			<peak xValue="121.0999984741211" xUnits="units:ppm"
+				peakShape="sharp" id="p1" atomRefs="a5" />
+			<peak xValue="128.6999969482422" xUnits="units:ppm"
+				peakShape="sharp" id="p2" atomRefs="a1" />
+			<peak xValue="129.0" xUnits="units:ppm" peakShape="sharp"
+				id="p3" atomRefs="a6" />
+			<peak xValue="26.299999237060547" xUnits="units:ppm"
+				peakShape="sharp" id="p4" atomRefs="a13" />
+			<peak xValue="28.600000381469727" xUnits="units:ppm"
+				peakShape="sharp" id="p5" atomRefs="a7 a9" />
+			<peak xValue="78.0" xUnits="units:ppm" peakShape="sharp"
+				id="p6" atomRefs="a8" />
+			<peak xValue="113.69999694824219" xUnits="units:ppm"
+				peakShape="sharp" id="p7" atomRefs="a3" />
+			<peak xValue="114.0" xUnits="units:ppm" peakShape="sharp"
+				id="p8" atomRefs="a11" />
+			<peak xValue="160.39999389648438" xUnits="units:ppm"
+				peakShape="sharp" id="p9" atomRefs="a4" />
+			<peak xValue="165.1999969482422" xUnits="units:ppm"
+				peakShape="sharp" id="p10" atomRefs="a14" />
+			<peak xValue="202.5" xUnits="units:ppm" peakShape="sharp"
+				id="p11" atomRefs="a12" />
+		</peakList>
+	</spectrum>
+</cml>

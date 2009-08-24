@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Assigned Spectrum">
+	<topic label="About the Assigend Spectrum Editor"  href="html/maintopic.html"> 
+		<topic label="Creating an Assigend Spectrum file" href="html/creating.html"/> 
+	</topic>
+</toc>

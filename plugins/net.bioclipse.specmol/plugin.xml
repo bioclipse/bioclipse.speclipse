@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="net.bioclipse.specmol.editor.SpecMolEditor"
+            contributorClass="net.bioclipse.specmol.editor.SpecMolEditorContributor"
+            icon="icons/specMol.gif"
+            id="net.bioclipse.specmol.editor.SpecMolEditor"
+            name="AssignedSpectrum Editor">
+            <contentTypeBinding
+                  contentTypeId="net.bioclipse.contenttypes.cml.specmol">
+            </contentTypeBinding>
+      </editor>
+   </extension>
+   
+   <extension
+         point="net.bioclipse.scripting.contribution">
+      <scriptContribution
+            id="net.bioclipse.specmol.business.SpecmolManager"
+            service="net.bioclipse.specmol.business.SpecmolManagerFactory">
+      </scriptContribution>
+   </extension>
+   
+    <extension
+          point="org.eclipse.core.runtime.contentTypes">
+        <content-type
+              base-type="net.bioclipse.contenttypes.cml"
+              id="net.bioclipse.contenttypes.cml.specmol"
+              name="CML (SpecMol)"
+              priority="high">
+            <describer class="net.bioclipse.specmol.contenttypes.CmlSpecmolFileDescriber">
+            </describer>
+        </content-type>
+    </extension>
+    
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="net.bioclipse.spectrum.SpectrumCategory"
+            name="Spectrum related"/>
+      <wizard
+            canFinishEarly="false"
+            category="net.bioclipse.spectrum.SpectrumCategory"
+            class="net.bioclipse.specmol.wizards.NewSpecMolWizard"
+            hasPages="true"
+            icon="icons/specMol.gif"
+            id="bc_SpecMol.NewSpecMolWizard"
+            name="Assigned Spectrum"
+            project="true"
+            preferredPerspectives="net.bioclipse.nmrshiftdb.SpeclipsePerspective">
+         <description/>
+      </wizard>
+   </extension>
+   <extension point="org.eclipse.ui.navigator.navigatorContent">                                                  
+     <commonWizard type="new"                                                                                     
+        wizardId="bc_SpecMol.NewSpecMolWizard">
+       <enablement>
+         <or>
+           <adapt type="org.eclipse.core.resources.IFile" />
+           <adapt type="org.eclipse.core.resources.IFolder" />
+           <adapt type="org.eclipse.core.resources.IProject" />
+           <adapt type="org.eclipse.core.resources.IWorkspaceRoot" />
+         </or>
+       </enablement>
+     </commonWizard>
+   </extension>
+
+    <extension
+        point="org.eclipse.ui.commands">
+        <command
+           id="net.bioclipse.specmol.addSpectrumToSmr"
+           defaultHandler="net.bioclipse.specmol.actions.AddSpectrumAction"
+           name="addSpectrumToSmr"/>
+  	</extension>
+
+	<extension 
+  		point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		    <command
+		    	commandId="net.bioclipse.specmol.addSpectrumToSmr"
+		    	label="Add another spectrum"
+		        icon="icons/specMol.gif">
+		      	<visibleWhen>
+			   		<iterate operator="and" ifEmpty="false">
+		      			<adapt type="org.eclipse.core.resources.IResource">
+			      			<or>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.cml.specmol"/>
+				            </or>
+			      		</adapt>
+			   		</iterate>
+		        </visibleWhen>
+	       </command>
+		</menuContribution>
+   </extension>
+   
+   <extension
+        point="org.eclipse.ui.navigator.navigatorContent">
+     <navigatorContent 
+           contentProvider="net.bioclipse.specmol.ui.views.SpecmolContentProvider"
+           id="net.bioclipse.specmol.ui.views.SpecmolContent"
+           labelProvider="net.bioclipse.specmol.ui.views.SpecmolLabelProvider"
+           name="Specmol Content">
+        <triggerPoints>
+        <and>
+           <instanceof value="org.eclipse.core.resources.IFile"/>
+           <or>
+           <test
+           	forcePluginActivation="true"
+           	property="org.eclipse.core.resources.contentTypeId"
+           	value="net.bioclipse.contenttypes.cml.specmol"/>
+           </or>
+        </and>
+        </triggerPoints>
+     </navigatorContent>
+  </extension>
+   
+	<extension
+     point="org.eclipse.ui.navigator.viewer">
+     <viewerContentBinding
+           viewerId="net.bioclipse.navigator">
+           <includes>
+           <contentExtension
+                 pattern="net.bioclipse.specmol.ui.views.SpecmolContent">
+           </contentExtension>
+           </includes>
+     </viewerContentBinding>
+	</extension>
+	
+	<extension 
+		point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		    <command
+		    	commandId="net.bioclipse.specmol.openInEditor"
+		    	label="Open for editing"
+		        icon="icons/specMol.gif">
+		      	<visibleWhen>
+			   		<iterate operator="and" ifEmpty="false">
+		      			<adapt type="org.xmlcml.cml.base.CMLElement">
+			      		</adapt>
+			   		</iterate>
+		        </visibleWhen>
+	       </command>
+		</menuContribution>
+   </extension>
+   
+    <extension
+        point="org.eclipse.ui.commands">
+        <command
+           id="net.bioclipse.specmol.openInEditor"
+           defaultHandler="net.bioclipse.specmol.actions.OpenInEditorAction"
+           name="openInEditor"/>
+  	</extension>
+
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true"/>
+   </extension>
+</plugin>

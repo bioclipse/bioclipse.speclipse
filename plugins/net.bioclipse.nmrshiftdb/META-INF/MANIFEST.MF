@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: NMRShiftDB Plug-in
+Bundle-SymbolicName: net.bioclipse.nmrshiftdb; singleton:=true
+Bundle-Version: 2.0.0.v20090707
+Bundle-Activator: net.bioclipse.nmrshiftdb.Activator
+Bundle-Vendor: Bioclipse Team@EBI
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ net.bioclipse.specmol;bundle-version="2.0.0",
+ org.xmlcml.cmlxom;bundle-version="2.0.0",
+ net.bioclipse.cdk.business;bundle-version="2.0.0",
+ net.bioclipse.core;bundle-version="2.0.0",
+ net.bioclipse.spectrum;bundle-version="2.0.0",
+ net.bioclipse.xom,
+ org.eclipse.core.resources,
+ net.bioclipse.webservices;bundle-version="2.0.0",
+ org.openscience.cdk.interfaces;bundle-version="1.1.4",
+ org.openscience.cdk.io;bundle-version="1.1.4",
+ org.openscience.cdk.smiles;bundle-version="1.1.4",
+ org.openscience.cdk.data;bundle-version="1.1.4",
+ net.bioclipse.chemoinformatics;bundle-version="2.0.0",
+ net.bioclipse.bibtex;bundle-version="2.0.0",
+ net.bioclipse.ui;bundle-version="2.0.0",
+ org.openscience.cdk.libiocml;bundle-version="1.1.4",
+ org.eclipse.ui.ide,
+ org.openscience.cdk.ioformats;bundle-version="1.1.5",
+ net.bioclipse.cml;bundle-version="2.0.0",
+ net.bioclipse.cdk.jchempaint;bundle-version="2.0.0",
+ net.bioclipse.ui.business;bundle-version="2.0.0",
+ org.eclipse.ui.intro,
+ org.eclipse.ui.intro.universal,
+ org.eclipse.ui.cheatsheets
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.log4j;version="1.2.15"
+Export-Package: net.bioclipse.nmrshiftdb,
+ net.bioclipse.nmrshiftdb.business

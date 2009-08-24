@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+    <extension
+          point="org.eclipse.core.runtime.contentTypes">
+          <content-type
+                id="net.bioclipse.contenttypes.bibtex"
+                name="Bibtex"
+                file-extensions="bib"
+                priority="normal">
+          </content-type>
+    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="net.bioclipse.bibtex.bibtex"
+            name="BibTex"/>
+      <wizard
+            canFinishEarly="false"
+            category="net.bioclipse.bibtex"
+            class="net.bioclipse.bibtex.wizards.NewBibtexWizard"
+            hasPages="true"
+            icon="icons/bib.gif"
+            id="net.bioclipse.bibtex.NewBibtex"
+            name="New bibtex file"
+            project="true"/>
+   </extension>
+   
+    <extension
+        point="org.eclipse.ui.commands">
+        <command
+           id="net.bioclipse.bibtex.handlers.openinjabref"
+           defaultHandler="net.bioclipse.bibtex.popup.actions.JabRefAction"
+           name="openinjabref"/>
+  	</extension>
+
+	<extension 
+  		point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		    <command
+		    	commandId="net.bioclipse.bibtex.handlers.openinjabref"
+		    	label="Open in JabRef"
+		        icon="icons/bib.gif">
+		      	<visibleWhen>
+			   		<iterate operator="and" ifEmpty="false">
+		      			<adapt type="org.eclipse.core.resources.IResource">
+			      			<or>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.bibtex"/>
+				            </or>
+			      		</adapt>
+			   		</iterate>
+		        </visibleWhen>
+	       </command>
+		</menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true"/>
+   </extension>
+   <extension
+         point="net.bioclipse.scripting.contribution">
+      <scriptContribution
+            id="net.bioclipse.bibtex.business.BibtexManager"
+            service="net.bioclipse.bibtex.business.BibtexManagerFactory">
+      </scriptContribution>
+   </extension>
+</plugin>

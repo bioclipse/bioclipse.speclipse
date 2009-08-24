@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>The Spectrum plug-in</title>
+  <link rel="stylesheet" href="../../PRODUCT_PLUGIN/narrow_book.css" type="text/css">
+</head>
+
+<body>
+<h1>The Spectrum plug-in</h1>
+<p>
+The Bioclipse spectrum plug-in provides various graphical and non graphical tools and
+methods for spectrum visualisation, analysis and manipulation. It is mainly formed by an 
+editor containing four different tabs (metadata table, peak table, two charts showing the spectrums 
+peak and continuous data and a source code tab) and the regarding methods/actions.</p>
+<p>For scripting this plugin, see the <a href="/help/topic/net.bioclipse.doc/html/scriptingBioclipse.html">general scripting guide</a> and the <a href="/help/topic/net.bioclipse.doc.speclipse/html/index.html">Speclipse scripting functionality help</a>.</p>
+<p>The following graphical functionality is available:
+<ul><li>Menus: You can calculate the similarity of spectra. Select a number of 
+spectrum files (showing the <img src="../icons/spectrum.gif">logo), right click 
+and choose "Calculate Spectrum similarity". If 
+you select two spectra and choose this option, you get a similarity value 
+displayed. If you choose one or more than two, you get a wizard where you need 
+to choose the spectrum to which similarity is to be calculated. The values are 
+then displayed.</li>
+<li>Views: A view is available for graphically comparing peak spectra. The view can be shown via "Window -> Views -> Spectrum -> Compare Spectra". 
+All files chosen in the navigator will then be displayed there given they contain peaks. The scaling of
+all spectra is uniform in able to make a comparision possible. Shifts found in all spectra (at the same or 
+almost same position) are highlighted.</li>
+<li>Editors: A <a href="spectrumEditor.html">spectrum editor</a> is available.</li>
+<li>Wizards: A <a href="new.html">new spectrum wizard</a> is available.</li>
+</ul>
+<p>The plug-in includes the possibility of importing and exporting spectrum files in <a href="formats.html">the supported formats</a> to the Bioclipse platform, whereas internally all spectrum data is stored and passed around as
+CML Java objects. If a spectrum contains only continuous, a peak picking action is available extracting 
+the peaks from that data.
+</p>
+<h1>License</h1>
+<p>This plugin is published under the <a href="http://www.gnu.org/licenses/lgpl.html">GNU Lesser General Public Licence (GPL)</a>.</p>
+<p>It contains libraries licensed under this licence.<p>
+<h1>Dictionaries for CMLSpect</h1>
+<ul>
+  <li><a href="jcampDXDict.html">JCAMP-DX dictionary</a></li>
+</ul>
+</body>
+</html>

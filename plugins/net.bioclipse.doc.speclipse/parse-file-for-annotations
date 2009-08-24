@@ -1,0 +1,196 @@
+#!perl -w
+use strict;
+
+use Data::Dumper;
+use XML::XPath;
+
+my $current_indentation = 0;
+sub say_indent {
+    my $text = join '', @_, '';
+
+    print ' ' x (4 * $current_indentation), $text, "\n";
+}
+
+sub do_indented {
+    my ($code) = @_;
+
+    ++$current_indentation;
+    $code->();
+    --$current_indentation;
+}
+
+my @xmlfiles = `find .. -type d -name META-INF | perl -ne 'chomp; if (-d "\$_/spring") { for \$name (<\$_/spring/*.xml>) { print \$name, "\n" } }'`;
+
+my %class_of;
+my %namespace_of;
+
+for my $file (@xmlfiles) {
+    chomp $file;
+
+    my $xp = XML::XPath->new(filename => $file);
+
+    my $target = (($xp->find('//bean[@class="org.springframework.aop.framework.ProxyFactoryBean"]/property[@name="target"]/@ref')->get_nodelist)[0] or next)->getNodeValue();
+
+    my $manager = (($xp->find(qq[//bean[\@id="$target"]/\@class])->get_nodelist)[0] or next)->getNodeValue();
+
+    my $proxyinterface = ($xp->find('//bean[@class="org.springframework.aop.framework.ProxyFactoryBean"]/property[@name="proxyInterfaces"]/@value')->get_nodelist)[0]->getNodeValue;
+    my $file = pathToFile($proxyinterface);
+    my $interface_line = `grep extends $file`;
+    $interface_line =~ s/.*?extends //;
+    $interface_line =~ s/ \{//;
+    my @interfaces = grep { $_ && !/IBioclipse(JS)?Manager/ } split /,\s*/, $interface_line;
+    die 'Too many interfaces in ', $file if @interfaces > 1;
+    #die 'No interfaces in ', $file if !@interfaces;
+    next if !@interfaces;
+    my $interface = $interfaces[0];
+    chomp $interface;
+    $class_of{$interface} = $manager;
+    my $managerfile = pathToFile($manager);
+    my $pattern = 'public String \\(getNamespace\\|getManagerName\\)';
+    my ($namespace) =
+             grep { $_ }
+             map { m[return "([^"]*)"] && $1 }
+             `grep -A2 '$pattern' $managerfile`;
+    $namespace_of{$interface} = $namespace;
+}
+
+sub pathToFile {
+    my ($class) = @_;
+
+    $class =~ m[((?:\w+\.)+)(\w+)] or die;
+    my @hits = `find .. -name $2.java`;
+    die @hits if @hits != 1;
+    my $path = $hits[0];
+    chomp $path;
+    return $path;
+}
+
+say_indent('---');
+
+my $interface;
+my @classes;
+my @namespaces;
+my $description;
+my %methods;
+
+while (my $line = <>) {
+
+    chomp $line;
+
+    if ( $line =~ / \s interface \s+ (\w+) /x ) {
+
+        $interface = $1;
+        my @class_files = `grep -Rl "implements $interface" ..`;
+
+        @classes = grep { $_ }
+                   map { m[/(\w+)\.java$] && $1 }
+                   @class_files;
+
+        if (exists $class_of{$interface}
+            && !grep { $class_of{$interface} } @classes) {
+            push @classes, $class_of{$interface};
+        }
+
+        my $pattern = 'public String \\(getNamespace\\|getManagerName\\)';
+        for my $class_file (@class_files) {
+            push @namespaces,
+                 grep { $_ }
+                 map { m[return "([^"]*)"] && $1 }
+                 `grep -A2 '$pattern' $class_file`
+        }
+
+        if (exists $namespace_of{$interface}
+            && !grep { $namespace_of{$interface} } @namespaces) {
+            push @namespaces, $namespace_of{$interface};
+        }
+    }
+
+    if ( $line =~ / \@PublishedClass /x ) {
+        $line .= <> while $line !~ /\)\s*$/;
+
+        $description = $line;
+        for ($description) {
+            s{ ^ \s* \@PublishedClass \s* \( \s* }{}x;
+            s{ value \s* = \s* }{}x;
+            s{ doi   \s* = "  [^\}]+ ",? }{}x;
+            s{ doi   \s* = \{ [^\}]+ \},? }{}x;
+            s{ " \s* \+ \s* " }{}xg;
+            s{ \) \s* }{}x;
+            s{ ^ \s* " }{}x;
+            s{ " ,? \s* $ }{}x;
+        }
+    }
+
+    if ( $line =~ / \@PublishedMethod /x ) {
+        $line .= <> while $line !~ /\)\s*$/;
+
+        my $method_desc = $line;
+        for ($method_desc) {
+            s{ ^ \s* \@PublishedMethod \s* \( \s* }{}x;
+            s{ " \s* \+ \s* " }{}xg;
+            s{ \) \s* }{}x;
+        }
+
+        my %method_desc = ();
+        if ( $method_desc =~ m{ params \s* = \s* " ([^"]*) " }x ) {
+            $method_desc{params} = $1;
+        }
+        if ( $method_desc =~ m{ methodSummary \s* = \s* " ([^"]*) " }x ) {
+            $method_desc{summary} = $1;
+        }
+
+        $_ = <>;
+        $_ = <> while m{^\s*$}                    # empty lines
+                   or m{^\s*\@\w+\s*$}            # other annotations...
+                   or m{^\s*\@\w+\(} .. m{\)\s*$} # ...sometimes multi-line
+                   or m{^\s*public\s+\S+\s*$};    # 'public' + return type
+        my $method_signature = $_;
+
+        die 'Your format is silly: ', $method_signature
+          if $method_signature !~ m{\(};
+
+        if ( $method_signature =~ m{ \s (\w+) \s* \( }x ) {
+            $methods{$1} = \%method_desc;
+        }
+        else {
+            die 'Found no name to hang the method on: ', $method_signature;
+        }
+    }
+
+    if ( $line =~ /^}\s*$/ && defined $interface && defined $description ) {
+        say_indent( $interface, ':' );
+        do_indented sub {
+            say_indent( 'Classes: ' );
+            do_indented sub {
+                say_indent( '- ', $_ ) for @classes;
+            };
+            say_indent( 'Namespaces: ' );
+            do_indented sub {
+                say_indent( '- ', $_ ) for @namespaces;
+            };
+            say_indent( 'Description: ', $description );
+            say_indent( 'Methods:' );
+
+            do_indented sub {
+                for my $name ( sort keys %methods ) {
+                    say_indent( '- ',  $name, ':' );
+
+                    do_indented sub {   
+                        for my $prop ( reverse sort keys %{$methods{$name}} ) {
+                            say_indent( '- ', $prop,
+                                        ': ', $methods{$name}{$prop} );
+                        }
+                    };
+                }
+            };
+        };
+        say_indent();
+
+        undef $interface;
+        undef $description;
+        undef %methods;
+        undef @classes;
+        undef @namespaces;
+    }
+}
+

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>SpecMol plugin</title>
+</head>
+
+<body>
+<h1>About Assigned Spectrum plugin</h1>
+<p>The Assigned Spectrum plugin contains an editor for editing spectra and molecules and their relationships together in one file. The file format for this is CML. 
+The first step is to create such a file (see <a href="creating.html">subtopic creating</a>). If you 
+double click this, it is opened in the Assigned Spectrum editor. Here you see
+<ul><li>a graphical representation of the structure,</li>
+<li>a graphical representation of the spectrum,</li>
+<li>a table with the peaks and</li>
+<li>the cml source code (read only) on a second tab.</li></ul>
+The purpose of the editor is to enable assignment of peaks to features (atoms, bonds) of the structure. The chemical or physical meaning of an assignment depends on the spectrum type and is not interpreted by SpecMol editor. 
+It just add atomRefs/bondRefs to the peaks in the CML file. SpecMol editor has two modes: The assignment mode and the display mode. You can change between them by pressing the "Switch Assignment mode on/off) button in 
+the top Bioclipse toolbar. If you are not in Assignment mode, you can only view the assignments: If you choose a peak in the table, all assigned atoms are highlighted, if you click on an atom, the assigned peaks are
+highlighted. If you switch to assignment mode, you can choose a peak in the table and one or several atoms in the structure (for one atom, just 
+click on it, for several atoms, hold the shift key pressed while clicking on the desired atoms). Then hit the "Do Assignment" button in the top Bioclipse tool bar and the assignment is done. After all assignments 
+are finished, you can switch back to show mode, check the assignments and save the file.</p>
+<p>An CML file for this editor has one structure, but can have several spectra. Only one of them is displayed at a time. In order to change between spectra, you need to choose a spectrum in the outline. This will change the spectrum in the editor.</p>
+<p>If you edit a SpecMol resource in the Assigned Spectrum editor, you can add a literature reference to the resource. The entries will be converted to BibTeXML and become part of the resource. For this, choose (from Bioclipse top menu) "SpecMol" -> "Assign Bibtex". 
+You can then select a BibTex file and an entry in this to append to cml, spectrum or molecule elements in the file. If you choose spectrum, it will be added to the spectrum you are currently editing.</p>
+<p>You can also edit the spectra and the molecule in the file. For this, first close the specmol editor in case it is open. Then expand the file in the navigator. You should see an entry for the molecule 
+and each spectrum. Right click on this and choose "Open for edit". You then get the molecule in the JChemPaint editor and a spectrum in the spectrum editor. Change them as you like, save, close the editor and 
+re-open the Assigned Spectrum file in the Assigned Spectrum editor. It has been changed as you wish.</p>
+<p>For scripting this plugin, see the <a href="/help/topic/net.bioclipse.doc/html/scriptingBioclipse.html">general scripting guide</a> and the <a href="/help/topic/net.bioclipse.doc.speclipse/html/index.html">Speclipse scripting functionality help</a>.</p> 
+<h1>License</h1>
+<p>This plugin is published under the <a href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Licence</a>.</p>
+</body>
+</html>

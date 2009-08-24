@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+      point = "org.eclipse.ui.newWizards">
+ 	<wizard
+	   id = "net.bioclipse.data.speclipse.NewSpeclipseProjectWizard"
+	   name = "Speclipse Sample Data Project"
+	   project="true"
+	   class="net.bioclipse.data.wizards.NewDataProjectWizard"
+	   category="net.bioclipse.data"
+	   icon="icons/spectrum.gif">
+   	   <description>Install a Project with spectral sample data</description>
+	   <selection class="org.eclipse.core.resources.IResource"/>
+	</wizard>
+ 	<wizard
+	   id = "net.bioclipse.data.speclipse.NewSpeclipseProjectWizard"
+	   name = "Speclipse Sample Data Project"
+	   project="true"
+	   class="net.bioclipse.data.wizards.NewDataProjectWizard"
+	   category="net.bioclipse.spectrum.SpectrumCategory"
+	   icon="icons/spectrum.gif">
+   	   <description>Install a Project with spectral sample data</description>
+	   <selection class="org.eclipse.core.resources.IResource"/>
+	</wizard>
+  </extension>
+
+  <extension
+      point="net.bioclipse.data.install">
+      <folder 
+      	name="Speclipse"
+      	description="Speclipse sample data"
+      	location="data/speclipse"
+      	wizard="net.bioclipse.data.speclipse.NewSpeclipseProjectWizard"
+  	    icon="icons/spectrum.gif"/>
+  </extension>
+
+</plugin>

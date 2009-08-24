@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+        point="org.eclipse.ui.commands">
+        <command
+           id="net.bioclipse.nmrshiftdb.handlers.predictNmrSpectrum"
+           defaultHandler="net.bioclipse.nmrshiftdb.handlers.PredictNmrSpectrumHandler"
+           name="predictNmrSpectrum"/>
+   </extension>
+   
+   
+   	<extension 
+  		point="org.eclipse.ui.menus">
+		<menuContribution
+           locationURI="popup:net.bioclipse.spectrum.popup.predict?after=additions">
+		    <command
+		    	commandId="net.bioclipse.nmrshiftdb.handlers.predictNmrSpectrum"
+		    	label="NMR from NMRShiftDB ...."
+		        icon="icons/nmrshiftdb.png">
+		      	<visibleWhen>
+			   		<iterate operator="and" ifEmpty="false">
+		      			<adapt type="org.eclipse.core.resources.IResource">
+			      			<or>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.cml.singleMolecule3d"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.cml.singleMolecule5d"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.cml.singleMolecule2d"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.cml.singleMolecule0d"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.mdlMolFile2D"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.mdlMolFile3D"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.mdlMolFile0D"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.pdb"/>
+				            </or>
+			      		</adapt>
+			   		</iterate>
+		        </visibleWhen>
+	       </command>
+		</menuContribution>
+   </extension>  
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+         <objectContribution
+            id="bc_nmrshiftdb.submit"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="net.bioclipse.nmrshiftdb.actions.SubmitAction"
+               icon="icons/nmrshiftdb.png"
+               id="bc_nmrshiftdb.submitaction"
+               label="Submit this to NMRShiftDB ..."
+               menubarPath="additions"/>
+        <visibility>
+           <objectState
+             name="contentTypeId"
+             value="net.bioclipse.contenttypes.cml.specmol"/> 
+         </visibility>
+      </objectContribution>
+      <objectContribution
+            id="bc_nmrshiftdb.elucidate"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="net.bioclipse.nmrshiftdb.actions.ElucidateAction"
+               icon="icons/nmrshiftdb.png"
+               id="bc_nmrshiftdb.elucidateaction"
+               label="Spectrum search in NMRShiftDB ..."
+               menubarPath="additions"/>
+         <visibility>
+           <or>
+               <objectState
+                 name="contentTypeId"
+                 value="net.bioclipse.contenttypes.jcampdx"/>
+               <objectState
+                 name="contentTypeId"
+                 value="net.bioclipse.contenttypes.cml.singleSpectrum"/>
+           </or>
+         </visibility>
+      </objectContribution>
+      <objectContribution
+            id="bc_nmrshiftdb.clone"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               class="net.bioclipse.nmrshiftdb.actions.CloneAction"
+               icon="icons/nmrshiftdb.png"
+               id="bc_nmrshiftdb.cloneaction"
+               label="Clone this submit to a new submit ..."
+               menubarPath="additions"/>
+        <visibility>
+           <objectState
+             name="contentTypeId"
+             value="net.bioclipse.contenttypes.cml.specmol"/> 
+         </visibility>
+      </objectContribution>
+      <objectContribution
+            id="bc_nmrshiftdb.predict"
+            objectClass="org.eclipse.core.resources.IFile">
+         <visibility>
+            <or>
+               <objectState
+                 name="contentTypeId"
+                 value="net.bioclipse.contenttypes.mdlMolFile2D"/>
+               <objectState
+                 name="contentTypeId"
+                 value="net.bioclipse.contenttypes.cml.singleMolecule3d"/>
+               <objectState
+                 name="contentTypeId"
+                 value="net.bioclipse.contenttypes.cml.singleMolecule2d"/>
+               <objectState
+                 name="contentTypeId"
+                 value="net.bioclipse.contenttypes.mdlMolFile3D"/>
+           </or>
+         </visibility>
+         <action
+               class="net.bioclipse.nmrshiftdb.actions.DownloadSpectraAction"
+               icon="icons/nmrshiftdb.png"
+               id="bc_nmrshiftdb.spectradownloadaction"
+               label="Download NMR spectra for this molecule"
+               menubarPath="additions"/>
+      </objectContribution>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="bc_nmrshiftdb.editorContribution"
+            targetID="net.bioclipse.specmol.editor.SpecMolEditor">
+         <menu id="net.bioclipse.nmrshiftdb.menu"
+           label="NMRShiftDB"
+           path="net.bioclipse.specmol.menu"> 
+           <separator name="slot1"/>
+         </menu>
+         <action
+               class="net.bioclipse.nmrshiftdb.actions.AssignByPredictionAction"
+               icon="icons/nmrshiftdb.png"
+               id="bc_nmrshiftdb.AssignByPredictionAction"
+               label="Assign By Prediction"
+               menubarPath="net.bioclipse.nmrshiftdb.menu/slot1"
+               style="push"
+               tooltip="Do Assignment by NMRShiftDB prediction"/>
+         <action
+               class="net.bioclipse.nmrshiftdb.actions.CheckAssignmentAction"
+               icon="icons/nmrshiftdb.png"
+               id="bc_nmrshiftdb.CheckAssignmentAction"
+               label="Check spectrum validity"
+               menubarPath="net.bioclipse.nmrshiftdb.menu/slot1"
+               style="push"
+               tooltip="Check the spectrum by NMRShiftDB prediction"/>
+      </editorContribution>
+   </extension>
+
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="starting.xml"
+            primary="true"/>
+   </extension>
+
+   <extension
+         id="net.bioclipse.bc_nmrshiftdb.cheatsheet"
+         name="Submitting Data to NMRShiftDB"
+         point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <category
+            id="net.bioclipse.bc_nmrshiftdb.cheatsheet.category"
+            name="NMRShiftDB"/>
+      <cheatsheet
+            category="net.bioclipse.bc_nmrshiftdb.cheatsheet.category"
+            composite="false"
+            contentFile="cheatsheets/SubmitCheatSheet.xml"
+            id="net.bioclipse.bc_nmrshiftdb.cheatsheet.SubmitCheatsheet"
+            name="NMRShiftDB Submit Cheat Sheet"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="net.bioclipse.spectrum.SpectrumCategory"
+            name="Spectrum related"/>
+      <wizard
+            canFinishEarly="false"
+            category="net.bioclipse.spectrum.SpectrumCategory"
+            class="net.bioclipse.nmrshiftdb.wizards.NewFromNmrshiftdbWizard"
+            hasPages="true"
+            icon="icons/nmrshiftdb.png"
+            id="net.bioclipse.nmrshiftdb.NewFromNmrshiftdbWizard"
+            name="General Search in NMRShiftDB"
+            project="true"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="net.bioclipse.nmrshiftdb.NmrshiftdbPreferencePage"
+            id="net.bioclipse.nmrshiftdb.NmrshiftdbPreferencePage"
+            name="NMRShiftDB"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="configextension.xml"/>  
+   </extension>
+   
+      <extension point="org.eclipse.ui.perspectives">
+      <perspective name="Speclipse"
+          class="net.bioclipse.nmrshiftdb.SpeclipsePerspective"
+          id="net.bioclipse.nmrshiftdb.SpeclipsePerspective"
+          icon="icons/nmrshiftdb.png">
+      </perspective>
+   </extension>
+   
+   <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="net.bioclipse.ui.Perspective">
+        <perspectiveShortcut
+              id="net.bioclipse.nmrshiftdb.SpeclipsePerspective">
+        </perspectiveShortcut>
+     </perspectiveExtension>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="net.bioclipse.ui.intro">
+      </intro>
+      <introProductBinding
+            introId="org.eclipse.ui.intro.universal"
+            productId="net.bioclipse.nmrshiftdb.product">
+      </introProductBinding>
+   </extension>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="Speclipse"
+            description="The spectral workbench for life science, based on Bioclipse"
+            application="net.bioclipse.ui.application">
+         <property
+               name="windowImages"
+               value="platform:/plugin/net.bioclipse.ui/icons/logo/logo_16_trans.gif,platform:/plugin/net.bioclipse.ui/icons/logo/logo_32_trans.gif,platform:/plugin/net.bioclipse.ui/icons/logo/logo_48_trans.gif,platform:/plugin/net.bioclipse.ui/icons/logo/logo_64_trans.gif,platform:/plugin/net.bioclipse.ui/icons/logo/logo_128_trans.gif">
+         </property>
+         <property
+               name="appName"
+               value="Speclipse">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="C7E1E6">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,252,445,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,290,445,15">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutImage"
+               value="platform:/plugin/net.bioclipse.ui/icons/logo/abot_img.gif">
+         </property>
+          <property
+            name="introTitle"
+            value="Welcome to Speclipse"/>
+      <property
+            name="introBrandingImage"
+            value="product:bioclipse.png"/>
+      <property
+            name="introBrandingImageText"
+            value="The Speclipse Team"/>
+      <property
+            name="aboutText"
+            value="%productBlurb">
+      </property>
+      </product>
+   </extension>
+
+   <extension point="net.bioclipse.scripting.contribution">
+      <scriptContribution
+            id="net.bioclipse.nmrshiftdb.business.NmrshiftdbManager"
+            service="net.bioclipse.nmrshiftdb.business.NmrshiftdbManagerFactory">
+      </scriptContribution>
+   </extension>
+</plugin>

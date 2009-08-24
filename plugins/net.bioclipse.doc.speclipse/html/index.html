@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 6 November 2007), see www.w3.org">
+
+  <title>Manager documentation</title>
+  <style type="text/css">
+    body {
+        font-size: 80%;
+        font-family: "Lucida Grande", Verdana, Arial, Sans-Serif;
+      }
+      h2 {
+        border-bottom: solid 1px black;
+      }
+      .description {
+        background: #fcc;
+        border: solid 1px #800;
+        padding: 1em;
+      }
+      .method {
+        background: #ccc;
+        border: solid 1px #444;
+        padding: 0.5em 1em 0.5em 1em;
+        margin: 1em;
+      }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li><a href='#bibtex'>bibtex</a></li>
+
+    <li><a href='#nmrshiftdb'>nmrshiftdb</a></li>
+
+    <li><a href='#specmol'>specmol</a></li>
+
+    <li><a href='#spectrum'>spectrum</a></li>
+
+    <li><a href='#webservices'>webservices, webservices</a></li>
+  </ul>
+
+  <h2 id='bibtex'>bibtex</h2>
+
+  <p class='description'>Contains Bibtex related methods</p>
+
+  <div class='method'>
+    <h3>loadBibliodata</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Loads a bibtex file using jabref.</dd>
+
+      <dt>params</dt>
+
+      <dd>IFile file</dd>
+    </dl>
+  </div>
+
+  <h2 id='nmrshiftdb'>nmrshiftdb</h2>
+
+  <p class='description'>Contains Nmrshiftdb methods</p>
+
+  <div class='method'>
+    <h3>submitSpecmol</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Submits a SpecMol file to NMRShiftDB at serverurl (must
+      point to axis instanceusing usernameand password. The cml
+      must adhere to NMRShiftDB convention at
+      http://nmrshiftdb.sourceforge.net/nmrshiftdb-convention.html</dd>
+
+      <dt>params</dt>
+
+      <dd>CMLCml cmlcml, String serverurl,String username, String
+      password</dd>
+    </dl>
+  </div>
+
+  <h2 id='specmol'>specmol</h2>
+
+  <p class='description'>Handles CML files containing assigned
+  spectra</p>
+
+  <div class='method'>
+    <h3>create</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Creates a Jumbo specmol from an ISpecmol</dd>
+
+      <dt>params</dt>
+
+      <dd>ISpecmol s</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>fromCml</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Creates a jumbo specmol from a CML String</dd>
+
+      <dt>params</dt>
+
+      <dd>String cml</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>loadSpecmol</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Loads an assigned spectrum from file.</dd>
+
+      <dt>params</dt>
+
+      <dd>IFile file</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>saveSpecmol</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Saves a jubmo specmol to a file</dd>
+
+      <dt>params</dt>
+
+      <dd>JumboSpecmol spemol, IFile target</dd>
+    </dl>
+  </div>
+
+  <h2 id='spectrum'>spectrum</h2>
+
+  <p class='description'>Handles spectral data (CML, jcamp-dx
+  formats")</p>
+
+  <div class='method'>
+    <h3>calculateSimilarityWCC</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Calculates weighted cross correlation of peaks in two
+      spectra (see the paper behind the given DOI). Bothspectra
+      must have a peak list.</dd>
+
+      <dt>params</dt>
+
+      <dd>ISpectrum spectrum1, ISpectrum spectrum2, double
+      width</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>create</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Creates a jubmo spectrum from a spectrum</dd>
+
+      <dt>params</dt>
+
+      <dd>ISpectrum m</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>detectFileType</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Detects a spectrumfiletype based on extension which must
+      be the file extension without dot. Result is
+      SpectrumEditor.CML_TYPE or SpectrumEditor.JCAMP_TYPE.</dd>
+
+      <dt>params</dt>
+
+      <dd>String extension</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>fromCml</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Creates a jumbo spectrum from a CML String</dd>
+
+      <dt>params</dt>
+
+      <dd>String cml</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>loadSpectrum</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Loads a spectrum from an InputStream.</dd>
+
+      <dt>params</dt>
+
+      <dd>InputStream instream, String fileExtension</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>pickPeaks</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Does a peak picking on spectruminput and adds a peak
+      list(existing peaks are conserved</dd>
+
+      <dt>params</dt>
+
+      <dd>IJumboSpectrum spectruminput</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>saveSpectrum</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Saves a jumbo spectrum to a file, filetype being "cml" or
+      "jdx"</dd>
+
+      <dt>params</dt>
+
+      <dd>JumboSpectrum spectrum, IFile target, String
+      filetype</dd>
+    </dl>
+  </div>
+
+  <h2 id='webservices'>webservices, webservices</h2>
+
+  <p class='description'>Contains webservices related methods</p>
+
+  <div class='method'>
+    <h3>downloadDbEntry</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Fetches an entry from the EBI databases</dd>
+
+      <dt>params</dt>
+
+      <dd>String db, String query, String format</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>downloadDbEntryAsFile</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Fetches an entry from the EBI databases and saves it</dd>
+
+      <dt>params</dt>
+
+      <dd>String db, String query, String format</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>downloadPDBAsFile</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Fetches a PDB entry with ID="pdbid" from the EBI
+      databases and saves it under the specified filename</dd>
+
+      <dt>params</dt>
+
+      <dd>String pdbid, String filename</dd>
+    </dl>
+  </div>
+</body>
+</html>

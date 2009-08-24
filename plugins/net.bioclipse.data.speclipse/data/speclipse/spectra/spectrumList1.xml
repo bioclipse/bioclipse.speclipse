@@ -1,0 +1,10 @@
+<cml title="spectrumList1 spectrum list example" 
+xmlns="http://www.xmlcml.org/schema">
+<?cml example="compilable"?>
+<spectrumList title="spectrumList 1">
+<spectrum id="sp1">
+</spectrum>
+<spectrum id="sp2">
+</spectrum>
+</spectrumList>
+</cml>

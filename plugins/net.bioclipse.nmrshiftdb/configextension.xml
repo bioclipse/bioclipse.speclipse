@@ -1,0 +1,9 @@
+   <introContent>
+      <extensionContent id="net.bioclipse.intro.workbench.tutorials" name="Bioclipse Tuturials" path="tutorials/@">
+      	<group style-id="content-group" id="workbench-group">
+          <link label="Submit to NMRShiftDB" url="http://org.eclipse.ui.intro/showStandby?partId=net.bioclipse.cheatsheet&amp;input=net.bioclipse.bc_nmrshiftdb.cheatsheet.SubmitCheatsheet" id="specitem">
+              <text>Explains how to add data to the NMRShiftDB database.</text>
+     	    </link>
+     	</group>
+      </extensionContent>
+   </introContent>

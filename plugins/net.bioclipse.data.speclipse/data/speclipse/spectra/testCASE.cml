@@ -1,0 +1,12 @@
+<spectrum xmlns="http://www.xml-cml.org/schema" id="C8H14O1" type="NMR">
+  <peakList>
+    <peak yValue="1.0" xValue="222.0" />
+    <peak yValue="1.0" xValue="45.8" />
+    <peak yValue="1.0" xValue="47.5" />
+    <peak yValue="1.0" xValue="46.5" />
+    <peak xValue="27.5" yValue="1.0" />
+    <peak xValue="24.3" yValue="1.0" />
+    <peak xValue="20.5" yValue="1.0" />
+    <peak yValue="0.0" xValue="24.3" />
+  </peakList>
+</spectrum>

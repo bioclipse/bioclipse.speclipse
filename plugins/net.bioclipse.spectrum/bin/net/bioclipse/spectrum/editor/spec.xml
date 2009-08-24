@@ -1,0 +1,41 @@
+<spectrumtypes>
+  <spectrumtype name="nmr" cmltype="NMR">
+    <xaxis name="shifts" unit="ppm" type="double"/>
+    <yaxis name="intensity" unit="scalar" type="double"/>
+    <additionalFields>
+      <field name="multiplicity" cmlpeakfield="peakMultiplicity" unit="none" type="string"/>
+    </additionalFields>
+    <jcamptypes>
+		<value>NMR FID</value>
+		<value>NMR SPECTRUM</value>
+		<value>NMR PEAK TABLE</value>
+		<value>NMR PEAK ASSIGNMENTS</value>
+	</jcamptypes>
+  </spectrumtype>
+  <spectrumtype name="mass" cmltype="massSpectrum">
+    <xaxis name="mass-to-charge ratio" unit="m/z" type="double"/>
+    <yaxis name="intensity" unit="scalar" type="double"/>
+    <additionalFields>
+    </additionalFields>
+    <jcamptypes>
+		<value>MASS SPECTRUM</value>
+		<value>CONTINUOUS MASS SPECTRUM</value>
+	</jcamptypes>
+  </spectrumtype>
+  <spectrumtype name="ir" cmltype="IR">
+    <xaxis name="wavenumber" unit="cm^-1" type="double"/>
+    <yaxis name="absorption" unit="scalar" type="double"/>
+    <jcamptypes>
+		<value>INFRARED PEAK TABLE</value>
+		<value>INFRARED INTERFEROGRAM</value>
+		<value>INFRARED TRANSFORMED SPECTRUM</value>
+	</jcamptypes>
+  </spectrumtype>
+  <spectrumtype name="unknown" cmltype="">
+    <xaxis name="X" unit="undefined" type="double"/>
+    <yaxis name="Y" unit="undefined" type="double"/>
+    <jcamptypes>
+		<value>RAMAN SPECTRUM</value>
+	</jcamptypes>
+  </spectrumtype>
+</spectrumtypes>

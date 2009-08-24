@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="SpectrumEditor"
+            icon="icons/spectrum.gif"
+            contributorClass="net.bioclipse.spectrum.editor.SpectrumEditorContributor"
+            class="net.bioclipse.spectrum.editor.SpectrumEditor"
+            id="net.bioclipse.spectrum.editor.SpectrumEditor">
+            <contentTypeBinding
+                  contentTypeId="net.bioclipse.contenttypes.jcampdx">
+            </contentTypeBinding>
+            <contentTypeBinding
+                  contentTypeId="net.bioclipse.contenttypes.cml.singleSpectrum">
+            </contentTypeBinding>
+      </editor>
+    </extension>
+
+    <extension
+          point="org.eclipse.core.runtime.contentTypes">
+          <content-type
+                id="net.bioclipse.contenttypes.jcampdx"
+                name="JCAMP-DX"
+                file-extensions="jx,dx,JX,DX,jdx"
+                priority="normal">
+          </content-type>
+   		<content-type
+              base-type="net.bioclipse.contenttypes.cml"
+	          id="net.bioclipse.contenttypes.cml.singleSpectrum"
+              name="CML (Single Spectrum)"
+              priority="high">
+		 	<describer class="net.bioclipse.spectrum.contenttypes.CmlSpectrumFileDescriber">
+       		</describer>
+        </content-type>
+    </extension>
+    
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="net.bioclipse.spectrum.PeakLabelThresholdPreferencePage"
+            id="net.bioclipse.spectrum.PeakLabelThresholdPreferencePage"
+            name="Peak Spectrum Chart"/>
+   </extension>
+   
+   <extension
+         point="net.bioclipse.scripting.contribution">
+      <scriptContribution
+            id="net.bioclipse.spectrum.business.SpectrumManager"
+            service="net.bioclipse.spectrum.business.SpectrumManagerFactory">
+      </scriptContribution>
+   </extension>
+   
+      <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="net.bioclipse.spectrum.SpectrumCategory"
+            name="Spectrum related"/>
+      <wizard
+            canFinishEarly="false"
+            category="net.bioclipse.spectrum.SpectrumCategory"
+            class="net.bioclipse.spectrum.wizards.NewSpectrumWizard"
+            hasPages="true"
+            icon="icons/spectrum.gif"
+            id="net.bioclipse.spectrum.wizards.NewSpectrumWizard"
+            name="Spectrum"
+            project="true"
+            preferredPerspectives="net.bioclipse.nmrshiftdb.SpeclipsePerspective">
+         <description>
+         Create a new Spectrum Resource.
+         </description>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent">                                                  
+     <commonWizard type="new"                                                                                     
+        wizardId="net.bioclipse.spectrum.wizards.NewSpectrumWizard">
+       <enablement>
+         <or>
+           <adapt type="org.eclipse.core.resources.IFile" />
+           <adapt type="org.eclipse.core.resources.IFolder" />
+           <adapt type="org.eclipse.core.resources.IProject" />
+           <adapt type="org.eclipse.core.resources.IWorkspaceRoot" />
+         </or>
+       </enablement>
+     </commonWizard>
+   </extension>
+   
+   <extension
+        point="org.eclipse.ui.views">
+      <category
+            name="Spectrum"
+            id="net.bioclipse.spectrum">
+      </category> 
+      <view
+            name="Compare Spectra"
+            icon="icons/spectrum.gif"
+            category="net.bioclipse.spectrum"
+            class="net.bioclipse.spectrum.views.SpectrumCompareView"
+            id="net.bioclipse.spectrum.views.SpectrumCompareView">
+      </view>
+   </extension>
+   <extension
+         id="net.bioclipse.spectrum.cheatsheet"
+         name="General Tasks for and with Spectra"
+         point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <category
+            id="net.bioclipse.spectrum.cheatsheet.category"
+            name="Spectra"/>
+      <cheatsheet
+            category="net.bioclipse.spectrum.cheatsheet.category"
+            composite="false"
+            contentFile="cheatsheets/GeneralSpectrumCheatSheet.xml"
+            id="net.bioclipse.spectrum.cheatsheet.GeneralSpectrumCheatsheet"
+            name="General Spectrum Cheat Sheet"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+         <contexts file="helpContexts.xml" />
+   </extension>
+   <extension point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="configextension.xml"/>  
+   </extension>
+   
+   <extension point="org.eclipse.ui.menus">
+
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		<menu label="Spectrum Prediction"
+		      id="net.bioclipse.spectrum.popup.predict">
+		</menu>
+      </menuContribution>
+   </extension>
+   
+   <extension point="org.eclipse.ui.commands">
+           <command
+           id="net.bioclipse.spectrum.handlers.calculatesimilarity"
+           defaultHandler="net.bioclipse.spectrum.handlers.CalculateSimilarityHandler"
+           name="calculateSimilarity"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.menus">
+   		<menuContribution
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		    <command
+		    	commandId="net.bioclipse.spectrum.handlers.calculatesimilarity"
+		    	label="Calculate Spectrum similarity"
+		        icon="icons/spectrum.gif">
+		      	<visibleWhen>
+			   		<iterate operator="and" ifEmpty="false">
+		      			<adapt type="org.eclipse.core.resources.IResource">
+			      			<or>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.jcampdx"/>
+				                <test property="org.eclipse.core.resources.contentTypeId" 
+				           	    	value="net.bioclipse.contenttypes.cml.singleSpectrum"/>
+				            </or>
+			      		</adapt>
+			   		</iterate>
+		        </visibleWhen>
+	       </command>
+		</menuContribution>
+	</extension>
+   
+</plugin>

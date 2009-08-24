@@ -1,0 +1,35 @@
+##TITLE=Propanedinitrile, (ethoxymethylene)-
+##JCAMP-DX=4.24
+##DATA TYPE=MASS SPECTRUM
+##ORIGIN=Chemical Concepts
+##OWNER=NIST Mass Spectrometry Data Center
+Collection (C) 2002 copyright by the U.S. Secretary of Commerce
+on behalf of the United States of America. All rights reserved.
+##CAS REGISTRY NO=123-06-8
+##$EPA MASS SPEC NO=196617
+##MOLFORM=C6H6N2O
+##MW=122
+##$NIST SOURCE=MSDC
+##.IONIZATION ENERGY=70
+##XUNITS=M/Z
+##YUNITS=RELATIVE ABUNDANCE
+##XFACTOR=1
+##YFACTOR=1
+##FIRSTX=25
+##LASTX=123
+##FIRSTY=8
+##MAXX=123
+##MINX=25
+##MAXY=999
+##MINY=4
+##NPOINTS=37
+##PEAK TABLE=(XY..XY)
+25,8 26,56 27,402 28,80 29,999
+30,27 31,6 37,6 38,83 39,50
+40,21 41,13 42,9 43,22 44,15
+45,10 50,10 51,43 52,25 53,4
+64,25 65,32 66,500 67,55 68,8
+76,10 77,27 78,7 79,16 93,11
+94,372 95,47 96,4 107,4 121,5
+122,308 123,36
+##END=

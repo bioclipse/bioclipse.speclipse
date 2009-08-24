@@ -1,0 +1,7 @@
+a#weblink { text-align: left; }
+
+#weblink { text-align: left; color: #FF0000;}
+image-right {horizontal-align: right;}
+
+a#specitem img { background-image : url(graphics/spectrum48.png); }
+a#specitem:hover img { background-image : url(graphics/spectrum48.png); }

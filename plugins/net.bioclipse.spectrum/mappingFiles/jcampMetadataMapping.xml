@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionaryMapping prefix="jcampdx" xmlns:jcampdx="http://www.xml-cml.org/dict/jcampDXDict" label="JCAMP-DX Metadata Entries" id="JCAMP-DX" dictLocation="/dict10/simple/">
+	<section name="conditionList" label="Condition List">
+		<entry id="PRESSURE" allowedForSpecTypes="NMR,MS,IR" label="Sample Pressure ">
+		</entry>
+		<entry id="INSTRUMENTALPARAMETERS" allowedForSpecTypes="NMR,MS,IR" label="Instrumental Parameters ">
+		</entry>
+		<entry id="STATE" allowedForSpecTypes="NMR,MS,IR" label="State ">
+		</entry>
+		<entry id="PATHLENGTH" allowedForSpecTypes="" label="Path Length ">
+		</entry>
+		<entry id="TEMPERATURE" allowedForSpecTypes="" label="Temperature ">
+		</entry>
+		<entry id="dotACCELERATINGVOLTAGE" allowedForSpectrumTypes="" label="Accelerating Voltage ">
+		</entry>
+		<entry id="dotACQUISITIONMODE" allowedForSpectrumTypes="" label="Acquisition Mode ">
+		</entry>
+		<entry id="dotACQUISITIONRANGE" allowedForSpectrumTypes="" label="Acquisition Range ">
+		</entry>
+		<entry id="dotACQUISITIONTIME" allowedForSpectrumTypes="" label="Acquisition Time ">
+		</entry>
+		<entry id="dotCARRIERGASFLOW" allowedForSpectrumTypes="" label="Carriergas Flow ">
+		</entry>
+		<entry id="dotCARRIERGASMOISTURE" allowedForSpectrumTypes="" label="Carriergas Moisture ">
+		</entry>
+		<entry id="dotCOUPLINGCONSTANTS" allowedForSpectrumTypes="" label="Coupling Constants ">
+		</entry>
+		<entry id="dotDECOUPLER" allowedForSpectrumTypes="" label="Decoupler ">
+		</entry>
+		<entry id="dotDELAY" allowedForSpectrumTypes="" label="Delay ">
+		</entry>
+		<entry id="dotDIGITISERRES" allowedForSpectrumTypes="" label="Digitiser Res ">
+		</entry>
+		<entry id="dotDRIFTCHAMBER" allowedForSpectrumTypes="" label="Drift Chamber ">
+		</entry>
+		<entry id="dotDRIFTGASFLOW" allowedForSpectrumTypes="" label="Drift Gas Flow ">
+		</entry>
+		<entry id="dotELECTRICFIELD" allowedForSpectrumTypes="" label="Electric Field ">
+		</entry>
+		<entry id="dotFIELD" allowedForSpectrumTypes="" label="Field ">
+		</entry>
+		<entry id="dotFILTERWIDTH" allowedForSpectrumTypes="" label="Filter Width ">
+		</entry>
+		<entry id="dotIMSPRESSURE" allowedForSpectrumTypes="MS" label="Ims Pressure ">
+		</entry>
+		<entry id="dotIMSTEMPERATURE" allowedForSpectrumTypes="MS" label="Ims Temperature ">
+		</entry>
+		<entry id="dotINLET" allowedForSpectrumTypes="MS" label="Inlet ">
+		</entry>
+		<entry id="dotINLETTEMPERATURE" allowedForSpectrumTypes="MS" label="Inlet Temperature ">
+		</entry>
+		<entry id="dotIONIZATIONCHAMBER" allowedForSpectrumTypes="MS" label="Ionization Chamber ">
+		</entry>
+		<entry id="dotIONIZATIONENERGY" allowedForSpectrumTypes="MS" label="Ionization Energy ">
+		</entry>
+		<entry id="dotIONIZATIONMODE" allowedForSpectrumTypes="MS" label="Ionization Mode ">
+		</entry>
+		<entry id="dotIONIZATIONSOURCE" allowedForSpectrumTypes="MS" label="Ionization Source ">
+		</entry>
+		<entry id="dotIONPOLARITY" allowedForSpectrumTypes="MS" label="Ion Polarity ">
+		</entry>
+		<entry id="dotMASFREQUENCY" allowedForSpectrumTypes="MS" label="Mas Frequency ">
+		</entry>
+		<entry id="dotOBSERVE90" allowedForSpectrumTypes="" label="Observe90 ">
+		</entry>
+		<entry id="dotOBSERVEFREQUENCY" allowedForSpectrumTypes="" label="Observe Frequency ">
+		</entry>
+		<entry id="dotPHASE0" allowedForSpectrumTypes="" label="Phase0 ">
+		</entry>
+		<entry id="dotPHASE1" allowedForSpectrumTypes="" label="Phase1 ">
+		</entry>
+		<entry id="dotRELAXATIONTIMES" allowedForSpectrumTypes="" label="Relaxation Times ">
+		</entry>
+		<entry id="dotREPETITIONRATE" allowedForSpectrumTypes="" label="Repetition rate ">
+		</entry>
+		<entry id="dotRETENTIONTIME" allowedForSpectrumTypes="" label="Retention time ">
+		</entry>
+		<entry id="dotSCANRATE" allowedForSpectrumTypes="" label="Scan Rate ">
+			<valueList>
+				<value>SECONDS/DECADE</value>
+				<value>MASSES/SECOND</value>
+				<value>units</value>
+			</valueList>
+		</entry>
+		<entry id="dotSHUTTERGRIDPOTENTIAL" allowedForSpectrumTypes="" label="Shutter Grid Potential ">
+		</entry>
+		<entry id="dotSHUTTEROPENINGTIME" allowedForSpectrumTypes="" label="Shutter Opening Time ">
+		</entry>
+		<entry id="dotSOURCETEMPERATURE" allowedForSpectrumTypes="" label="Source Temperature ">
+		</entry>
+		<entry id="dotSPINNINGRATE" allowedForSpectrumTypes="" label="Spinning Rate ">
+		</entry>
+		<entry id="dotTOTALIONCURRENT" allowedForSpectrumTypes="MS" label="Total Ion Current ">
+		</entry>
+	</section>
+	<section name="substanceList" label="Substance List">
+		<entry id="dotSOLVENTNAME" allowedForSpecTypes="NMR,MS,IR" label="Solvent Name ">
+			<valueList>
+				<value>H2O</value>
+				<value>PyridineD5</value>
+				<value>Benzene</value>
+				<value>THF</value>
+			</valueList>
+		</entry>
+		<entry id="dotCARRIERGAS" allowedForSpectrumTypes="" label="Carriergas ">
+		</entry>
+		<entry id="dotDRIFTGAS" allowedForSpectrumTypes="" label="Drift Gas ">
+		</entry>
+	</section>
+	<section name="metadataList" label="Metadata List">
+		<entry id="DATATYPE" allowedForSpectrumTypes="NMR,MS,IR" label="Data Type ">
+			<valueList>
+				<value>RAMAN SPECTRUM</value>
+				<value>INFRARED PEAK TABLE</value>
+				<value>INFRARED INTERFEROGRAM</value>
+				<value>INFRARED TRANSFORMED SPECTRUM</value>
+				<value>NMR FID</value>
+				<value>NMR SPECTRUM</value>
+				<value>NMR PEAK TABLE</value>
+				<value>NMR PEAK ASSIGNMENTS</value>
+				<value>MASS SPECTRUM</value>
+				<value>CONTINUOUS MASS SPECTRUM</value>
+			</valueList>
+		</entry>
+		<entry id="XUNITS" allowedForSpectrumTypes="NMR,MS,IR" label="XUnits ">
+			<valueList>
+				<value>M/Z</value>
+				<value>ppm</value>
+				<value>nm</value>
+				<value>HZ</value>
+				<value>SECONDS</value>
+			</valueList>
+		</entry>
+		<entry id="YUNITS" allowedForSpectrumTypes="NMR,MS,IR" label="YUnits ">
+			<valueList>
+				<value>TRANSMITTANCE</value>
+				<value>REFLECTANCE</value>
+				<value>ABSORBANCE</value>
+				<value>KUBELKA-MUNK</value>
+				<value>ARBITRARY UNITS</value>
+				<value>RELATIVE ABUNBDANCE</value>
+			</valueList>
+		</entry>
+		<entry id="FIRSTX" allowedForSpectrumTypes="NMR,MS,IR" label="FirstX ">
+		</entry>
+		<entry id="FIRSTY" allowedForSpectrumTypes="NMR,MS,IR" label="FirstY ">
+		</entry>
+		<entry id="LASTX" allowedForSpectrumTypes="NMR,MS,IR" label="LastX ">
+		</entry>
+		<entry id="MAXX" allowedForSpectrumTypes="NMR,MS,IR" label="MaxX ">
+		</entry>
+		<entry id="MINX" allowedForSpectrumTypes="NMR,MS,IR" label="MinX ">
+		</entry>
+		<entry id="MAXY" allowedForSpectrumTypes="NMR,MS,IR" label="MaxY ">
+		</entry>
+		<entry id="MINY" allowedForSpectrumTypes="NMR,MS,IR" label="MinY ">
+		</entry>
+		<entry id="MINY" allowedForSpectrumTypes="NMR,MS,IR" label="MinY ">
+		</entry>
+		<entry id="DELTAX" allowedForSpectrumTypes="NMR,MS,IR" label="Deltax ">
+		</entry>
+		<entry id="XFACTOR" allowedForSpectrumTypes="NMR,MS,IR" label="XFactor ">
+		</entry>
+		<entry id="YFACTOR" allowedForSpectrumTypes="NMR,MS,IR" label="YFactor ">
+		</entry>
+		<entry id="NPOINTS" allowedForSpectrumTypes="NMR,MS,IR" label="NPoints ">
+		</entry>
+		<entry id="RESOLUTION" allowedForSpectrumTypes="NMR,MS,IR" label="Resolution ">
+		</entry>
+		<entry id="XYDATA" allowedForSpectrumTypes="NMR,MS,IR" label="XYData ">
+		</entry>
+		<entry id="CLASS" allowedForSpectrumTypes="NMR,MS,IR" label="Class ">
+			<valueList>
+				<value>Coblentz Class 1</value>
+				<value>Coblentz Class 2</value>
+				<value>Coblentz Class 3</value>
+				<value>Coblentz Class 4</value>
+				<value>IUPAC Class A</value>
+				<value>IUPAC Class B</value>
+				<value>IUPAC Class C</value>
+			</valueList>
+		</entry>
+		<entry id="ORIGIN" allowedForSpectrumTypes="NMR,MS,IR" label="Origin ">
+		</entry>
+		<entry id="OWNER" allowedForSpectrumTypes="NMR,MS,IR" label="Owner ">
+		</entry>
+		<entry id="DATE" allowedForSpectrumTypes="NMR,MS,IR" label="Date ">
+		</entry>
+		<entry id="TIME" allowedForSpectrumTypes="NMR,MS,IR" label="Time ">
+		</entry>
+		<entry id="LONGDATE" allowedForSpectrumTypes="NMR,MS,IR" label="Longdate ">
+		</entry>
+		<entry id="SOURCE_REFERENCE" allowedForSpectrumTypes="NMR,MS,IR" label="Source Reference ">
+		</entry>
+		<entry id="CROSSREFERENCE" allowedForSpectrumTypes="NMR,MS,IR" label="Cross Reference ">
+		</entry>
+		<entry id="SAMPLEDESCRIPTION" allowedForSpectrumTypes="NMR,MS,IR" label="Sample Description ">
+		</entry>
+		<entry id="CAS_NAME" allowedForSpectrumTypes="NMR,MS,IR" label="Cas Name ">
+		</entry>
+		<entry id="CASREGISTRYNO" allowedForSpectrumTypes="NMR,MS,IR" label="Cas Registry No ">
+		</entry>
+		<entry id="NAMES" allowedForSpectrumTypes="NMR,MS,IR" label="Names ">
+		</entry>
+		<entry id="MOLFORM" allowedForSpectrumTypes="NMR,MS,IR" label="Molform ">
+		</entry>
+		<entry id="WISWESSER" allowedForSpectrumTypes="NMR,MS,IR" label="Wiswesser ">
+		</entry>
+		<entry id="BEILSTEINLAWSONNO" allowedForSpectrumTypes="NMR,MS,IR" label="Beilstein Lawson No ">
+		</entry>
+		<entry id="BP" allowedForSpectrumTypes="NMR,MS,IR" label="Bp ">
+		</entry>
+		<entry id="REFRACTIVEINDEX" allowedForSpectrumTypes="NMR,MS,IR" label="Refractive Index ">
+		</entry>
+		<entry id="DENSITY" allowedForSpectrumTypes="NMR,MS,IR" label="Density ">
+		</entry>
+		<entry id="MW" allowedForSpectrumTypes="NMR,MS,IR" label="MW">
+		</entry>
+		<entry id="CONCENTRATIONS" allowedForSpectrumTypes="NMR,MS,IR" label="Concentrations ">
+		</entry>
+		<entry id="SPECTROMETERDATASYSTEM" allowedForSpectrumTypes="NMR,MS,IR" label="Spectrometer/Data System ">
+		</entry>
+		<entry id="SAMPLINGPROCEDURE" allowedForSpectrumTypes="NMR,MS,IR" label="Sampling Procedure ">
+		</entry>
+		<entry id="DATAPROCESSING" allowedForSpectrumTypes="NMR,MS,IR" label="Data Processing ">
+		</entry>
+		<entry id="dotAVERAGES" allowedForSpectrumTypes="NMR,MS,IR" label="Averages ">
+		</entry>
+		<entry id="dotBASEPEAK" allowedForSpectrumTypes="NMR,MS,IR" label="Basepeak ">
+		</entry>
+		<entry id="dotBASEPEAKINTENSITY" allowedForSpectrumTypes="NMR,MS,IR" label="Basepeak Intensity ">
+		</entry>
+		<entry id="dotDETECTOR" allowedForSpectrumTypes="NMR,MS,IR" label="Detector ">
+		</entry>
+		<entry id="dotMAXINTENSITY" allowedForSpectrumTypes="NMR,MS,IR" label="Max Intensity ">
+		</entry>
+		<entry id="dotMAXINTENSITY" allowedForSpectrumTypes="NMR,MS,IR" label="Max Intensity ">
+		</entry>
+		<entry id="dotMONOISOTOPICMASS" allowedForSpectrumTypes="MS" label="Monoisotopic Mass ">
+		</entry>
+		<entry id="dotNOMINALMASS" allowedForSpectrumTypes="NMR,MS,IR" label="Nominal Mass ">
+		</entry>
+		<entry id="dotOBSERVENUCLEUS" allowedForSpectrumTypes="NMR" label="Observe Nucleus ">
+			<valueList>
+				<value>13C</value>
+				<value>1H</value>
+				<value>15N</value>
+				<value>31P</value>
+				<value>19F</value>
+				<value>11B</value>
+				<value>29Si</value>
+				<value>17O</value>
+				<value>33S</value>
+			</valueList>
+		</entry>
+		<entry id="dotPULSESEQUENCE" allowedForSpectrumTypes="" label="Pulse Sequence ">
+		</entry>
+		<entry id="dotREDUCEDMOBILITY" allowedForSpectrumTypes="" label="Reduced Mobility ">
+		</entry>
+		<entry id="dotRIC" allowedForSpectrumTypes="" label="Ric ">
+		</entry>
+		<entry id="dotSCANNUMBER" allowedForSpectrumTypes="" label="Scan Number ">
+		</entry>
+		<entry id="dotSHIFTREFERENCE" allowedForSpectrumTypes="" label="Shift Reference ">
+		</entry>
+		<entry id="dotSOLVENTREFERENCE" allowedForSpectrumTypes="NMR" label="Solvent Reference ">
+		</entry>
+		<entry id="dotSPECTROMETERTYPE" allowedForSpectrumTypes="NMR,MS,IR" label="Spectrometer Type ">
+		</entry>
+		<entry id="dotZEROFILL" allowedForSpectrumTypes="" label=".Zero Fill ">
+		</entry>
+		<entry id="AFACTOR" allowedForSpectrumTypes="NMR,MS,IR" label="A Factor ">
+		</entry>
+		<entry id="ALIAS" allowedForSpectrumTypes="NMR,MS,IR" label="Alias ">
+		</entry>
+		<entry id="ATOMLIST" allowedForSpectrumTypes="NMR,MS,IR" label="Atom List ">
+		</entry>
+		<entry id="AUDITTRAIL" allowedForSpectrumTypes="NMR,MS,IR" label="Audit Trail ">
+		</entry>
+		<entry id="AUNITS" allowedForSpectrumTypes="" label="A Units ">
+		</entry>
+		<entry id="BLOCKID" allowedForSpectrumTypes="" implicit="true" label="Block Id ">
+		</entry>
+		<entry id="BLOCKS" allowedForSpectrumTypes="" implicit="true" label="Blocks ">
+		</entry>
+		<entry id="BONDLIST" allowedForSpectrumTypes="" label="Bond List ">
+		</entry>
+		<entry id="CHARGE" allowedForSpectrumTypes="NMR,MS,IR" label="Charge ">
+		</entry>
+		<entry id="COMMENTS" allowedForSpectrumTypes="NMR,MS,IR" label="Comments ">
+		</entry>
+		<entry id="DATACLASS" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="Data Class ">
+		</entry>
+		<entry id="DATATABLE" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="Data Table ">
+		</entry>
+		<entry id="DELTAR" allowedForSpectrumTypes="NMR,MS,IR" label="Delta R ">
+		</entry>
+		<entry id="END" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="End ">
+		</entry>
+		<entry id="ENDNTUPLES" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="End Ntuples ">
+		</entry>
+		<entry id="FACTOR" allowedForSpectrumTypes="NMR,MS,IR" label="Factor ">
+		</entry>
+		<entry id="FIRST" allowedForSpectrumTypes="NMR,MS,IR" label="First ">
+		</entry>
+		<entry id="FIRSTA" allowedForSpectrumTypes="NMR,MS,IR" label="First A ">
+		</entry>
+		<entry id="FIRSTR" allowedForSpectrumTypes="NMR,MS,IR" label="First R ">
+		</entry>
+		<entry id="IUPACNAME" allowedForSpectrumTypes="NMR,MS,IR" label="Iupac name ">
+		</entry>
+		<entry id="JCAMP-CS" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="Jcamp-cs ">
+		</entry>
+		<entry id="JCAMP-DX" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="Jcamp-dx ">
+		</entry>
+		<entry id="LAST" allowedForSpectrumTypes="NMR,MS,IR" label="Last ">
+		</entry>
+		<entry id="LASTR" allowedForSpectrumTypes="NMR,MS,IR" label="Last R ">
+		</entry>
+		<entry id="MAX" allowedForSpectrumTypes="NMR,MS,IR" label="Max ">
+		</entry>
+		<entry id="MAXA" allowedForSpectrumTypes="NMR,MS,IR" label="Max A ">
+		</entry>
+		<entry id="MAXRASTER" allowedForSpectrumTypes="NMR,MS,IR" label="Max Raster ">
+		</entry>
+		<entry id="MAXXYZ" allowedForSpectrumTypes="NMR,MS,IR" label="Max XYZ ">
+		</entry>
+		<entry id="MIN" allowedForSpectrumTypes="NMR,MS,IR" label="Min ">
+		</entry>
+		<entry id="MINA" allowedForSpectrumTypes="NMR,MS,IR" label="Min A ">
+		</entry>
+		<entry id="MP" allowedForSpectrumTypes="NMR,MS,IR" label="Mp ">
+		</entry>
+		<entry id="NTUPLES" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="Ntuples ">
+		</entry>
+		<entry id="PAGE" allowedForSpectrumTypes="NMR,MS,IR" label="Page ">
+		</entry>
+		<entry id="PEAKASSIGNMENTS" allowedForSpectrumTypes="NMR,MS,IR" label="Peak assignments ">
+		</entry>
+		<entry id="PEAKTABLE" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="Peaktable ">
+		</entry>
+		<entry id="RADATA" allowedForSpectrumTypes="" label="Radata ">
+		</entry>
+		<entry id="RADICAL" allowedForSpectrumTypes="" label="Radical ">
+		</entry>
+		<entry id="RFACTOR" allowedForSpectrumTypes="" label="RFactor ">
+		</entry>
+		<entry id="RUNITS" allowedForSpectrumTypes="" label="RUnits ">
+		</entry>
+		<entry id="SOURCEREFERENCE" allowedForSpectrumTypes="NMR,MS,IR" label="Sourcereference ">
+		</entry>
+		<entry id="STEREOCENTER" allowedForSpectrumTypes="NMR,MS,IR" label="Stereocenter ">
+		</entry>
+		<entry id="STEREOMOLECULE" allowedForSpectrumTypes="NMR,MS,IR" label="Stereomolecule ">
+		</entry>
+		<entry id="STEREOPAIR" allowedForSpectrumTypes="NMR,MS,IR" label="Stereopair ">
+		</entry>
+		<entry id="SYMBOL" allowedForSpectrumTypes="NMR,MS,IR" label="Symbol ">
+		</entry>
+		<entry id="TITLE" allowedForSpectrumTypes="NMR,MS,IR" label="Title ">
+		</entry>
+		<entry id="UNITS" allowedForSpectrumTypes="NMR,MS,IR" label="Units ">
+		</entry>
+		<entry id="VARDIM" allowedForSpectrumTypes="NMR,MS,IR" label="Vardim ">
+		</entry>
+		<entry id="VARFORM" allowedForSpectrumTypes="NMR,MS,IR" label="Varform ">
+		</entry>
+		<entry id="VARNAME" allowedForSpectrumTypes="NMR,MS,IR" label="Varname ">
+		</entry>
+		<entry id="VARTYPE" allowedForSpectrumTypes="NMR,MS,IR" label="Vartype ">
+		</entry>
+		<entry id="XLABEL" allowedForSpectrumTypes="NMR,MS,IR" label="XLabel ">
+		</entry>
+		<entry id="XYPOINTS" allowedForSpectrumTypes="NMR,MS,IR" implicit="true" label="Xypoints ">
+		</entry>
+		<entry id="XYRASTER" allowedForSpectrumTypes="NMR,MS,IR" label="XYRaster ">
+		</entry>
+		<entry id="XYZ" allowedForSpectrumTypes="NMR,MS,IR" label="XYZ ">
+		</entry>
+		<entry id="XYZFACTOR" allowedForSpectrumTypes="NMR,MS,IR" label="XYZFactor ">
+		</entry>
+		<entry id="XYZSOURCE" allowedForSpectrumTypes="NMR,MS,IR" label="XYZSource ">
+		</entry>
+		<entry id="YLABEL" allowedForSpectrumTypes="NMR,MS,IR" label="YLabel ">
+		</entry>
+		<entry id="ZPD" allowedForSpectrumTypes="NMR,MS,IR" label="Zpd ">
+		</entry>
+	</section>
+</dictionaryMapping>

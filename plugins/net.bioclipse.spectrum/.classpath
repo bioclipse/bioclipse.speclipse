@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry excluding="spok/gui/|net/bioclipse/action/contribution/IntegrateAction.java|net/bioclipse/action/contribution/PeakPickingAction.java|net/bioclipse/spectrum/editor/metadata/MetadataEditor.java|net/bioclipse/spectrum/editor/metadata/MetadataEditorContributor.java" kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/JCampParser.jar" sourcepath="/jcamp-parser-clc/src"/>
+	<classpathentry exported="true" kind="lib" path="lib/antlr-2.7.2.jar" sourcepath="net.bioclipse.spectrumsrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/regexp-1.2.jar" sourcepath="net.bioclipse.spectrumsrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/jcommon-1.0.0.jar" sourcepath="net.bioclipse.spectrumsrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/jfreechart-1.0.1.jar" sourcepath="net.bioclipse.spectrumsrc.zip"/>
+	<classpathentry kind="lib" path="lib/opencsv-1.8.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

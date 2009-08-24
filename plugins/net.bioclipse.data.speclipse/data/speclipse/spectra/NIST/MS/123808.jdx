@@ -1,0 +1,35 @@
+##TITLE=1,2-Ethanediol, dipropanoate
+##JCAMP-DX=4.24
+##DATA TYPE=MASS SPECTRUM
+##ORIGIN=J.Little, Eastman Chem. Comp., Kingsport
+##OWNER=NIST Mass Spectrometry Data Center
+Collection (C) 2002 copyright by the U.S. Secretary of Commerce
+on behalf of the United States of America. All rights reserved.
+##CAS REGISTRY NO=123-80-8
+##$EPA MASS SPEC NO=280941
+##MOLFORM=C8H14O4
+##MW=174
+##$NIST SOURCE=MSDC
+##.IONIZATION ENERGY=70
+##XUNITS=M/Z
+##YUNITS=RELATIVE ABUNDANCE
+##XFACTOR=1
+##YFACTOR=1
+##FIRSTX=14
+##LASTX=144
+##FIRSTY=2
+##MAXX=144
+##MINX=14
+##MAXY=999
+##MINY=1
+##NPOINTS=39
+##PEAK TABLE=(XY..XY)
+14,2 15,13 17,1 19,1 20,1
+26,22 27,121 28,60 29,393 30,9
+31,17 39,2 41,2 42,12 43,16
+44,8 45,10 53,1 54,1 55,19
+56,35 57,999 58,45 59,4 73,2
+74,2 75,7 87,32 88,5 89,9
+99,5 100,49 101,27 102,1 114,33
+115,28 116,1 131,7 144,4
+##END=

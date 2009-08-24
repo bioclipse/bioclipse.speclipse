@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>General Search in NMRShiftDB</title>
+</head>
+
+<body>
+<h1>Search by Molecule/Spectrum Properties</H1
+><P
+>In NMRShiftDB, in addition to the molecular structure and numerical spectroscopic data, each database record also contains various text items called Properties (e.g., chemical name, molecular formula, spectrometer frequency, solvent, etc.). You can search for them by choosig File -> New -> NMRShiftDB -> General Search in NMRShiftDB. With the dropdown list box you can choose the text field to be searched. After selecting the appropriate search algorithm (see below) and entering the desired text search string, click "Search" and the results will be saved in a new virtual folder.</P
+><P
+>There are three possible algorithms for the Properties Search.</P
+><P
+></P
+><UL
+><LI
+><P
+>Exact Search: All records will be found where the contents of the selected field exactly match your search string.</P
+></LI
+><LI
+><P
+>Fragment or Regular Expression Search: You may enter a specific text substring (fragment) and all records will be found which contain this substring anywhere within the selected text field. Alternatively, you may perform a more sophisticated search using Regular Expressions. For details about regular expressions, there are many good explanation in the internet, e. g. <A
+HREF="http://www.phpbuilder.com/columns/dario19990616.php3"
+TARGET="_top"
+>here</A
+>.</P
+></LI
+><LI
+><P
+>Fuzzy Search: This is a clever combination of the <A
+HREF="http://www.nara.gov/genealogy/soundex/soundex.html"
+TARGET="_top"
+>Soundex</A
+> algorithm, the <A
+HREF="http://users.rcn.com/rvdi/lDistance/index.html"
+TARGET="_top"
+>Levenstein Distance Algorithm (LDA)</A
+>, and a substring search. Records will be retrieved for which the selected Text Field contains the search substring, not only on the basis of alphanumeric text but also on the basis of similarity when spoken as American english (useful when spelling is uncertain). The results are presented in the order or decreasing similarity. Due to the fuzzy nature of the algorithm, a large number of records may be found with small search strings. The Fragment Search is more efficient if the correct spelling of the search text is known.</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="sect3"
+><H1
+>Search by Chemical Formula/Multiplicities/Weight</H1
+><P
+>Please note that some searches require a partical type of input.</P
+><P
+>An Exact Chemical Formula Search will retrieve all molecules whose formulas contain the same elements and numbers given in your search string, regardless of the ordering of the elements in the formula. The Regular Expression/fragment search is not allowed.</P
+><P
+>The Fuzzy Search requires an input string with the correct chemical elements but the associated number for each element can be given either as an exact number n, as a range of values n-p, or as a wildcard *. For example, the search string C5-7H*Br2 will find all molecules containing 5 to 7 carbons, 2 bromines and any number of hydrogens.</P
+><P
+>With "Chemical formula" respectivly "Chemical formula (with other elements allowed")" you can spedify if other elements apart from the elements given are allowed or not. With additional elements, the mentioned query will find all molecules containing 5 to 7 carbons, 2 bromines, any number of hydrogens and any other elements. In contrast, only Chemical formula will find all molecules containing 5 to 7 carbons, 2 bromines and any number of hydrogens and no other element.</P
+><P
+>The search by multiplicities works similar to the chemical formula search, but instead of element symbols you need to use symbols for multiplicities. A regular expression search is not possible. Example: S*D2-3T4 will find all molecules containing any number of singlets, two to three doublets, four triplets and no quadruplets. Note there are two multiplicity searches: The real multiplicity search, which looks for multiplicity identifiers as entered by the contributor and the potential C13-multiplicity search. This looks for multiplicities as derived from the H count, no matter what the actual data are. Possible symbols are S, D, T or Q for singlets (no H), doublets (one H), triplets (two H) or quadruplets (three H) respectivly.</P
+><P
+>You can search for molecules whose molecular weight falls within a range by giving the range like "100-200". Regular expression and fuzzy search are not possible.</P
+></DIV
+><DIV
+CLASS="sect3"
+><H1
+><a name="searchbyspectrum">Search by Spectrum</H1
+><P
+>You can search for a spectrum in NMRShiftDB by right clicking on a spectrum file and choosing "Spectrum search in NMRShiftDB". You are first which server to use (default is ok in almost all cases) and for the search type. The search types are:
+<ul><li><strong>Subspectrum</strong> Search (match all Input as subset of Record): a similarity search which looks for spectra in the database for which a subset of the total NS resonances exhibit chemical shifts equal to or close to the NI values defined in your input list. Matched spectra must contain the same or a larger number of resonances compared to the input list, i.e., the input spectrum can be a subspectrum (NI&lt;=NS). For each spectrum found a similarity factor is calculated, which is a measure of how closely your input data are matched by the relevant chemical shifts in the database spectrum. A Hitlist of spectra is returned, in the order of decreasing similarity. The similarity measure is 100% if all NI peaks in the input list can be exactly matched by a subset of peaks in the database spectrum, regardless of NS.</li>
+<li><strong>Complete</strong> Spectrum Search (match complete Record to Input List): a total similarity measure is calculated by comparing all NS resonances of the database spectrum with the NI chemical shifts in the input list. A max. similarity of 100% is possible only when NS = NI (identical spectra); otherwise, when NS is not equal to NI, the max. similarity measure is reduced to the factor 100*(no. of matched peaks)/(no. of matched + unmatched peaks). Thus, the similarity measure reflects how well each peak in the complete database spectrum can be paired with one value in the input list on a one-to-one basis. The Hitlist can contain not only matched spectra with NS = NI but also spectra which contain the input spectrum as a well-matched subspectrum (NI&lt;NS, as in (1) above) or database spectra which represent subspectra of the input (NS&gt;NI). This procedure is slower than the simple similarity search.</li></ul>
+Example: the Input Spectrum has [24, 45, 66, 88] (four chem. shifts in ppm).
+Subspectrum Search: Only matching spectra will be found which contain at least 4 resonances. For example, the spectrum [24, 46, 65, 89, 95] contains the input spectrum as a subspectrum with a similarity measure of ca. 97%.
+Complete Spectrum Search: The following matching database spectra would be found:
+spectrum [23, 47, 64, 87]; similarity ca. 96% (4 of 4 resonances matched)
+spectrum [26, 45, 65, 90, 110]; similarity ca. 75% (4 of 5 resonances matched)
+spectrum [25, 45, 66]; similarity ca. 72% (3 of 4 resonances).</para>
+The results are saved in a new folder called "NMRShiftDB spectrum search results".</P
+></DIV
+><DIV
+CLASS="sect3"
+><H1
+>Search by Structure</H1
+><P
+>In order to search the database for molecular structures and their assigned spectra by structure, you need to have the structure as a file (see  for creating files). Right click on the file and choose "Download NMR spectra for this molecule". You then need to choose the NMRShiftDB server to use (default should be ok) and 
+the type of search to be performed. Types are "substructure search" (look for structures containing the input structure), "similarity search" (look for structures with a similar substructure) or "identity search" (look for structures identical to the input structure). Note that the similarity search will always be a superset of the substructure search. 
+Click on "Finish" to start the search. The results are saved in a new folder called "NMRShiftDB spectrum search results".</P
+></DIV
+>
