@@ -3,7 +3,7 @@
 <repository name='file:/home/shk3/workspace_bioclipse3/net.bioclipse.speclipse-updatesite/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1247150980235'/>
+    <property name='p2.timestamp' value='1251555166908'/>
   </properties>
   <references size='4'>
     <repository url='http://www.ebi.ac.uk/steinbeck-srv/speclipse/net.bioclipse.speclipse-updatesite/' type='1' options='0'/>
@@ -11,7 +11,7 @@
     <repository url='http://www.ebi.ac.uk/steinbeck-srv/speclipse/net.bioclipse.speclipse-updatesite/' type='0' options='0'/>
     <repository url='http://www.nmrshiftdb.org/' type='0' options='0'/>
   </references>
-  <units size='119'>
+  <units size='130'>
     <unit id='net.bioclipse.bibtex' version='2.0.0.B20090123'>
       <update id='net.bioclipse.bibtex' range='[0.0.0,2.0.0.B20090123)' severity='0'/>
       <properties size='2'>
@@ -6583,6 +6583,631 @@
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.data.speclipse' version='2.1.0.v20090829'>
+      <update id='net.bioclipse.data.speclipse' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Spectral Sample Data'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.data.speclipse' version='2.1.0.v20090829'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.data.speclipse' version='2.1.0.v20090829'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.data' range='2.0.0'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.data.speclipse' version='2.1.0.v20090829'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui.ide,org.eclipse.ui.forms,net.bioclipse.core,net.bioclipse.ui,net.bioclipse.data;bundle-version=&quot;2.0.0&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Activator: net.bioclipse.data.speclipse.Activator&#xA;Bundle-Version: 2.1.0.v20090829&#xA;Bundle-SymbolicName: net.bioclipse.data.speclipse;singleton:=true&#xA;Import-Package: org.apache.log4j&#xA;Bundle-Name: Spectral Sample Data&#xA;Bundle-Vendor: The Bioclipse Team&#xA;Eclipse-LazyStart: true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.nmrshiftdb' version='2.1.0.v20090829'>
+      <update id='net.bioclipse.nmrshiftdb' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='NMRShiftDB Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Bioclipse Team@EBI'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.nmrshiftdb' version='2.1.0.v20090829'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.nmrshiftdb' version='2.1.0.v20090829'/>
+        <provided namespace='java.package' name='net.bioclipse.nmrshiftdb' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.nmrshiftdb.business' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='27'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.specmol' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.xmlcml.cmlxom' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cdk.business' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.spectrum' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.xom' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.webservices' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.interfaces' range='1.1.4'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.io' range='1.1.4'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.smiles' range='1.1.4'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.data' range='1.1.4'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.chemoinformatics' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.bibtex' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.libiocml' range='1.1.4'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.ioformats' range='1.1.5'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cml' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cdk.jchempaint' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui.business' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro.universal' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.cheatsheets' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.log4j' range='1.2.15'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.nmrshiftdb' version='2.1.0.v20090829'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: Bioclipse Team@EBI&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Activator: net.bioclipse.nmrshiftdb.Activator&#xA;Bundle-Name: NMRShiftDB Plug-in&#xA;Import-Package: org.apache.log4j;version=&quot;1.2.15&quot;&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,net.bioclipse.specmol;bundle-version=&quot;2.0.0&quot;,org.xmlcml.cmlxom;bundle-version=&quot;2.0.0&quot;,net.bioclipse.cdk.business;bundle-version=&quot;2.0.0&quot;,net.bioclipse.core;bundle-version=&quot;2.0.0&quot;,net.bioclipse.spectrum;bundle-version=&quot;2.0.0&quot;,net.bioclipse.xom,org.eclipse.core.resources,net.bioclipse.webservices;bundle-version=&quot;2.0.0&quot;,org.openscience.cdk.interfaces;bundle-version=&quot;1.1.4&quot;,org.openscience.cdk.io;bundle-version=&quot;1.1.4&quot;,org.openscience.cdk.smiles;bundle-version=&quot;1.1.4&quot;,org.openscience.cdk.data;bundle-version=&quot;1.1.4&quot;,net.bioclipse.chemoinformatics;bundle-version=&quot;2.0.0&quot;,net.bioclipse.bibtex;bundle-version=&quot;2.0.0&quot;,net.bioclipse.ui;bundle-version=&quot;2.0.0&quot;,org.openscience.cdk.libiocml;bundle-version=&quot;1.1.4&quot;,org.eclipse.ui.ide,org.openscience.cdk.ioformats;bundle-version=&quot;1.1.5&quot;,net.bioclipse.cml;bundle-version=&quot;2.0.0&quot;,net.bioclipse.cdk.jchempaint;bundle-version=&quot;2.0.0&quot;,net.bioclipse.ui.business;bundle-version=&quot;2.0.0&quot;,org.eclipse.ui.intro,org.eclipse.ui.intro.universal,org.eclipse.ui.cheatsheets&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: net.bioclipse.nmrshiftdb; singleton:=true&#xA;Bundle-Version: 2.1.0.v20090829&#xA;Export-Package: net.bioclipse.nmrshiftdb,net.bioclipse.nmrshiftdb.business
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.speclipse_feature.feature.group' version='2.1.0.v20090829' singleton='false'>
+      <update id='net.bioclipse.speclipse_feature.feature.group' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Speclipse_feature Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='This feature collects plugins for working with spectral data.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.speclipse_feature.feature.group' version='2.1.0.v20090829'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.chemoinformatics_feature.feature.group' range='[2.0.0.B20090520,3.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.nmrshiftdb' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.specmol' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.spectrum' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.bibtex' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.webservices' range='[2.1.0.v20090807,2.1.0.v20090807]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.commons.logging' range='[1.0.4.v20080605-1930,1.0.4.v20080605-1930]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.xmlpull.xpp3' range='[0.4.0,0.4.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.cml' range='[2.1.0.v20090807,2.1.0.v20090807]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.xmlcml.cmlxom' range='[2.0.0.A20081028,2.0.0.A20081028]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.xom' range='[1.1.0,1.1.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.data.speclipse' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.data' range='[2.1.0.v20090807,2.1.0.v20090807]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='[3.4.0.v20080512,3.4.0.v20080512]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.doc.speclipse' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.speclipse_feature.feature.jar' range='[2.1.0.v20090829,2.1.0.v20090829]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org/org/documents/epl-v10.php'>
+          This feature and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 + exception, putting no constraints on choice of backend and/or license for creating plugins for Bioclipse; it is totally open for both open source plugins as well as commercial. The exception allows GPL plugins to be written and run in any combination with EPL licensed plugins, addressing incompatibility between the EPL and the GPL v.2. The Eclipse Public License accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+        </license>
+      </licenses>
+      <copyright>
+        (C) 2005-2009 The Bioclipse Project contributors
+      </copyright>
+    </unit>
+    <unit id='net.bioclipse.doc.speclipse' version='2.1.0.v20090829'>
+      <update id='net.bioclipse.doc.speclipse' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Speclipse Manager User Documentation'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.doc.speclipse' version='2.1.0.v20090829'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.doc.speclipse' version='2.1.0.v20090829'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.doc.speclipse' version='2.1.0.v20090829'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-Name: Speclipse Manager User Documentation&#xA;Bundle-Version: 2.1.0.v20090829&#xA;Require-Bundle: net.bioclipse.core&#xA;Bundle-SymbolicName: net.bioclipse.doc.speclipse;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: The Bioclipse Team@EBI&#xA;Import-Package: org.apache.log4j
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.webservices' version='2.1.0.v20090807'>
+      <update id='net.bioclipse.webservices' range='[0.0.0,2.1.0.v20090807)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Webservices Plugin'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Project'/>
+      </properties>
+      <provides size='96'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.webservices' version='2.1.0.v20090807'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.webservices' version='2.1.0.v20090807'/>
+        <provided namespace='java.package' name='com.ibm.wsdl' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.extensions' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.extensions.http' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.extensions.mime' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.extensions.schema' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.extensions.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.factory' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.util' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.util.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='com.ibm.wsdl.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl.extensions' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl.extensions.http' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl.extensions.mime' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl.extensions.schema' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl.extensions.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl.factory' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.wsdl.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.messaging' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.namespace' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.rpc' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.rpc.encoding' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.rpc.handler' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.rpc.handler.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.rpc.holders' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.rpc.server' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.rpc.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.webservices' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.webservices.business' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.attachments' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.client' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.client.async' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.collections' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.compiler' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.encoding' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.image' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.jms' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.logger' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.net' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.script' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.threadpool' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.components.uuid' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.configuration' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.constants' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.deployment.wsdd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.deployment.wsdd.providers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.description' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.encoding' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.encoding.ser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.encoding.ser.castor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.handlers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.handlers.http' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.handlers.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.holders' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.management' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.management.jmx' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.message' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.monitor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.providers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.providers.java' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.schema' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.security' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.security.servlet' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.security.simple' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.server' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.session' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.soap' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.strategies' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.transport.http' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.transport.java' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.transport.jms' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.transport.local' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.transport.mail' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.types' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.utils' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.utils.bytecode' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.utils.cache' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.wsdl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.wsdl.fromJava' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.wsdl.gen' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.wsdl.symbolTable' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.axis.wsdl.toJava' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery.ant' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery.jdk' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery.log' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery.resource' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery.resource.classes' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery.resource.names' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.discovery.tools' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cdk.business' range='2.0.0'/>
+        <required namespace='java.package' name='org.apache.commons.logging' range='1.0.4'/>
+        <required namespace='java.package' name='org.apache.log4j' range='1.2.15'/>
+        <required namespace='java.package' name='org.eclipse.ui.part' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.webservices' version='2.1.0.v20090807'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: com.ibm.wsdl,com.ibm.wsdl.extensions,com.ibm.wsdl.extensions.http,com.ibm.wsdl.extensions.mime,com.ibm.wsdl.extensions.schema,com.ibm.wsdl.extensions.soap,com.ibm.wsdl.factory,com.ibm.wsdl.util,com.ibm.wsdl.util.xml,com.ibm.wsdl.xml,javax.wsdl,javax.wsdl.extensions,javax.wsdl.extensions.http,javax.wsdl.extensions.mime,javax.wsdl.extensions.schema,javax.wsdl.extensions.soap,javax.wsdl.factory,javax.wsdl.xml,javax.xml.messaging,javax.xml.namespace,javax.xml.rpc,javax.xml.rpc.encoding,javax.xml.rpc.handler,javax.xml.rpc.handler.soap,javax.xml.rpc.holders,javax.xml.rpc.server,javax.xml.rpc.soap,javax.xml.soap,net.bioclipse.webservices,net.bioclipse.webservices.business,org.apache.axis,org.apache.axis.attachments,org.apache.axis.client,org.apache.axis.client.async,org.apache.axis.collections,org.apache.axis.components.compiler,org.apache.axis.components.encoding,org.apache.axis.components.image,org.apache.axis.components.jms,org.apache.axis.components.logger,org.apache.axis.components.net,org.apache.axis.components.script,org.apache.axis.components.threadpool,org.apache.axis.components.uuid,org.apache.axis.configuration,org.apache.axis.constants,org.apache.axis.deployment.wsdd,org.apache.axis.deployment.wsdd.providers,org.apache.axis.description,org.apache.axis.encoding,org.apache.axis.encoding.ser,org.apache.axis.encoding.ser.castor,org.apache.axis.handlers,org.apache.axis.handlers.http,org.apache.axis.handlers.soap,org.apache.axis.holders,org.apache.axis.i18n,org.apache.axis.management,org.apache.axis.management.jmx,org.apache.axis.message,org.apache.axis.monitor,org.apache.axis.providers,org.apache.axis.providers.java,org.apache.axis.schema,org.apache.axis.security,org.apache.axis.security.servlet,org.apache.axis.security.simple,org.apache.axis.server,org.apache.axis.session,org.apache.axis.soap,org.apache.axis.strategies,org.apache.axis.transport.http,org.apache.axis.transport.java,org.apache.axis.transport.jms,org.apache.axis.transport.local,org.apache.axis.transport.mail,org.apache.axis.types,org.apache.axis.utils,org.apache.axis.utils.bytecode,org.apache.axis.utils.cache,org.apache.axis.wsdl,org.apache.axis.wsdl.fromJava,org.apache.axis.wsdl.gen,org.apache.axis.wsdl.symbolTable,org.apache.axis.wsdl.toJava,org.apache.commons.discovery,org.apache.commons.discovery.ant,org.apache.commons.discovery.jdk,org.apache.commons.discovery.log,org.apache.commons.discovery.resource,org.apache.commons.discovery.resource.classes,org.apache.commons.discovery.resource.names,org.apache.commons.discovery.tools&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,net.bioclipse.ui;bundle-version=&quot;2.0.0&quot;,org.eclipse.core.resources,net.bioclipse.core;bundle-version=&quot;2.0.0&quot;,net.bioclipse.cdk.business;bundle-version=&quot;2.0.0&quot;&#xA;Bundle-Activator: net.bioclipse.webservices.Activator&#xA;Bundle-Name: Webservices Plugin&#xA;Bundle-Version: 2.1.0.v20090807&#xA;Bundle-Vendor: The Bioclipse Project&#xA;Bundle-SymbolicName: net.bioclipse.webservices;singleton:=true&#xA;Import-Package: org.apache.commons.logging;version=&quot;1.0.4&quot;,org.apache.log4j;version=&quot;1.2.15&quot;,org.eclipse.ui.part&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: jars/axis-1_4/lib/axis.jar,jars/axis-1_4/lib/jaxrpc.jar,jars/axis-1_4/lib/saaj.jar,jars/axis-1_4/lib/commons-discovery-0.2.jar,jars/axis-1_4/lib/wsdl4j-1.5.1.jar,.
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.data' version='2.1.0.v20090807'>
+      <update id='net.bioclipse.data' range='[0.0.0,2.1.0.v20090807)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Small Sample data set'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.data' version='2.1.0.v20090807'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.data' version='2.1.0.v20090807'/>
+        <provided namespace='java.package' name='net.bioclipse.data' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.data.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='12'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.update.configurator' range='3.2.201'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro' range='3.2.201'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro.universal' range='3.2.200'/>
+        <required namespace='osgi.bundle' name='org.eclipse.update.core' range='3.2.201'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.data' version='2.1.0.v20090807'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: net.bioclipse.data,net.bioclipse.data.wizards&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui.ide,org.eclipse.ui.forms,net.bioclipse.core,net.bioclipse.ui,org.eclipse.update.configurator;bundle-version=&quot;3.2.201&quot;,org.eclipse.ui.intro;bundle-version=&quot;3.2.201&quot;,org.eclipse.ui.intro.universal;bundle-version=&quot;3.2.200&quot;,org.eclipse.update.core;bundle-version=&quot;3.2.201&quot;&#xA;Bundle-Activator: net.bioclipse.data.Activator&#xA;Bundle-Name: Small Sample data set&#xA;Bundle-Version: 2.1.0.v20090807&#xA;Bundle-Vendor: The Bioclipse Team&#xA;Bundle-SymbolicName: net.bioclipse.data;singleton:=true&#xA;Import-Package: org.apache.log4j&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.bibtex' version='2.1.0.v20090829'>
+      <update id='net.bioclipse.bibtex' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Bibtex'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+      </properties>
+      <provides size='11'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.bibtex' version='2.1.0.v20090829'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.bibtex' version='2.1.0.v20090829'/>
+        <provided namespace='java.package' name='net.bioclipse.bibtex' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.bibtex.business' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.bibtex.domain' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.bibtex.popup.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.bibtex.resources' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.bibtex.wizards' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.jabref' version='0.0.0'/>
+        <provided namespace='java.package' name='net.sf.jabref.export' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='15'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filebuffers' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.help' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.xom' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.springframework.osgi.aopalliance.osgi' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.springframework.bundle.spring.aop' range='2.5.1'/>
+        <required namespace='osgi.bundle' name='net.sf.cglib' range='2.1.3'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.chemoinformatics' range='2.0.0'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.bibtex' version='2.1.0.v20090829'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: net.bioclipse.bibtex,net.bioclipse.bibtex.business,net.bioclipse.bibtex.domain,net.bioclipse.bibtex.popup.actions,net.bioclipse.bibtex.resources,net.bioclipse.bibtex.wizards,net.sf.jabref,net.sf.jabref.export&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.filebuffers,org.eclipse.ui.views,org.eclipse.help,net.bioclipse.core;bundle-version=&quot;2.0.0&quot;,org.eclipse.core.resources;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui,org.eclipse.core.runtime,net.bioclipse.xom,net.bioclipse.ui;bundle-version=&quot;2.0.0&quot;,org.springframework.osgi.aopalliance.osgi;bundle-version=&quot;1.0.0&quot;,org.springframework.bundle.spring.aop;bundle-version=&quot;2.5.1&quot;,net.sf.cglib;bundle-version=&quot;2.1.3&quot;,net.bioclipse.chemoinformatics;bundle-version=&quot;2.0.0&quot;&#xA;Bundle-Activator: net.bioclipse.bibtex.Activator&#xA;Bundle-Name: Bibtex&#xA;Bundle-Version: 2.1.0.v20090829&#xA;Bundle-Vendor: The Bioclipse Team@EBI&#xA;Bundle-SymbolicName: net.bioclipse.bibtex;singleton:=true&#xA;Import-Package: org.apache.log4j&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: lib/JabRef-2.1.jar,.
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.cml' version='2.1.0.v20090807'>
+      <update id='net.bioclipse.cml' range='[0.0.0,2.1.0.v20090807)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Chemical Markup Language'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.cml' version='2.1.0.v20090807'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.cml' version='2.1.0.v20090807'/>
+        <provided namespace='java.package' name='net.bioclipse.cml.handlers' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.cml.managers' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.cml.contenttypes' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='12'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filebuffers' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.xmlcml.cmlxom' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.xom' range='1.1.0'/>
+        <required namespace='osgi.bundle' name='org.xmlpull.xpp3' range='0.4.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.cml' version='2.1.0.v20090807'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Eclipse-AutoStart: true&#xA;Export-Package: net.bioclipse.cml.handlers,net.bioclipse.cml.managers,net.bioclipse.cml.contenttypes&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core.filebuffers,org.eclipse.ui.views,org.eclipse.ui.workbench.texteditor,org.eclipse.jface.text,net.bioclipse.core,org.eclipse.core.resources,net.bioclipse.ui;bundle-version=&quot;2.0.0&quot;,org.xmlcml.cmlxom;bundle-version=&quot;2.0.0&quot;,net.bioclipse.xom;bundle-version=&quot;1.1.0&quot;,org.xmlpull.xpp3;bundle-version=&quot;0.4.0&quot;&#xA;Bundle-Activator: net.bioclipse.cml.managers.Activator&#xA;Bundle-Name: Chemical Markup Language&#xA;Bundle-Version: 2.1.0.v20090807&#xA;Bundle-Vendor: The Bioclipse Team&#xA;Bundle-SymbolicName: net.bioclipse.cml;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.specmol' version='2.1.0.v20090829'>
+      <update id='net.bioclipse.specmol' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Spectrum Assignment'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.specmol' version='2.1.0.v20090829'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.specmol' version='2.1.0.v20090829'/>
+        <provided namespace='java.package' name='net.bioclipse.specmol' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.specmol.business' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.specmol.domain' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.specmol.editor' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.specmol.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='36'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.spectrum' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.xmlcml.cmlxom' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cml' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cdk.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.xom' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='3.3.100'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cdk.business' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.bibtex' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.xmlpull.xpp3' range='0.4.0'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.core' range='1.1.2'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.interfaces' range='1.1.2'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.standard' range='1.1.2'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.control' range='1.1.2'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cdk.jchempaint' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.io' range='1.1.2'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.data' range='1.1.2'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cdk.jchempaint.view' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.render' range='1.1.2'/>
+        <required namespace='osgi.bundle' name='javax.vecmath' range='1.2.1'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.chemoinformatics' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.4.1'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui.business' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.springframework.osgi.aopalliance.osgi' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.springframework.bundle.spring.aop' range='2.5.1'/>
+        <required namespace='osgi.bundle' name='net.sf.cglib' range='2.1.3'/>
+        <required namespace='osgi.bundle' name='org.openscience.cdk.controlbasic' range='1.3.0'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.specmol' version='2.1.0.v20090829'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: net.bioclipse.specmol,net.bioclipse.specmol.business,net.bioclipse.specmol.domain,net.bioclipse.specmol.editor,net.bioclipse.specmol.wizards&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.ui,org.eclipse.core.runtime,net.bioclipse.spectrum,org.eclipse.ui.views,org.xmlcml.cmlxom,net.bioclipse.cml,net.bioclipse.cdk.ui,net.bioclipse.xom,org.eclipse.ui.editors;bundle-version=&quot;3.4.0&quot;,net.bioclipse.core;bundle-version=&quot;2.0.0&quot;,org.eclipse.core.resources;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui.forms;bundle-version=&quot;3.3.100&quot;,org.eclipse.jface.text;bundle-version=&quot;3.4.0&quot;,net.bioclipse.cdk.business;bundle-version=&quot;2.0.0&quot;,net.bioclipse.bibtex;bundle-version=&quot;1.0.0&quot;,org.xmlpull.xpp3;bundle-version=&quot;0.4.0&quot;,org.openscience.cdk.core;bundle-version=&quot;1.1.2&quot;,org.openscience.cdk.interfaces;bundle-version=&quot;1.1.2&quot;,org.openscience.cdk.standard;bundle-version=&quot;1.1.2&quot;,org.openscience.cdk.control;bundle-version=&quot;1.1.2&quot;,net.bioclipse.cdk.jchempaint;bundle-version=&quot;2.0.0&quot;,org.openscience.cdk.io;bundle-version=&quot;1.1.2&quot;,org.openscience.cdk.data;bundle-version=&quot;1.1.2&quot;,net.bioclipse.cdk.jchempaint.view;bundle-version=&quot;2.0.0&quot;,org.openscience.cdk.render;bundle-version=&quot;1.1.2&quot;,javax.vecmath;bundle-version=&quot;1.2.1&quot;,net.bioclipse.chemoinformatics;bundle-version=&quot;2.0.0&quot;,net.bioclipse.ui;bundle-version=&quot;2.0.0&quot;,org.eclipse.ui.ide;bundle-version=&quot;3.4.1&quot;,net.bioclipse.ui.business;bundle-version=&quot;2.0.0&quot;,org.springframework.osgi.aopalliance.osgi;bundle-version=&quot;1.0.0&quot;,org.springframework.bundle.spring.aop;bundle-version=&quot;2.5.1&quot;,net.sf.cglib;bundle-version=&quot;2.1.3&quot;,org.openscience.cdk.controlbasic;bundle-version=&quot;1.3.0&quot;&#xA;Bundle-Activator: net.bioclipse.specmol.Activator&#xA;Bundle-Name: Spectrum Assignment&#xA;Bundle-Version: 2.1.0.v20090829&#xA;Bundle-Vendor: The Bioclipse Team@EBI&#xA;Bundle-SymbolicName: net.bioclipse.specmol;singleton:=true&#xA;Import-Package: org.apache.log4j&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.spectrum' version='2.1.0.v20090829'>
+      <update id='net.bioclipse.spectrum' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Spectrum Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+      </properties>
+      <provides size='67'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.spectrum' version='2.1.0.v20090829'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.spectrum' version='2.1.0.v20090829'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.action' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.action.contribution' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.business' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.contenttypes' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.dialogs' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.domain' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.editor' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.filecontentprovider' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.outline' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.views' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.spectrum.wizards' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.base' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.base.config' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.base.log' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.base.modules' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.annotations' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.axis' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.block' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.demo' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.editor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.encoders' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.entity' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.event' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.imagemap' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.labels' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.needle' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.plot' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.renderer' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.renderer.category' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.renderer.xy' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.resources' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.servlet' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.title' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.chart.urls' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.category' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.contour' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.function' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.gantt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.general' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.io' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.jdbc' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.resources' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.statistics' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.time' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.data.xy' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.date' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.io' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.layout' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.resources' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.text' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.threads' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.ui.about' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.ui.about.resources' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.ui.action' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.ui.tabbedui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.jfree.util' version='0.0.0'/>
+        <provided namespace='java.package' name='spok.guicomponents' version='0.0.0'/>
+        <provided namespace='java.package' name='spok.utils' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='22'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.xmlcml.cmlxom' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.cml' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='0.1.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.xom' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='3.3.100'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='3.3.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui.business' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.xmlpull.xpp3' range='0.4.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.cheatsheets' range='3.3.101'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.chemoinformatics' range='2.0.0'/>
+        <required namespace='osgi.bundle' name='net.sf.cglib' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.springframework.osgi.aopalliance.osgi' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.springframework.bundle.spring.aop' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.commons.logging' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.spectrum' version='2.1.0.v20090829'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: net.bioclipse.spectrum,net.bioclipse.spectrum.action,net.bioclipse.spectrum.action.contribution,net.bioclipse.spectrum.business,net.bioclipse.spectrum.contenttypes,net.bioclipse.spectrum.dialogs,net.bioclipse.spectrum.domain,net.bioclipse.spectrum.editor,net.bioclipse.spectrum.filecontentprovider,net.bioclipse.spectrum.outline,net.bioclipse.spectrum.views,net.bioclipse.spectrum.wizards,org.jfree,org.jfree.base,org.jfree.base.config,org.jfree.base.log,org.jfree.base.modules,org.jfree.chart,org.jfree.chart.annotations,org.jfree.chart.axis,org.jfree.chart.block,org.jfree.chart.demo,org.jfree.chart.editor,org.jfree.chart.encoders,org.jfree.chart.entity,org.jfree.chart.event,org.jfree.chart.imagemap,org.jfree.chart.labels,org.jfree.chart.needle,org.jfree.chart.plot,org.jfree.chart.renderer,org.jfree.chart.renderer.category,org.jfree.chart.renderer.xy,org.jfree.chart.resources,org.jfree.chart.servlet,org.jfree.chart.title,org.jfree.chart.urls,org.jfree.data,org.jfree.data.category,org.jfree.data.contour,org.jfree.data.function,org.jfree.data.gantt,org.jfree.data.general,org.jfree.data.io,org.jfree.data.jdbc,org.jfree.data.resources,org.jfree.data.statistics,org.jfree.data.time,org.jfree.data.xml,org.jfree.data.xy,org.jfree.date,org.jfree.io,org.jfree.layout,org.jfree.resources,org.jfree.text,org.jfree.threads,org.jfree.ui,org.jfree.ui.about,org.jfree.ui.about.resources,org.jfree.ui.action,org.jfree.ui.tabbedui,org.jfree.util,spok.guicomponents,spok.utils&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui,org.eclipse.ui.editors;bundle-version=&quot;3.4.0&quot;,org.xmlcml.cmlxom,net.bioclipse.cml,net.bioclipse.core;bundle-version=&quot;0.1.0&quot;,net.bioclipse.xom,org.eclipse.jface.text;bundle-version=&quot;3.4.0&quot;,org.eclipse.ui.forms;bundle-version=&quot;3.3.100&quot;,org.eclipse.ui.views;bundle-version=&quot;3.3.0&quot;,org.eclipse.ui.ide;bundle-version=&quot;3.4.0&quot;,net.bioclipse.ui.business;bundle-version=&quot;2.0.0&quot;,org.xmlpull.xpp3;bundle-version=&quot;0.4.0&quot;,net.bioclipse.ui;bundle-version=&quot;2.0.0&quot;,org.eclipse.ui.cheatsheets;bundle-version=&quot;3.3.101&quot;,net.bioclipse.chemoinformatics;bundle-version=&quot;2.0.0&quot;,net.sf.cglib,org.springframework.osgi.aopalliance.osgi,org.springframework.bundle.spring.aop&#xA;Bundle-Activator: net.bioclipse.spectrum.Activator&#xA;Bundle-Name: Spectrum Plug-in&#xA;Bundle-Version: 2.1.0.v20090829&#xA;Bundle-Vendor: The Bioclipse Team@EBI&#xA;Bundle-SymbolicName: net.bioclipse.spectrum;singleton:=true&#xA;Import-Package: org.apache.commons.logging,org.apache.log4j&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .,lib/JCampParser.jar,lib/antlr-2.7.2.jar,lib/regexp-1.2.jar,lib/jcommon-1.0.0.jar,lib/jfreechart-1.0.1.jar,lib/opencsv-1.8.jar
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.speclipse_feature.feature.jar' version='2.1.0.v20090829'>
+      <update id='net.bioclipse.speclipse_feature.feature.jar' range='[0.0.0,2.1.0.v20090829)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Speclipse_feature Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='This feature collects plugins for working with spectral data.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+        <property name='org.eclipse.update.feature.plugin' value='net.bioclipse.nmrshiftdb'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.speclipse_feature.feature.jar' version='2.1.0.v20090829'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='net.bioclipse.speclipse_feature' version='2.1.0.v20090829'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.1.0.v20090829'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org/org/documents/epl-v10.php'>
+          This feature and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 + exception, putting no constraints on choice of backend and/or license for creating plugins for Bioclipse; it is totally open for both open source plugins as well as commercial. The exception allows GPL plugins to be written and run in any combination with EPL licensed plugins, addressing incompatibility between the EPL and the GPL v.2. The Eclipse Public License accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+        </license>
+      </licenses>
+      <copyright>
+        (C) 2005-2009 The Bioclipse Project contributors
+      </copyright>
     </unit>
   </units>
 </repository>
