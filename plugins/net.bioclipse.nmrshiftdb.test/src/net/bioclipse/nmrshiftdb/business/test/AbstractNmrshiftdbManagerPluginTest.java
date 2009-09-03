@@ -41,13 +41,13 @@ public abstract class AbstractNmrshiftdbManagerPluginTest{
         CMLElement cmlcml = net.bioclipse.cml.managers.Activator.getDefault()
             .getJavaManager().parseFile( path );
         try{
-        String id=nmrshiftdbmmanager.submitSpecmol( cmlcml, "http://localhost:8080/axis",
-                                          "shk3","test");
-        int idint = Integer.parseInt( id );
-        Assert.assertTrue( idint>0 );
-        System.err.println(idint);
+	        String id=nmrshiftdbmmanager.submitSpecmol( cmlcml, "http://localhost:8080/axis",
+	                                          "shk3","test");
+	        int idint = Integer.parseInt( id );
+	        Assert.assertTrue( idint>0 );
         }catch(UndeclaredThrowableException ex){
         	ex.getUndeclaredThrowable().printStackTrace();
+        	Assert.fail("Failed. Perhaps no local instance of nmrshiftdb running?");
         }
     }
 }

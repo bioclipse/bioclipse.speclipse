@@ -8,7 +8,10 @@
  *
  * Contact: http://www.bioclipse.net/
  ******************************************************************************/
-package net.bioclipse.nmrshiftdb.business.test;
+package net.bioclipse.nmrshiftdb.test;
+
+import net.bioclipse.nmrshiftdb.business.test.APITest;
+import net.bioclipse.nmrshiftdb.business.test.CoverageTest;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -16,9 +19,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(value=Suite.class)
 @SuiteClasses({
-    JavaNmrshiftdbManagerPluginTest.class,
-    JavaScriptNmrshiftdbManagerPluginTest.class
+    APITest.class,
+    CoverageTest.class
 })
-public class AllNmrshiftdbManagerPluginTests {
+public class AllNmrshiftdbManagerTests {
 
 }
