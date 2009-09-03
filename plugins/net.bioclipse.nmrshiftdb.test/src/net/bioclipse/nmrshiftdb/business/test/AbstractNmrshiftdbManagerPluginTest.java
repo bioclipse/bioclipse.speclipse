@@ -12,6 +12,7 @@
 package net.bioclipse.nmrshiftdb.business.test;
 
 import java.io.IOException;
+import java.lang.reflect.UndeclaredThrowableException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -39,9 +40,14 @@ public abstract class AbstractNmrshiftdbManagerPluginTest{
         String path=url.getFile();
         CMLElement cmlcml = net.bioclipse.cml.managers.Activator.getDefault()
             .getJavaManager().parseFile( path );
+        try{
         String id=nmrshiftdbmmanager.submitSpecmol( cmlcml, "http://localhost:8080/axis",
                                           "shk3","test");
         int idint = Integer.parseInt( id );
         Assert.assertTrue( idint>0 );
+        System.err.println(idint);
+        }catch(UndeclaredThrowableException ex){
+        	ex.getUndeclaredThrowable().printStackTrace();
+        }
     }
 }
