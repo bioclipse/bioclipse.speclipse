@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<cml xmlns="http://www.xml-cml.org/schema">
+ <spectrum id="nmrshiftdb3407" moleculeRef="nmrshiftdb2151" type="NMR" xmlns:macie="http://www.xml-cml.org/dict/macie" xmlns:nmr="http://www.nmrshiftdb.org/dict" xmlns:siUnits="http://www.xml-cml.org/units/siUnits" xmlns:subst="http://www.xml-cml.org/dict/substDict" xmlns:cmlDict="http://www.xml-cml.org/dict/cmlDict" xmlns:cml="http://www.xml-cml.org/dict/cml" xmlns:units="http://www.xml-cml.org/units/units">
+  <conditionList>
+   <scalar dataType="xsd:string" dictRef="cml:temp" units="siUnits:k">298</scalar>
+   <scalar dataType="xsd:string" dictRef="cml:field" units="siUnits:hertz">125</scalar>
+  </conditionList>
+  <metadataList>
+   <metadata name="nmr:OBSERVENUCLEUS" content="13C"/>
+  </metadataList>
+  <substanceList>
+   <substance dictRef="" role="subst:solvent" title="Chloroform-D1 (CDCl3)"/>
+  </substanceList>
+  <peakList>
+   <peak xValue="17.7" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="Q" id="p0" atomRefs="a11"/>
+   <peak xValue="20.0" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="Q" id="p1" atomRefs="a13"/>
+   <peak xValue="22.9" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="Q" id="p2" atomRefs="a15"/>
+   <peak xValue="28.9" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="T" id="p3" atomRefs="a5"/>
+   <peak xValue="29.9" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="T" id="p4" atomRefs="a2"/>
+   <peak xValue="35.8" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="T" id="p5" atomRefs="a4"/>
+   <peak xValue="37.6" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="T" id="p6" atomRefs="a1"/>
+   <peak xValue="39.7" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="D" id="p7" atomRefs="a12"/>
+   <peak xValue="50.9" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="D" id="p8" atomRefs="a10"/>
+   <peak xValue="57.3" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="S" id="p9" atomRefs="a14"/>
+   <peak xValue="61.3" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="T" id="p10" atomRefs="a9"/>
+   <peak xValue="64.1" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="S" id="p11" atomRefs="a6"/>
+   <peak xValue="64.9" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="D" id="p12" atomRefs="a3"/>
+   <peak xValue="134.0" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="D" id="p13" atomRefs="a7"/>
+   <peak xValue="146.7" xUnits="units:ppm" peakShape="sharp" peakMultiplicity="S" id="p14" atomRefs="a8"/>
+  </peakList>
+ </spectrum>
+</cml>

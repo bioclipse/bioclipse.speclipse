@@ -14,6 +14,9 @@ Require-Bundle: org.eclipse.ui,
  net.bioclipse.xom,
  net.bioclipse.nmrshiftdb;bundle-version="2.0.0",
  net.bioclipse.cml;bundle-version="2.0.0",
- javax.activation;bundle-version="1.1.0"
+ javax.activation;bundle-version="1.1.0",
+ net.bioclipse.spectrum;bundle-version="2.1.0",
+ net.bioclipse.cdk.business;bundle-version="2.1.0",
+ org.openscience.cdk.interfaces;bundle-version="1.3.0"
 Eclipse-LazyStart: true
 Export-Package: net.bioclipse.nmrshiftdb.business.test
