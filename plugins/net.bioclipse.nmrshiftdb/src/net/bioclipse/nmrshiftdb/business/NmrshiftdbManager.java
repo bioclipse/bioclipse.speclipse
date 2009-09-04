@@ -15,11 +15,15 @@ import net.bioclipse.cdk.domain.CDKMolecule;
 import net.bioclipse.cml.contenttypes.CmlFileDescriber;
 import net.bioclipse.core.business.BioclipseException;
 import net.bioclipse.core.domain.IMolecule;
+import net.bioclipse.core.domain.ISpecmol;
 import net.bioclipse.core.domain.ISpectrum;
 import net.bioclipse.jobs.IReturner;
 import net.bioclipse.managers.business.IBioclipseManager;
 import net.bioclipse.nmrshiftdb.util.Bc_nmrshiftdbConstants;
+import net.bioclipse.nmrshiftdb.util.NmrshiftdbUtils;
+import net.bioclipse.specmol.domain.JumboSpecmol;
 import net.bioclipse.spectrum.editor.MetadataUtils;
+import net.bioclipse.spectrum.editor.SpectrumEditor;
 import nu.xom.Elements;
 
 import org.apache.axis.client.Call;
@@ -27,6 +31,7 @@ import org.apache.axis.client.Service;
 import org.apache.axis.message.SOAPBodyElement;
 import org.apache.axis.utils.Options;
 import org.apache.axis.utils.XMLUtils;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.interfaces.IChemFile;
@@ -47,6 +52,61 @@ public class NmrshiftdbManager implements IBioclipseManager {
 		return "nmrshiftdb";
 	}
 
+
+	public void generalSearch(String searchstring, String searchtype, String searchfield,
+              String serverurl,
+              IReturner returner,
+              IProgressMonitor monitor) 
+	  			throws BioclipseException {
+        monitor.beginTask( "Searching in NMRShiftDB", IProgressMonitor.UNKNOWN );
+        try{
+			Options opts = new Options(new String[0]);
+		    opts.setDefaultURL(serverurl+"/services/NMRShiftDB");
+		    Service  service = new Service();
+		    Call     call    = (Call) service.createCall();
+		    call.setOperationName("doSearch");
+		    call.setTargetEndpointAddress( new URL(opts.getURL()) );
+		    DocumentBuilder builder;
+		    builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		    SOAPBodyElement[] input = new SOAPBodyElement[1];
+		    Document doc = builder.newDocument();
+		    Element cdataElem;
+		    cdataElem = doc.createElementNS("http://www.nmrshiftdb.org/ws/NMRShiftDB/", "doSearch");
+		    Element reqElem;
+		    reqElem = doc.createElementNS("http://www.nmrshiftdb.org/ws/NMRShiftDB/", "searchstring");
+		    Node node;
+		    node = doc.createTextNode(NmrshiftdbUtils.replaceSpaces(searchstring));
+		    reqElem.appendChild(node);
+		    Element reqElem2;
+		    reqElem2 = doc.createElementNS("http://www.nmrshiftdb.org/ws/NMRShiftDB/", "searchtype");
+		    Node node2;
+		    node2 = doc.createTextNode(NmrshiftdbUtils.replaceSpaces(searchtype));
+		    reqElem2.appendChild(node2);
+		    Element reqElem3;
+		    reqElem3 = doc.createElementNS("http://www.nmrshiftdb.org/ws/NMRShiftDB/", "searchfield");
+		    Node node3;
+		    node3 = doc.createTextNode(NmrshiftdbUtils.replaceSpaces(searchfield));
+		    reqElem3.appendChild(node3);
+		    cdataElem.appendChild(reqElem);
+		    cdataElem.appendChild(reqElem2);
+		    cdataElem.appendChild(reqElem3);
+		    input[0] = new SOAPBodyElement(cdataElem);
+		    Vector elems = (Vector) call.invoke( input );
+		    SOAPBodyElement elem = (SOAPBodyElement) elems.get(0);
+		    Element e    = elem.getAsDOM();
+	    	CMLBuilder cmlbuilder = new CMLBuilder();
+	    	CMLElement cmlElement = (CMLElement) cmlbuilder.parseString(XMLUtils.ElementToString(e));
+	    	List<ISpecmol> result = new ArrayList<ISpecmol>();
+	    	for(int i=0;i<cmlElement.getChildCount();i++){
+	    		result.add(new JumboSpecmol((CMLCml)cmlElement.getChildCMLElements().get(i)));
+	    	}
+	        returner.completeReturn(result );
+	        monitor.done();
+	    }catch(Exception ex){
+	          throw new BioclipseException(ex.getMessage(), ex);
+	    }
+	}
+	
 	public void searchBySpectrum(ISpectrum cmlspectrum,
               boolean subortotal,
               String serverurl,

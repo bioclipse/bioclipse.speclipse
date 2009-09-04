@@ -16,22 +16,15 @@ import java.util.List;
 import net.bioclipse.cdk.business.ICDKManager;
 import net.bioclipse.cdk.domain.CDKMolecule;
 import net.bioclipse.cdk.domain.ICDKMolecule;
-import net.bioclipse.core.domain.IMolecule;
 import net.bioclipse.core.domain.ISpectrum;
 import net.bioclipse.core.util.LogUtils;
 import net.bioclipse.jobs.BioclipseUIJob;
 import net.bioclipse.nmrshiftdb.Activator;
 import net.bioclipse.nmrshiftdb.util.NmrshiftdbUtils;
-import net.bioclipse.specmol.domain.JumboSpecmol;
 import net.bioclipse.spectrum.domain.JumboSpectrum;
 
-import org.apache.axis.client.Call;
-import org.apache.axis.client.async.AsyncCall;
-import org.apache.axis.client.async.IAsyncResult;
-import org.apache.axis.message.SOAPBodyElement;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
@@ -49,12 +42,6 @@ public class ElucidateWizard extends Wizard{
 	private ElucidateServerPage serverPage;
 	CMLSpectrum cmlspectrum =null;
 	String VIRTUAL_FOLDER="NMRShiftDB spectrum search results";
-	IAsyncResult ar;
-	Call     call;
-	AsyncCall acall;
-	SOAPBodyElement[] input;
-	Shell shell;
-	Boolean flag;
 	private static final Logger logger = Logger.getLogger(ElucidateWizard.class);
 
 	/**
