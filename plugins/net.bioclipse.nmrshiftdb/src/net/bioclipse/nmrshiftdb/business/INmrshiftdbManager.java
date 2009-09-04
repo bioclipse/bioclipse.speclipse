@@ -44,7 +44,7 @@ public interface INmrshiftdbManager extends IBioclipseManager {
                             String password, BioclipseUIJob<String> uiJob) throws BioclipseException;
 
   @Recorded
-  @PublishedMethod( params = "CMLSpectrum cmlspectrum, boolean subortotal"+
+  @PublishedMethod( params = "ISpectrum cmlspectrum, boolean subortotal"+
                              ", String serverurl",
                     methodSummary = "Does a search for spectra at "+
                         "serverurl (must point to axis instance)." +
@@ -85,7 +85,7 @@ public interface INmrshiftdbManager extends IBioclipseManager {
                         "exept for 'similarity search', 'substructure search', 'identity search', "+
                         "where a CML structure is needed and 'subspectrum search'/'total similarity spectrum search'"+
                         "where a spectrum must given like TODO.")
-  @TestMethods("testSearchBySpectrum")
+  @TestMethods("testGeneralSearch")
   public List<ISpecmol> generalSearch(String searchstring, String searchtype, 
 		  	String searchfield, String serverurl) throws BioclipseException;
 

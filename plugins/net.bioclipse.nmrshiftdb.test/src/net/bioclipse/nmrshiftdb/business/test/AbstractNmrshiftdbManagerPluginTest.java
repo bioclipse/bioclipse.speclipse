@@ -12,7 +12,6 @@
 package net.bioclipse.nmrshiftdb.business.test;
 
 import java.io.IOException;
-import java.lang.reflect.UndeclaredThrowableException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -21,6 +20,7 @@ import java.util.List;
 
 import net.bioclipse.cdk.domain.ICDKMolecule;
 import net.bioclipse.core.business.BioclipseException;
+import net.bioclipse.core.domain.ISpecmol;
 import net.bioclipse.nmrshiftdb.business.INmrshiftdbManager;
 import net.bioclipse.spectrum.domain.JumboSpectrum;
 
@@ -33,7 +33,13 @@ import org.xmlcml.cml.base.CMLElement;
 public abstract class AbstractNmrshiftdbManagerPluginTest{
 
     protected static INmrshiftdbManager nmrshiftdbmmanager;
+    
 
+    @Test
+    public void testGeneralSearch() throws URISyntaxException, MalformedURLException, IOException, BioclipseException, CoreException{
+        List<ISpecmol> result=nmrshiftdbmmanager.generalSearch("subergorgiol", "exact","chemical name", "http://www.ebi.ac.uk/nmrshiftdb/axis");
+        Assert.assertEquals( result.size(),1 );
+    }
 
     @Test
     public void testSubmitSpecmol() throws IOException, 
