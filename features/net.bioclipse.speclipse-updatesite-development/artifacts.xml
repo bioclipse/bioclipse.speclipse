@@ -3,14 +3,14 @@
 <repository name='file:/home/shk3/workspace_bioclipse3/net.bioclipse.speclipse-updatesite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1247150980228'/>
+    <property name='p2.timestamp' value='1252313603802'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='115'>
+  <artifacts size='129'>
     <artifact classifier='osgi.bundle' id='net.bioclipse.webservices' version='2.0.0.RC2'>
       <properties size='3'>
         <property name='artifact.size' value='2277095'/>
@@ -36,6 +36,13 @@
       <properties size='3'>
         <property name='artifact.size' value='2334875'/>
         <property name='download.size' value='2334875'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.webservices' version='2.1.0.v20090807'>
+      <properties size='3'>
+        <property name='artifact.size' value='2277174'/>
+        <property name='download.size' value='2277174'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -86,6 +93,12 @@
         <property name='artifact.size' value='105468'/>
         <property name='download.size' value='105468'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.1.0.v20090829'>
+      <properties size='2'>
+        <property name='artifact.size' value='1368'/>
+        <property name='download.size' value='1368'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.0.0.B20090407'>
@@ -164,6 +177,13 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.doc.speclipse' version='2.1.0.v20090829'>
+      <properties size='3'>
+        <property name='artifact.size' value='2639'/>
+        <property name='download.size' value='2639'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.apache.commons.logging' version='1.0.4.v20080605-1930'>
       <properties size='3'>
         <property name='artifact.size' value='43919'/>
@@ -175,6 +195,20 @@
       <properties size='3'>
         <property name='artifact.size' value='143329'/>
         <property name='download.size' value='143329'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.bibtex' version='2.1.0.v20090829'>
+      <properties size='3'>
+        <property name='artifact.size' value='3151695'/>
+        <property name='download.size' value='3151695'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.nmrshiftdb' version='2.1.0.v20090829'>
+      <properties size='3'>
+        <property name='artifact.size' value='862879'/>
+        <property name='download.size' value='862879'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -294,6 +328,13 @@
         <property name='download.size' value='981'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.nmrshiftdb' version='2.1.0.v20090829'>
+      <properties size='3'>
+        <property name='artifact.size' value='863042'/>
+        <property name='download.size' value='863042'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='net.bioclipse.data.speclipse' version='2.0.0.RC3'>
       <properties size='3'>
         <property name='artifact.size' value='537169'/>
@@ -333,6 +374,13 @@
       <properties size='3'>
         <property name='artifact.size' value='69019'/>
         <property name='download.size' value='69019'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.data' version='2.1.0.v20090807'>
+      <properties size='3'>
+        <property name='artifact.size' value='128828'/>
+        <property name='download.size' value='128828'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -447,6 +495,13 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.cml' version='2.1.0.v20090807'>
+      <properties size='3'>
+        <property name='artifact.size' value='148048'/>
+        <property name='download.size' value='148048'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='net.bioclipse.cml' version='2.0.0.B20090520'>
       <properties size='3'>
         <property name='artifact.size' value='147661'/>
@@ -536,10 +591,24 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.data.speclipse' version='2.1.0.v20090829'>
+      <properties size='3'>
+        <property name='artifact.size' value='537271'/>
+        <property name='download.size' value='537271'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.0.0.B20090409'>
       <properties size='2'>
         <property name='artifact.size' value='983'/>
         <property name='download.size' value='983'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.webservices' version='2.1.0.v20090807'>
+      <properties size='3'>
+        <property name='artifact.size' value='2277194'/>
+        <property name='download.size' value='2277194'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='net.bioclipse.cml' version='2.0.0.v20090707'>
@@ -583,6 +652,13 @@
         <property name='download.size' value='1362'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.spectrum' version='2.1.0.v20090829'>
+      <properties size='3'>
+        <property name='artifact.size' value='2407082'/>
+        <property name='download.size' value='2407082'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='net.bioclipse.spectrum' version='2.0.0.B20090123'>
       <properties size='3'>
         <property name='artifact.size' value='2333040'/>
@@ -597,17 +673,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.0.0.B20090123'>
-      <properties size='2'>
-        <property name='artifact.size' value='993'/>
-        <property name='download.size' value='993'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='net.bioclipse.bibtex' version='2.0.0.B20090213'>
       <properties size='3'>
         <property name='artifact.size' value='3151121'/>
         <property name='download.size' value='3151121'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.0.0.B20090123'>
+      <properties size='2'>
+        <property name='artifact.size' value='993'/>
+        <property name='download.size' value='993'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='net.bioclipse.bibtex' version='2.0.0.RC1'>
@@ -655,6 +731,13 @@
       <properties size='3'>
         <property name='artifact.size' value='1094379'/>
         <property name='download.size' value='1094379'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.xmlcml.cmlxom' version='2.0.0.A20081028'>
+      <properties size='3'>
+        <property name='artifact.size' value='1094382'/>
+        <property name='download.size' value='1094382'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -768,6 +851,13 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='net.bioclipse.specmol' version='2.1.0.v20090829'>
+      <properties size='3'>
+        <property name='artifact.size' value='101503'/>
+        <property name='download.size' value='101503'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='net.bioclipse.bibtex' version='2.0.0.RC4'>
       <properties size='3'>
         <property name='artifact.size' value='3151103'/>
@@ -799,6 +889,12 @@
         <property name='artifact.size' value='146513'/>
         <property name='download.size' value='146513'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.1.0.v20090829'>
+      <properties size='2'>
+        <property name='artifact.size' value='1367'/>
+        <property name='download.size' value='1367'/>
       </properties>
     </artifact>
   </artifacts>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://www.ebi.ac.uk/steinbeck/speclipse/net.bioclipse.speclipse-updatesite/">
+      Speclipse Update Site
+   </description>
+   <feature url="features/net.bioclipse.speclipse_feature_2.1.0.v20090829.jar" id="net.bioclipse.speclipse_feature" version="2.1.0.v20090829"/>
+</site>
