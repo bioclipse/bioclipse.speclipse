@@ -9,6 +9,7 @@ import net.bioclipse.core.Recorded;
 import net.bioclipse.core.TestClasses;
 import net.bioclipse.core.TestMethods;
 import net.bioclipse.core.business.BioclipseException;
+import net.bioclipse.core.domain.IMolecule;
 import net.bioclipse.core.domain.ISpecmol;
 import net.bioclipse.core.domain.ISpectrum;
 import net.bioclipse.jobs.BioclipseUIJob;
@@ -93,4 +94,21 @@ public interface INmrshiftdbManager extends IBioclipseManager {
   
   public void generalSearch(String searchstring, String searchtype, String searchfield,
           String serverurl, BioclipseUIJob<List<ISpecmol>> uiJob) throws BioclipseException;
+
+  @Recorded
+  @PublishedMethod( params = "IMolecule molecule, String type, boolean useCalculated, boolean local,"+
+                             "String serverurl",
+                    methodSummary = "Does a prediction for molecule. If local=true, "+
+                    	"local jar is used, else prediction is done using web service "+
+                        "at serverurl. type gives the type for which to predict "+
+                        "(use getPossibleTypes for finding out what they are). "+
+                        "useCalculated says if calculated spectra are supposed to be included or not.")
+  @TestMethods("testPredictSpectrum")
+  public ISpectrum predictSpectrum(IMolecule molecule, String type, boolean useCalculated, boolean local,
+                               String serverurl) throws BioclipseException;
+
+
+  
+  public void predictSpectrum(IMolecule molecule, String type, boolean useCalculated, boolean local,
+          String serverurl, BioclipseUIJob<ISpectrum> uiJob) throws BioclipseException;
 }

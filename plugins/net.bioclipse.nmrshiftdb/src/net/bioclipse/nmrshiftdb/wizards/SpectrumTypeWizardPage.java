@@ -43,18 +43,18 @@ import org.w3c.dom.Element;
  */
 
 public class SpectrumTypeWizardPage extends WizardPage {
-	private String selectedFormat=null;
+	private String selectedType=null;
 	private Combo combo=null;
 	String nucleus=null;
 	boolean assignment=false;
 	DisplayWizardPage dwPage;
 	Button usecalculated;
-  private boolean usecalculatedbool;
+	private boolean usecalculatedbool;
+	private boolean local=true;
+	private String spectrumTypes;
 	
 	/**
 	 * Constructor for SampleNewWizardPage.
-	 * 
-	 * @param pageName
 	 */
 	public SpectrumTypeWizardPage() {
 		super("SpectrumTypeWizardPage");
@@ -64,12 +64,22 @@ public class SpectrumTypeWizardPage extends WizardPage {
 		this.setPageComplete(false);
 	}
 
+	/**
+	 * Constructor for SampleNewWizardPage.
+	 * 
+	 * @param nucleus A type to preselect.
+	 */
 	public SpectrumTypeWizardPage(String nucleus) {
 		this();
 		this.nucleus=nucleus;
 		assignment=true;
 	}
 	
+	/**
+	 * Initializes the UI of the page.
+	 * 
+	 * @throws Exception
+	 */
 	public void initUi() throws Exception{
 	    Options opts = new Options(new String[0]);
 	    opts.setDefaultURL(((PredictWizard)this.getWizard()).getServerPage().getSelectedServer()+"/services/NMRShiftDB");
@@ -90,9 +100,9 @@ public class SpectrumTypeWizardPage extends WizardPage {
 	    Element         e     = null ;
 	    elem = (SOAPBodyElement) elems.get(0);
 	    e    = elem.getAsDOM();
-	    String spectrumTypes=e.getFirstChild().getTextContent();
+	    spectrumTypes=e.getFirstChild().getTextContent();
 	    
-	    StringTokenizer st=new StringTokenizer(spectrumTypes);
+	    StringTokenizer st=new StringTokenizer("13C 1H");
 
 	    combo.removeAll();
 	    combo.add("   ");
@@ -126,11 +136,13 @@ public class SpectrumTypeWizardPage extends WizardPage {
 			   public void widgetSelected(SelectionEvent e)
 			   {
 				   try{
-					   	selectedFormat=combo.getText();
+					   	selectedType=combo.getText();
 					   	if(!combo.getText().equals("   ") && (assignment || dwPage!=null))
 					   	{
-					   		if(assignment || dwPage.initUi())
+					   		if(assignment)
 					   			SpectrumTypeWizardPage.this.setPageComplete(true);
+					   		else
+					   			dwPage.initUi();
 					   	}
 					 }catch(Exception ex){
 						ex.printStackTrace();
@@ -161,20 +173,85 @@ public class SpectrumTypeWizardPage extends WizardPage {
          }
         );
 			setControl(container);
+			Label labelMode=new Label(container, SWT.NULL);
+		      labelMode.setText("Should prediction be done");
+		    Button localButton = new Button(container, SWT.RADIO);
+		    localButton.setText("Local (faster)");
+		    localButton.setSelection(true);
+		    localButton.addSelectionListener(
+			         new SelectionAdapter()
+			         {
+			           public void widgetSelected(SelectionEvent e)
+			           {
+			        	   local=true;
+			       	    StringTokenizer st=new StringTokenizer("13C 1H");
+
+			    	    combo.removeAll();
+			    	    combo.add("   ");
+			    		while(st.hasMoreTokens()){
+			    			combo.add(st.nextToken());
+			    		}
+			    		if(nucleus!=null)
+			    			combo.setText(nucleus);
+			    		else
+			    			combo.setText(combo.getItem(0));
+			           }
+			         }
+			        );
+		    
+		    Button remoteButton = new Button(container, SWT.RADIO);
+		    remoteButton.setText("Remote (more up to date data)");
+		    remoteButton.addSelectionListener(
+		         new SelectionAdapter()
+		         {
+		           public void widgetSelected(SelectionEvent e)
+		           {
+		        	   local=false;
+			       	    StringTokenizer st=new StringTokenizer(spectrumTypes);
+	
+			    	    combo.removeAll();
+			    	    combo.add("   ");
+			    		while(st.hasMoreTokens()){
+			    			combo.add(st.nextToken());
+			    		}
+			    		if(nucleus!=null)
+			    			combo.setText(nucleus);
+			    		else
+			    			combo.setText(combo.getItem(0));
+		           }
+		         }
+		        );
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
 	}
 
 
-	public String getSelectedFormat() {
-		return selectedFormat;
+	/**
+	 * Tells the type the use has chosen.
+	 * 
+	 * @return The type in format IsotopenumberNucleus (13C etc.).
+	 */
+	public String getSelectedType() {
+		return selectedType;
 	}
 
-    public String getCalculated() {
-        if(usecalculatedbool)
-            return "true";
-        else
-            return "false";
+    /**
+     * Tells if the user has decided to use calculated shifts or tno.
+     * 
+     * @return True=use calculated, false=do not use them.
+     */
+    public boolean getCalculated() {
+    	return usecalculatedbool;
     }
+
+    /**
+     * Tells if the user has chosen local or remote prediction.
+     * 
+     * @return True=local, false=remote
+     */
+    public boolean isLocal() {
+    	return local;
+    }
+
 }

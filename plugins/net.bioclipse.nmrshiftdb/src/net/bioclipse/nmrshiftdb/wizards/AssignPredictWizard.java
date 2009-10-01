@@ -93,8 +93,8 @@ public class AssignPredictWizard extends PredictWizard{
 	 * using wizard as execution context.
 	 */
 	public boolean performFinish() {
-		if(typePage!=null && typePage.getSelectedFormat()!=null){
-			nucleus=typePage.getSelectedFormat();
+		if(typePage!=null && typePage.getSelectedType()!=null){
+			nucleus=typePage.getSelectedType();
 			if(spectrum.getMetadataListElements().size()==0){
 				CMLMetadataList newmdl=new CMLMetadataList();
 				spectrum.addMetadataList(newmdl);

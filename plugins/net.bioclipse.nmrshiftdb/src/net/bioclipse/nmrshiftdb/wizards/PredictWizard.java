@@ -12,7 +12,6 @@
 package net.bioclipse.nmrshiftdb.wizards;
 
 import java.io.File;
-import java.io.IOException;
 
 import net.bioclipse.cdk.business.Activator;
 import net.bioclipse.cdk.domain.ICDKMolecule;
@@ -23,12 +22,10 @@ import net.bioclipse.specmol.domain.JumboSpecmol;
 import net.bioclipse.spectrum.editor.SpectrumEditor;
 import net.bioclipse.spectrum.wizards.NewSpectrumWizard;
 import nu.xom.Element;
-import nu.xom.Elements;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -36,7 +33,6 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.xmlcml.cml.base.CMLBuilder;
@@ -56,7 +52,7 @@ public class PredictWizard extends Wizard{
 	protected ServerWizardPage serverPage;
 	private DisplayWizardPage displayPage;
 	private IFile cdkres;
-	private IAtomContainer ac;
+	private IMolecule ac;
 	private IMolecule provmol;
 
 	/**
@@ -79,7 +75,7 @@ public class PredictWizard extends Wizard{
                  public void runInUI() {
                      provmol=getReturnValue();                     
                      try {
-                        ac=((ICDKMolecule)Activator.getDefault().getJavaCDKManager().perceiveAromaticity( provmol )).getAtomContainer();
+                        ac=Activator.getDefault().getJavaCDKManager().perceiveAromaticity( provmol );
                     } catch ( BioclipseException e ) {
                         MessageBox mb = new MessageBox( new Shell(), SWT.OK | SWT.ICON_WARNING );
                         mb.setText( "Error detecting aromaticity" );
@@ -122,15 +118,7 @@ public class PredictWizard extends Wizard{
 			if(displayPage.getCmlbutton().getSelection()){
 				//Create the new SpectrumResource as a child of the folder
 				CMLBuilder builder = new CMLBuilder(false);
-				CMLSpectrum cmlElement = null;
-				try{
-					cmlElement = (CMLSpectrum) builder.parseString(displayPage.getSpectrumstring());
-				}catch (ClassCastException ex) {
-					Element element = (Element) builder.parseString(displayPage.getSpectrumstring());
-					SpectrumUtils.namespaceThemAll(element.getChildElements());
-					element.setNamespaceURI(CMLUtil.CML_NS);
-					cmlElement = (CMLSpectrum) builder.parseString(element.toXML());
-				}
+				CMLSpectrum cmlElement = displayPage.spectrum;
 				NewSpectrumWizard.createNewSpectrum(filename, SpectrumEditor.CML_TYPE ,parentFolder, cmlElement);
 			}else{
 				//Create the new SpecMolResource as a child of the folder
@@ -168,7 +156,7 @@ public class PredictWizard extends Wizard{
 		this.displayPage = displayPage;
 	}
 
-	public IAtomContainer getAc() {
+	public IMolecule getAc() {
 		return ac;
 	}
 }

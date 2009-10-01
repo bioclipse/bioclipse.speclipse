@@ -11,8 +11,11 @@
  ******************************************************************************/
 package net.bioclipse.nmrshiftdb.wizards;
 
+import net.bioclipse.core.util.LogUtils;
+import net.bioclipse.nmrshiftdb.Activator;
 import net.bioclipse.nmrshiftdb.util.Bc_nmrshiftdbConstants;
 
+import org.apache.log4j.Logger;
 import org.eclipse.jface.dialogs.IDialogPage;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
@@ -38,6 +41,7 @@ public class ServerWizardPage extends WizardPage {
 	public static final String NMRSHIFTDB_SERVER="nmrshiftdb_server";
 	public static final String SAVE_SERVER="save_server";
 	private Button selection;
+	private static Logger logger = Logger.getLogger(ServerWizardPage.class);
 	
 	/**
 	 * Constructor for ServerWizardPage.
@@ -148,7 +152,7 @@ public class ServerWizardPage extends WizardPage {
 		try{
 			page.initUi();
 		}catch(Exception ex){
-			ex.printStackTrace();
+			LogUtils.handleException(ex, logger, Activator.ID);
 		}
 		return page;
 	}

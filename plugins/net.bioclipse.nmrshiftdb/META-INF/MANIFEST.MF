@@ -35,3 +35,7 @@ Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.log4j;version="1.2.15"
 Export-Package: net.bioclipse.nmrshiftdb,
  net.bioclipse.nmrshiftdb.business
+Bundle-ClassPath: lib/predictor.jar,
+ .,
+ lib/JNL.jar,
+ lib/torque-3.1.jar
