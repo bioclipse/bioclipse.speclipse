@@ -20,8 +20,11 @@ import java.util.List;
 
 import net.bioclipse.cdk.domain.ICDKMolecule;
 import net.bioclipse.core.business.BioclipseException;
+import net.bioclipse.core.domain.IMolecule;
 import net.bioclipse.core.domain.ISpecmol;
+import net.bioclipse.core.domain.ISpectrum;
 import net.bioclipse.nmrshiftdb.business.INmrshiftdbManager;
+import net.bioclipse.spectrum.domain.IJumboSpectrum;
 import net.bioclipse.spectrum.domain.JumboSpectrum;
 
 import org.eclipse.core.runtime.CoreException;
@@ -72,4 +75,26 @@ public abstract class AbstractNmrshiftdbManagerPluginTest{
         Assert.assertTrue( result.size()>0 );
         Assert.assertEquals( "100.00 %", result.get(0).getAtomContainer().getProperty("similarity"));
     }
+    
+    @Test
+    public void testPredictRemote() throws URISyntaxException, MalformedURLException, IOException, BioclipseException, CoreException{
+    	URI uri = getClass().getResource("/testFiles/subergorgiol.mol").toURI();
+        URL url=FileLocator.toFileURL(uri.toURL());
+        String path=url.getFile();
+        IMolecule mol = net.bioclipse.cdk.business.Activator.getDefault().
+        	getJavaCDKManager().loadMolecule(path);
+        ISpectrum result=nmrshiftdbmmanager.predictSpectrum(mol, "13C", false, false,  "http://www.ebi.ac.uk/nmrshiftdb/axis");
+        Assert.assertEquals(15, ((IJumboSpectrum)result).getJumboObject().getPeakListElements().get(0).getPeakChildren().size() );
+    }
+
+	@Test
+	public void testPredictLocal() throws URISyntaxException, MalformedURLException, IOException, BioclipseException, CoreException{
+		URI uri = getClass().getResource("/testFiles/subergorgiol.mol").toURI();
+	    URL url=FileLocator.toFileURL(uri.toURL());
+	    String path=url.getFile();
+	    IMolecule mol = net.bioclipse.cdk.business.Activator.getDefault().
+	    	getJavaCDKManager().loadMolecule(path);
+	    ISpectrum result=nmrshiftdbmmanager.predictSpectrum(mol, "13C", false, true, null);
+	    Assert.assertEquals(15, ((IJumboSpectrum)result).getJumboObject().getPeakListElements().get(0).getPeakChildren().size() );
+	}
 }
