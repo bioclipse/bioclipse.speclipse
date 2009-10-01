@@ -37,8 +37,6 @@
     <li><a href='#specmol'>specmol</a></li>
 
     <li><a href='#spectrum'>spectrum</a></li>
-
-    <li><a href='#webservices'>webservices, webservices</a></li>
   </ul>
 
   <h2 id='bibtex'>bibtex</h2>
@@ -64,6 +62,82 @@
   <p class='description'>Contains Nmrshiftdb methods</p>
 
   <div class='method'>
+    <h3>generalSearch</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Does a search for NMRShiftDB datasets at serverurl (must
+      point to axis instance.Returns a list of Assigned Spectra.
+      Possible values for searchtype are "exact", "regular
+      expression", "fuzzy" and "fragment". Possible values for
+      searchfield are "subspectrum search", "total similarity
+      spectrum search""my spectra", "molecular weight search",
+      "condition search", "molecule id", "spectrum id", "HOSE
+      code", "double bond equivalents", "number of rings in
+      smallest set of smallest rings", "double bond
+      equivalents/smallest set of smallest rings" "similarity
+      search", "substructure search", "identity search", ""search
+      by molecule keyword", "search by spectrum keyword", "search
+      by molecule keyword fragements", "search by spectrum keyword
+      fragements", "literature/title", "literature/author",
+      "comment", "canonical name", "description of spectrum link",
+      "description of molecule link", "molecule keyword", "spectrum
+      keyword", "CAS number", "chemical name", "chemical name using
+      Pubchem", "chemical formula", "chemical formula (with other
+      elements)", "multiplicities" or "potential multiplicities".
+      Searchstring must be a text, exept for "similarity search",
+      "substructure search", "identity search", where a CML
+      structure is needed and "subspectrum search"/"total
+      similarity spectrum search"where a spectrum must given like
+      TODO.</dd>
+
+      <dt>params</dt>
+
+      <dd>String searchstring, String searchtype, String
+      searchfield, String serverurl</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>predictSpectrum</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Does a prediction for molecule. If local=true, local jar
+      is used, else prediction is done using web service at
+      serverurl. type gives the type for which to predict (use
+      getPossibleTypes for finding out what they are. useCalculated
+      says if calculated spectra are supposed to be included or
+      not.</dd>
+
+      <dt>params</dt>
+
+      <dd>IMolecule molecule, String type, boolean useCalculated,
+      boolean local,String serverurl</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
+    <h3>searchBySpectrum</h3>
+
+    <dl>
+      <dt>summary</dt>
+
+      <dd>Does a search for spectra at serverurl (must point to
+      axis instance.Returns a list of molecules, the AtomContainers
+      retrieved with getAtomContainer have a property "similarity"
+      set, which gives similarity in % as String</dd>
+
+      <dt>params</dt>
+
+      <dd>ISpectrum cmlspectrum, boolean subortotal, String
+      serverurl</dd>
+    </dl>
+  </div>
+
+  <div class='method'>
     <h3>submitSpecmol</h3>
 
     <dl>
@@ -76,8 +150,8 @@
 
       <dt>params</dt>
 
-      <dd>CMLCml cmlcml, String serverurl,String username, String
-      password</dd>
+      <dd>CMLElement cmlcml, String serverurl,String username,
+      String password</dd>
     </dl>
   </div>
 
@@ -250,53 +324,6 @@
 
       <dd>JumboSpectrum spectrum, IFile target, String
       filetype</dd>
-    </dl>
-  </div>
-
-  <h2 id='webservices'>webservices, webservices</h2>
-
-  <p class='description'>Contains webservices related methods</p>
-
-  <div class='method'>
-    <h3>downloadDbEntry</h3>
-
-    <dl>
-      <dt>summary</dt>
-
-      <dd>Fetches an entry from the EBI databases</dd>
-
-      <dt>params</dt>
-
-      <dd>String db, String query, String format</dd>
-    </dl>
-  </div>
-
-  <div class='method'>
-    <h3>downloadDbEntryAsFile</h3>
-
-    <dl>
-      <dt>summary</dt>
-
-      <dd>Fetches an entry from the EBI databases and saves it</dd>
-
-      <dt>params</dt>
-
-      <dd>String db, String query, String format</dd>
-    </dl>
-  </div>
-
-  <div class='method'>
-    <h3>downloadPDBAsFile</h3>
-
-    <dl>
-      <dt>summary</dt>
-
-      <dd>Fetches a PDB entry with ID="pdbid" from the EBI
-      databases and saves it under the specified filename</dd>
-
-      <dt>params</dt>
-
-      <dd>String pdbid, String filename</dd>
     </dl>
   </div>
 </body>

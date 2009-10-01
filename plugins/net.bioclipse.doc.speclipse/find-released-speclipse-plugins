@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 
-my @features = `xpath -q -e "//plugin/\@id" ../net.bioclipse.speclipse_feature/feature.xml | cut -d'"' -f2`;
+my @features = `xpath -q -e "//plugin/\@id" ../../features/net.bioclipse.speclipse_feature/feature.xml | cut -d'"' -f2`;
 
 my @allFeatures;
 
@@ -10,7 +10,6 @@ my @allFeatures;
 
 # need some proper recursion here
 for my $feature (@features) {
-  #warn "______";
   #warn $feature;
   push(@allFeatures, $feature) if ($feature =~ m/net.bioclipse/);
   #$feature =~ s/\n|\r//g;
