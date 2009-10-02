@@ -18,6 +18,7 @@ import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import net.bioclipse.nmrshiftdb.Activator;
 import net.bioclipse.nmrshiftdb.util.Bc_nmrshiftdbConstants;
 
 import org.apache.axis.client.Call;
@@ -81,26 +82,7 @@ public class SpectrumTypeWizardPage extends WizardPage {
 	 * @throws Exception
 	 */
 	public void initUi() throws Exception{
-	    Options opts = new Options(new String[0]);
-	    opts.setDefaultURL(((PredictWizard)this.getWizard()).getServerPage().getSelectedServer()+"/services/NMRShiftDB");
-	    Service  service = new Service();
-	    Call     call    = (Call) service.createCall();
-	    call.setOperationName("getSpectrumTypes");
-	    call.setTargetEndpointAddress( new URL(opts.getURL()) );
-	    DocumentBuilder builder;
-	    builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-	    SOAPBodyElement[] input = new SOAPBodyElement[1];
-	    Document doc = builder.newDocument();
-	    Element cdataElem;
-	    cdataElem = doc.createElementNS(opts.getURL(), "getSpectrumTypes");
-	    input[0] = new SOAPBodyElement(cdataElem);
-        
-	    Vector          elems = (Vector) call.invoke( input );
-	    SOAPBodyElement elem  = null ;
-	    Element         e     = null ;
-	    elem = (SOAPBodyElement) elems.get(0);
-	    e    = elem.getAsDOM();
-	    spectrumTypes=e.getFirstChild().getTextContent();
+	    spectrumTypes=Activator.getDefault().getJavaNmrshiftdbManager().getSpectrumTypes(((PredictWizard)this.getWizard()).getServerPage().getSelectedServer());
 	    
 	    StringTokenizer st=new StringTokenizer("13C 1H");
 

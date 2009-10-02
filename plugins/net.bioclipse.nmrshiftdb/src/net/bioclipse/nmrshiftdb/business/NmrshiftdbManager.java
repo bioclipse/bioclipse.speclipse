@@ -371,4 +371,31 @@ public class NmrshiftdbManager implements IBioclipseManager {
 	          throw new BioclipseException(ex.getMessage(), ex);
 	    }
 	}
+  
+  public String getSpectrumTypes(String serverurl) throws BioclipseException{
+	  try{
+	    Options opts = new Options(new String[0]);
+	    opts.setDefaultURL(serverurl+"/services/NMRShiftDB");
+	    Service  service = new Service();
+	    Call     call    = (Call) service.createCall();
+	    call.setOperationName("getSpectrumTypes");
+	    call.setTargetEndpointAddress( new URL(opts.getURL()) );
+	    DocumentBuilder builder;
+	    builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	    SOAPBodyElement[] input = new SOAPBodyElement[1];
+	    Document doc = builder.newDocument();
+	    Element cdataElem;
+	    cdataElem = doc.createElementNS(opts.getURL(), "getSpectrumTypes");
+	    input[0] = new SOAPBodyElement(cdataElem);
+        
+	    Vector          elems = (Vector) call.invoke( input );
+	    SOAPBodyElement elem  = null ;
+	    Element         e     = null ;
+	    elem = (SOAPBodyElement) elems.get(0);
+	    e    = elem.getAsDOM();
+	    return e.getFirstChild().getTextContent();
+	  }catch(Exception ex){
+		  throw new BioclipseException(ex.getMessage());
+	  }
+  }
 }

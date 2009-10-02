@@ -111,4 +111,10 @@ public interface INmrshiftdbManager extends IBioclipseManager {
   
   public void predictSpectrum(IMolecule molecule, String type, boolean useCalculated, boolean local,
           String serverurl, BioclipseUIJob<ISpectrum> uiJob) throws BioclipseException;
+  
+  @Recorded
+  @PublishedMethod( params = "String serverurl",
+                    methodSummary = "Tells you for which types a particular server can do predictions")
+  @TestMethods("testPredictSpectrum")
+  public String getSpectrumTypes(String serverurl) throws BioclipseException;
 }
