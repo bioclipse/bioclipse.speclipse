@@ -77,6 +77,12 @@ public abstract class AbstractNmrshiftdbManagerPluginTest{
     }
     
     @Test
+    public void testGetSpectrumTypes() throws URISyntaxException, MalformedURLException, IOException, BioclipseException, CoreException{
+        String result=nmrshiftdbmmanager.getSpectrumTypes("http://www.ebi.ac.uk/nmrshiftdb/axis");
+        Assert.assertTrue( result.indexOf("13C")>-1 );
+    }
+    
+    @Test
     public void testPredictRemote() throws URISyntaxException, MalformedURLException, IOException, BioclipseException, CoreException{
     	URI uri = getClass().getResource("/testFiles/subergorgiol.mol").toURI();
         URL url=FileLocator.toFileURL(uri.toURL());

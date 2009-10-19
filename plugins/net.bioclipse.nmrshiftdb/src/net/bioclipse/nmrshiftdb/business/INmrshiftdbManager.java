@@ -103,7 +103,7 @@ public interface INmrshiftdbManager extends IBioclipseManager {
                         "at serverurl. type gives the type for which to predict "+
                         "(use getPossibleTypes for finding out what they are). "+
                         "useCalculated says if calculated spectra are supposed to be included or not.")
-  @TestMethods("testPredictSpectrum")
+  @TestMethods("testPredictLocal,testPredictRemote")
   public ISpectrum predictSpectrum(IMolecule molecule, String type, boolean useCalculated, boolean local,
                                String serverurl) throws BioclipseException;
 
@@ -115,6 +115,6 @@ public interface INmrshiftdbManager extends IBioclipseManager {
   @Recorded
   @PublishedMethod( params = "String serverurl",
                     methodSummary = "Tells you for which types a particular server can do predictions")
-  @TestMethods("testPredictSpectrum")
+  @TestMethods("testGetSpectrumTypes")
   public String getSpectrumTypes(String serverurl) throws BioclipseException;
 }
