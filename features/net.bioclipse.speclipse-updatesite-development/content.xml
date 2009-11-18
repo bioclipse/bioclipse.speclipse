@@ -3,7 +3,7 @@
 <repository name='file:/home/shk3/workspace_bioclipse3/net.bioclipse.speclipse-updatesite/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1252313603809'/>
+    <property name='p2.timestamp' value='1256924453077'/>
   </properties>
   <references size='4'>
     <repository url='http://www.ebi.ac.uk/steinbeck-srv/speclipse/net.bioclipse.speclipse-updatesite/' type='1' options='0'/>
@@ -11,7 +11,7 @@
     <repository url='http://www.ebi.ac.uk/steinbeck-srv/speclipse/net.bioclipse.speclipse-updatesite/' type='0' options='0'/>
     <repository url='http://www.nmrshiftdb.org/' type='0' options='0'/>
   </references>
-  <units size='130'>
+  <units size='133'>
     <unit id='net.bioclipse.bibtex' version='2.0.0.B20090123'>
       <update id='net.bioclipse.bibtex' range='[0.0.0,2.0.0.B20090123)' severity='0'/>
       <properties size='2'>
@@ -7200,6 +7200,124 @@
           </instruction>
         </instructions>
       </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org/org/documents/epl-v10.php'>
+          This feature and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 + exception, putting no constraints on choice of backend and/or license for creating plugins for Bioclipse; it is totally open for both open source plugins as well as commercial. The exception allows GPL plugins to be written and run in any combination with EPL licensed plugins, addressing incompatibility between the EPL and the GPL v.2. The Eclipse Public License accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+        </license>
+      </licenses>
+      <copyright>
+        (C) 2005-2009 The Bioclipse Project contributors
+      </copyright>
+    </unit>
+    <unit id='net.bioclipse.data' version='2.1.1.v20091002'>
+      <update id='net.bioclipse.data' range='[0.0.0,2.1.1.v20091002)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Small Sample data set'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.data' version='2.1.1.v20091002'/>
+        <provided namespace='osgi.bundle' name='net.bioclipse.data' version='2.1.1.v20091002'/>
+        <provided namespace='java.package' name='net.bioclipse.data' version='0.0.0'/>
+        <provided namespace='java.package' name='net.bioclipse.data.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='12'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='net.bioclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.update.configurator' range='3.2.201'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro' range='3.2.201'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro.universal' range='3.2.200'/>
+        <required namespace='osgi.bundle' name='org.eclipse.update.core' range='3.2.201'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='net.bioclipse.data' version='2.1.1.v20091002'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: net.bioclipse.data,net.bioclipse.data.wizards&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui.ide,org.eclipse.ui.forms,net.bioclipse.core,net.bioclipse.ui,org.eclipse.update.configurator;bundle-version=&quot;3.2.201&quot;,org.eclipse.ui.intro;bundle-version=&quot;3.2.201&quot;,org.eclipse.ui.intro.universal;bundle-version=&quot;3.2.200&quot;,org.eclipse.update.core;bundle-version=&quot;3.2.201&quot;&#xA;Bundle-Activator: net.bioclipse.data.Activator&#xA;Bundle-Name: Small Sample data set&#xA;Bundle-Version: 2.1.1.v20091002&#xA;Bundle-Vendor: The Bioclipse Team&#xA;Bundle-SymbolicName: net.bioclipse.data;singleton:=true&#xA;Import-Package: org.apache.log4j&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='net.bioclipse.speclipse_feature.feature.jar' version='2.1.0.v20091030'>
+      <update id='net.bioclipse.speclipse_feature.feature.jar' range='[0.0.0,2.1.0.v20091030)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Speclipse_feature Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='This feature collects plugins for working with spectral data.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+        <property name='org.eclipse.update.feature.plugin' value='net.bioclipse.nmrshiftdb'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.speclipse_feature.feature.jar' version='2.1.0.v20091030'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='net.bioclipse.speclipse_feature' version='2.1.0.v20091030'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='net.bioclipse.speclipse_feature' version='2.1.0.v20091030'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.eclipse.org/org/documents/epl-v10.php'>
+          This feature and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 + exception, putting no constraints on choice of backend and/or license for creating plugins for Bioclipse; it is totally open for both open source plugins as well as commercial. The exception allows GPL plugins to be written and run in any combination with EPL licensed plugins, addressing incompatibility between the EPL and the GPL v.2. The Eclipse Public License accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+        </license>
+      </licenses>
+      <copyright>
+        (C) 2005-2009 The Bioclipse Project contributors
+      </copyright>
+    </unit>
+    <unit id='net.bioclipse.speclipse_feature.feature.group' version='2.1.0.v20091030' singleton='false'>
+      <update id='net.bioclipse.speclipse_feature.feature.group' range='[0.0.0,2.1.0.v20091030)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Speclipse_feature Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='This feature collects plugins for working with spectral data.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Bioclipse Team@EBI'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.speclipse_feature.feature.group' version='2.1.0.v20091030'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.chemoinformatics_feature.feature.group' range='[2.0.1.v20090807,3.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.nmrshiftdb' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.specmol' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.spectrum' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.bibtex' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.webservices' range='[2.1.0.v20090807,2.1.0.v20090807]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.commons.logging' range='[1.0.4.v20080605-1930,1.0.4.v20080605-1930]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.xmlpull.xpp3' range='[0.4.0,0.4.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.cml' range='[2.1.0.v20090807,2.1.0.v20090807]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.xmlcml.cmlxom' range='[2.0.0.A20081028,2.0.0.A20081028]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.xom' range='[1.1.0,1.1.0]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.data.speclipse' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.data' range='[2.1.1.v20091002,2.1.1.v20091002]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='[3.4.0.v20080512,3.4.0.v20080512]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.doc.speclipse' range='[2.1.0.v20090829,2.1.0.v20090829]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='net.bioclipse.speclipse_feature.feature.jar' range='[2.1.0.v20091030,2.1.0.v20091030]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
       <licenses size='1'>
         <license url='http://www.eclipse.org/org/documents/epl-v10.php'>
           This feature and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 + exception, putting no constraints on choice of backend and/or license for creating plugins for Bioclipse; it is totally open for both open source plugins as well as commercial. The exception allows GPL plugins to be written and run in any combination with EPL licensed plugins, addressing incompatibility between the EPL and the GPL v.2. The Eclipse Public License accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
