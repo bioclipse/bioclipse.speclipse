@@ -15,11 +15,13 @@ import java.io.File;
 
 import net.bioclipse.cdk.business.Activator;
 import net.bioclipse.cdk.domain.ICDKMolecule;
+import net.bioclipse.core.ResourcePathTransformer;
 import net.bioclipse.core.business.BioclipseException;
 import net.bioclipse.core.domain.IMolecule;
 import net.bioclipse.jobs.BioclipseUIJob;
 import net.bioclipse.specmol.domain.JumboSpecmol;
 import net.bioclipse.spectrum.editor.SpectrumEditor;
+import net.bioclipse.spectrum.wizards.NewSpectrumDetailWizardPage;
 import net.bioclipse.spectrum.wizards.NewSpectrumWizard;
 import nu.xom.Element;
 
@@ -36,6 +38,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.xmlcml.cml.base.CMLBuilder;
+import org.xmlcml.cml.base.CMLType;
 import org.xmlcml.cml.base.CMLUtil;
 import org.xmlcml.cml.element.CMLCml;
 import org.xmlcml.cml.element.CMLSpectrum;
@@ -115,20 +118,30 @@ public class PredictWizard extends Wizard{
 			String filename = displayPage.getFileName();
 			//Get folder to install in from wizard page
 			IResource parentFolder = displayPage.getSelectedFolder();
-			if(displayPage.getCmlbutton().getSelection()){
-				//Create the new SpectrumResource as a child of the folder
-				CMLBuilder builder = new CMLBuilder(false);
-				CMLSpectrum cmlElement = displayPage.spectrum;
-				NewSpectrumWizard.createNewSpectrum(filename, SpectrumEditor.CML_TYPE ,parentFolder, cmlElement);
-			}else{
-				//Create the new SpecMolResource as a child of the folder
-				filename = displayPage.getFileName() + "." + SpectrumEditor.CML_TYPE;
-				CMLCml cml=new CMLCml();				
-				cml.appendChild(provmol.toCML());
-				displayPage.getSpectrum().detach();
-				cml.appendChild(displayPage.getSpectrum());
-				net.bioclipse.specmol.Activator.getDefault().getJavaSpecmolManager().saveSpecmol(new JumboSpecmol(cml), ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(parentFolder.getFullPath().toOSString()+File.separator+filename)));
+			//look overwrite
+			IFile target=ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(parentFolder.getFullPath().toOSString()+File.separator+filename+ ( filename.indexOf( "."+SpectrumEditor.CML_TYPE)  == -1 ? "."+SpectrumEditor.CML_TYPE : "" )));
+			int answer = SWT.YES;
+			if(target.exists()){
+	            MessageBox mb = new MessageBox(this.getShell(),SWT.ICON_WARNING | SWT.YES | SWT.NO );
+	            mb.setMessage( "The file "+filename+" already exists. Do you want to overwrite it?");
+	            mb.setText( "File already exists" );
+	            answer = mb.open();
 			}
+	        if(answer == SWT.YES){
+				if(displayPage.getCmlbutton().getSelection()){
+					//Create the new SpectrumResource as a child of the folder
+					CMLSpectrum cmlElement = displayPage.spectrum;
+					NewSpectrumWizard.createNewSpectrum(filename, SpectrumEditor.CML_TYPE ,parentFolder, cmlElement);
+				}else{
+					//Create the new SpecMolResource as a child of the folder
+					filename = displayPage.getFileName() + "." + SpectrumEditor.CML_TYPE;
+					CMLCml cml=new CMLCml();				
+					cml.appendChild(provmol.toCML());
+					displayPage.getSpectrum().detach();
+					cml.appendChild(displayPage.getSpectrum());
+					net.bioclipse.specmol.Activator.getDefault().getJavaSpecmolManager().saveSpecmol(new JumboSpecmol(cml), ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(parentFolder.getFullPath().toOSString()+File.separator+filename)));
+				}
+            }
 			return true;
 		}catch(Exception ex){
 			ex.printStackTrace();

@@ -86,6 +86,9 @@ public interface ISpectrumManager extends IBioclipseManager {
         throws IOException, BioclipseException, CoreException;
     
     /**
+     * Saves a spectrum. The file gets overwritten if it already exists. If using this in code, 
+     * you should check and ask before.
+     * 
      * @param mol The molecule to save
      * @param filename File to save to relativ to workspace
      * @param filetype Which format to save (for formats, see constants)
@@ -99,6 +102,9 @@ public interface ISpectrumManager extends IBioclipseManager {
     	throws BioclipseException, CoreException;
     
     /**
+     * Saves a spectrum. The file gets overwritten if it already exists. If using this in code, 
+     * you should check and ask before.
+     * 
      * @param mol The molecule to save
      * @param target Where to save
      * @param filetype Which format to save (for formats, see constants)
