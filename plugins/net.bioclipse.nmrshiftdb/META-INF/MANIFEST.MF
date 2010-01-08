@@ -32,7 +32,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.intro.universal,
  org.eclipse.ui.cheatsheets
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.log4j;version="1.2.15"
+Import-Package: org.apache.log4j;version="1.2.15",
+ org.openscience.cdk.exception
 Export-Package: net.bioclipse.nmrshiftdb,
  net.bioclipse.nmrshiftdb.business
 Bundle-ClassPath: lib/predictor.jar,

@@ -22,7 +22,6 @@ import net.bioclipse.jobs.IReturner;
 import net.bioclipse.managers.business.IBioclipseManager;
 import net.bioclipse.nmrshiftdb.util.Bc_nmrshiftdbConstants;
 import net.bioclipse.nmrshiftdb.util.NmrshiftdbUtils;
-import net.bioclipse.nmrshiftdb.wizards.PredictWizard;
 import net.bioclipse.specmol.domain.JumboSpecmol;
 import net.bioclipse.spectrum.editor.MetadataUtils;
 import net.xomtools.CMLExtractor;
@@ -37,7 +36,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.interfaces.IChemFile;
 import org.openscience.cdk.io.CMLReader;
-import org.openscience.nmrshiftdb.PredictionTool;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -280,7 +278,7 @@ public class NmrshiftdbManager implements IBioclipseManager {
     	  CMLSpectrum spectrum;
     	  org.openscience.cdk.interfaces.IMolecule cdkmol=DefaultChemObjectBuilder.getInstance().newMolecule(net.bioclipse.cdk.business.Activator.getDefault().getJavaCDKManager().asCDKMolecule(molecule).getAtomContainer());
 		if(local){
-    		  PredictionTool predtool= new PredictionTool();
+    		  net.bioclipse.nmrshiftdb.util.PredictionTool predtool= new net.bioclipse.nmrshiftdb.util.PredictionTool();
 	  	  	  	spectrum=new CMLSpectrum();
 		  	  	spectrum.setType("NMR");
 		  	  	spectrum.setNamespaceURI(CMLExtractor.CML_NAMESPACE);
@@ -290,7 +288,10 @@ public class NmrshiftdbManager implements IBioclipseManager {
     			  //TODO not good
   	    		if(type.indexOf(cdkmol.getAtom(i).getSymbol())>-1){
 	    			try{
-		    			double[] result=predtool.predict(cdkmol, cdkmol.getAtom(i));
+	    				StringBuffer sb = new StringBuffer();
+	    				double[] result=predtool.generalPredict(cdkmol, cdkmol.getAtom(i),true, true, -1, -1, sb, false, true, null, 6, false, sb, 6, true);
+		    			//double[] result=predtool.predict(cdkmol, cdkmol.getAtom(i));
+	    				System.err.println(sb.toString());
 		    			CMLPeak peak=new CMLPeak();
 		    			peak.setXMin(result[0]);
 		    			peak.setXValue(result[1]);
