@@ -29,6 +29,8 @@ public class Activator extends AbstractUIPlugin {
 	// The plug-in ID
 	public static final String PLUGIN_ID = "net.bioclipse.spectrum";
 
+	public static final String MODE_PREFERENCE = "jcamp_mode_preference";
+
 	// The shared instance
 	private static Activator plugin;
 	
@@ -115,6 +117,18 @@ public class Activator extends AbstractUIPlugin {
             );
         }
         return manager;
+    }
+    
+    public String getModePreference() {
+
+        return net.bioclipse.spectrum.Activator.getDefault()
+                .getPluginPreferences().getString( MODE_PREFERENCE );
+    }
+    
+    public void setModePreference( String value ) {
+
+        net.bioclipse.spectrum.Activator.getDefault().getPluginPreferences()
+                .setValue( MODE_PREFERENCE, value );
     }
 
 }

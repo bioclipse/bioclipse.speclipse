@@ -172,4 +172,12 @@
 		</menuContribution>
 	</extension>
    
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="net.bioclipse.spectrum.SpectrumPreferencePage"
+            id="net.bioclipse.spectrum.SpectrumPreferencePage"
+            name="Spectrum Editor"/>
+   </extension>
+   
 </plugin>
