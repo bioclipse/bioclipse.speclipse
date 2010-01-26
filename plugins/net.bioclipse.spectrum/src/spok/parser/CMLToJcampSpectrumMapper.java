@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
+import net.bioclipse.spectrum.Activator;
 import net.bioclipse.spectrum.editor.MetadataUtils;
 import net.bioclipse.cml.contenttypes.CmlFileDescriber;
 import nu.xom.Element;
@@ -151,10 +152,10 @@ public class CMLToJcampSpectrumMapper {
 
 				if (!fullspec) {
 					jcampSpectrum = new NMRSpectrum(x, y, nucleus, freq,
-							reference, false);
+							reference, false, Activator.getDefault().getModePreference());
 				} else {
 					jcampSpectrum = new NMRSpectrum(x, y, nucleus, freq,
-							reference, true);
+							reference, true, Activator.getDefault().getModePreference());
 				}
 			}else if (spectrum.getType().compareTo("IR") == 0) {
 				double[][] xy = null;
@@ -220,7 +221,7 @@ public class CMLToJcampSpectrumMapper {
 				double freq = ((Double) list.get(1)).doubleValue();
 				String nucleus = (String) list.get(2);
 				jcampSpectrum = new NMRSpectrum(xData, yData, nucleus, freq,
-						reference, true);
+						reference, true, Activator.getDefault().getModePreference());
 			} else if (xData.getUnit() == CommonUnit.mz) {
 				jcampSpectrum = new MassSpectrum(xData, yData, true);
 			} else if (xData.getUnit() == CommonUnit.perCM) {

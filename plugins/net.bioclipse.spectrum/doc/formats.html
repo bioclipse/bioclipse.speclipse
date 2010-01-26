@@ -12,7 +12,10 @@
 <p>The spectrum plug-in supports reading and writing of the following file formats: 
 <ul>
 	<li>CMLSpec - The spectrum encoding part of CML, the Chemical Markup Language</li>
-	<li>JCamp-DX - The IUPAC Standard Exchange Format for Spectroscopic Data</li>
+	<li>JCamp-DX - The IUPAC Standard Exchange Format for Spectroscopic Data. Note 
+	the JCamp-DX parser has got two modes (strict and relaxed) which can be set via Window->Preferences->Spectrum Editor. 
+	Currently, the only effect is that STRICT uses the SHIFT REFERENCE for calculating ppm in NMR, relaxed ignores them.
+    We found many files have the SHIFT REFERENCE but are actually already shifted.</li>
 </ul> 
 Within the spectrum plug-in the Java implementation of CML is used for the internal representation of spectroscopic data
 and for the import and export of structures and spectra to and from the CML file format.
