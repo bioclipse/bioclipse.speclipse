@@ -2,7 +2,7 @@
 <feature
       id="net.bioclipse.speclipse_feature"
       label="Speclipse_feature Feature"
-      version="2.1.0.v20091030"
+      version="2.2.0.RC3"
       provider-name="The Bioclipse Team@EBI"
       plugin="net.bioclipse.nmrshiftdb">
 

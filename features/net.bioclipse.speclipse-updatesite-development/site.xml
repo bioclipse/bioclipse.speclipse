@@ -5,4 +5,5 @@
    </description>
    <feature url="features/net.bioclipse.speclipse_feature_2.1.0.v20090829.jar" id="net.bioclipse.speclipse_feature" version="2.1.0.v20090829"/>
    <feature url="features/net.bioclipse.speclipse_feature_2.1.0.v20091030.jar" id="net.bioclipse.speclipse_feature" version="2.1.0.v20091030"/>
+   <feature url="features/net.bioclipse.speclipse_feature_2.2.0.RC3.jar" id="net.bioclipse.speclipse_feature" version="2.2.0.RC3"/>
 </site>
