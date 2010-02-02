@@ -183,6 +183,8 @@ public class NewSpectrumDetailWizardPage extends WizardPage {
 				((CMLPeakList) tableViewer.getInput()).addPeak(peak);
 				int elements = tableViewer.getTable().getItemCount();
 				tableViewer.getTable().select(elements - 1);
+				tableViewer.setInput(tableViewer.getInput());
+				tableViewer.editElement(peak, 0);
 			}
 		});
 		// Create and configure the "Delete" button
