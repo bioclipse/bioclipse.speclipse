@@ -13,6 +13,7 @@ package net.bioclipse.spectrum.domain;
 import net.bioclipse.core.business.BioclipseException;
 import net.bioclipse.core.domain.BioObject;
 
+import org.xmlcml.cml.element.CMLPeak;
 import org.xmlcml.cml.element.CMLSpectrum;
 
 public class JumboSpectrum extends BioObject implements IJumboSpectrum {
@@ -29,6 +30,7 @@ public class JumboSpectrum extends BioObject implements IJumboSpectrum {
    */
   public JumboSpectrum() {
       super();
+      this.spectrum = new CMLSpectrum();
   }
 	
 	public String getCML() throws BioclipseException {
@@ -37,6 +39,18 @@ public class JumboSpectrum extends BioObject implements IJumboSpectrum {
 	
 	public CMLSpectrum getJumboObject(){
 		return spectrum;
+	}
+	
+	public static JumboSpectrum getInstance(){
+		return new JumboSpectrum();
+	}
+
+	public void addPeak(double x, double y) {
+		CMLPeak peak = new CMLPeak();
+		peak.setXValue(x);
+		peak.setYValue(y);
+		spectrum.getPeakListElements().get(0).addPeak(peak);
+		
 	}
 
 }

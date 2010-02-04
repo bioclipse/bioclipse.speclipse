@@ -126,11 +126,24 @@ public interface ISpectrumManager extends IBioclipseManager {
      * @throws BioclipseException 
      */
     @PublishedMethod ( params = "ISpectrum m",
-                       methodSummary = "Creates a jubmo spectrum from a" +
-                                       " spectrum" )
+                       methodSummary = "Creates a jumbo spectrum from a " +
+                                       "spectrum (any implementation of ISpectrum "+
+                                       "and not necessarily a Jumbo one).")
     @Recorded
     @TestMethods("testCreate_ISpectrum")
     public IJumboSpectrum create( ISpectrum s ) throws BioclipseException;
+
+    /**
+     * Creates an empty jumbo spectrum.
+     * 
+     * @return
+     * @throws BioclipseException 
+     */
+    @PublishedMethod ( params = "",
+                       methodSummary = "Creates an empty jumbo spectrum.")
+    @Recorded
+    @TestMethods("testCreateEmpty")
+    public IJumboSpectrum createEmpty() throws BioclipseException;
 
     /**
      * Creates a jumbo spectrum from a CML String

@@ -359,4 +359,10 @@ public class SpectrumManager implements IBioclipseManager {
         throw new BioclipseException("Unknown file extension");
       }
   }
+  
+  public IJumboSpectrum createEmpty() throws BioclipseException{
+	  IJumboSpectrum spectrum = new JumboSpectrum();
+	  spectrum.getJumboObject().addPeakList(new CMLPeakList());
+	  return spectrum;
+  }
 }

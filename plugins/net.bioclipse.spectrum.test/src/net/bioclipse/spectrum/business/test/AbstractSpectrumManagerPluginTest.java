@@ -217,4 +217,10 @@ public abstract class AbstractSpectrumManagerPluginTest{
         Assert.assertEquals(42.0,peakspectrum.getJumboObject().getPeakListElements().get(0).getPeakElements().get( 0 ).getXValue(),.1);
         
     }
+    
+    @Test
+    public void testCreateEmpty() throws BioclipseException{
+    	IJumboSpectrum spectrum = spectrummanager.createEmpty();
+    	Assert.assertEquals(1, spectrum.getJumboObject().getPeakListElements().size());
+    }
 }

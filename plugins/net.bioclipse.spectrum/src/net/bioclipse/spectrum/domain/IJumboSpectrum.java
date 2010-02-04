@@ -17,5 +17,7 @@ import org.xmlcml.cml.element.CMLSpectrum;
 public interface IJumboSpectrum extends ISpectrum {
 	
 	public CMLSpectrum getJumboObject();
+	
+	public void addPeak(double x, double y);
 
 }
