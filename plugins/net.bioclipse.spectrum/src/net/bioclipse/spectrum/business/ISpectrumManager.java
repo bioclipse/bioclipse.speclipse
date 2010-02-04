@@ -174,7 +174,7 @@ public interface ISpectrumManager extends IBioclipseManager {
                                        "(existing peaks are conserved" )
     @Recorded
     @TestMethods("testPickPeaks_IJumboSpectrum")
-    public IJumboSpectrum pickPeaks(IJumboSpectrum spectruminput);
+    public IJumboSpectrum pickPeaks(IJumboSpectrum spectruminput) throws BioclipseException;
 
     /**
      * Calculates a weighted cross correlation similarity of two spectra

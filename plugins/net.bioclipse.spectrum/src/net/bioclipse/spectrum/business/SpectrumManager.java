@@ -259,8 +259,10 @@ public class SpectrumManager implements IBioclipseManager {
 		return new JumboSpectrum(parseCML(new StringBufferInputStream(cml)));
 	}
 	
-	public IJumboSpectrum pickPeaks(IJumboSpectrum spectruminput){
+	public IJumboSpectrum pickPeaks(IJumboSpectrum spectruminput) throws BioclipseException{
 		CMLSpectrumData spectrumData = SpectrumUtils.getSpectrumData(spectruminput.getJumboObject());
+		if(spectrumData==null)
+			throw new BioclipseException("No continuous data in this spectrum");
 		PeakPicker picker = new PeakPicker(spectrumData);
 		CMLPeakList peaks = picker.getPeakArray();
 		spectruminput.getJumboObject().addPeakList(peaks);
