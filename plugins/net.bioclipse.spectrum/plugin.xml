@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
+
+   <extension
+         point="net.bioclipse.ui.bioobjectDescriber">
+		<BioObject
+	        describer="net.bioclipse.spectrum.describer.SpectrumEditorDescriber"
+    	    id="net.bioclipse.cdk.spectrum.describer"
+    	    objectClass="net.bioclipse.core.domain.ISpectrum">
+		</BioObject>         
+   </extension>
+   
    <extension
          point="org.eclipse.ui.editors">
       <editor

@@ -17,6 +17,7 @@ import java.io.StringWriter;
 import java.net.URL;
 
 import net.bioclipse.core.business.BioclipseException;
+import net.bioclipse.core.domain.ISpectrum;
 import net.bioclipse.core.util.LogUtils;
 import net.bioclipse.spectrum.Activator;
 import net.bioclipse.spectrum.business.ISpectrumManager;
@@ -79,6 +80,7 @@ public class SpectrumEditor extends FormEditor {
     public final static String        JCAMP_TYPE = "jdx";
     public final static String        CML_TYPE   = "cml";
     private SpectrumOutlinePage       fOutlinePage;
+    private boolean 				  fromJS =false;	
 
     public void init( IEditorSite site, IEditorInput input )
                                                             throws PartInitException {
@@ -103,17 +105,24 @@ public class SpectrumEditor extends FormEditor {
         try {
             Object file = getEditorInput().getAdapter( IFile.class );
             if ( !(file instanceof IFile) ) {
-                throw new BioclipseException(
+            	file = getEditorInput().getAdapter( ISpectrum.class );
+            	if(!(file instanceof ISpectrum)){
+            		throw new BioclipseException(
                                               "Invalid editor input: Does not provide an IFile" );
+            	}else{
+            		spectrum = Activator.getDefault().getJavaSpectrumManager().create((ISpectrum)file).getJumboObject();
+    	            filetype = "net.bioclipse.contenttypes.cml.singleSpectrum";
+    	            fromJS=true;
+            	}
+            }else{
+	            IFile inputFile = (IFile) file;
+	            ISpectrumManager spectrumManager = Activator.getDefault()
+	                .getJavaSpectrumManager(); 
+	            spectrum = spectrumManager.loadSpectrum(inputFile).getJumboObject();
+	            filetype = spectrumManager.detectFileType(
+	                inputFile.getFileExtension()
+	            );
             }
-
-            IFile inputFile = (IFile) file;
-            ISpectrumManager spectrumManager = Activator.getDefault()
-                .getJavaSpectrumManager(); 
-            spectrum = spectrumManager.loadSpectrum(inputFile).getJumboObject();
-            filetype = spectrumManager.detectFileType(
-                inputFile.getFileExtension()
-            );
         } catch ( Exception e1 ) {
             LogUtils.handleException( e1, logger );
             return;
@@ -439,9 +448,11 @@ public class SpectrumEditor extends FormEditor {
             peakTablePage.setSpectrumItem( spectrum );
             indexpeak = addPage( peakTablePage, this.getEditorInput() );
             setPageText( indexpeak, "Peak Table" );
-            textEditor = new TextEditor();
-            indexsource = addPage( textEditor, getEditorInput() );
-            setPageText( indexsource, "Source" );
+            if(!fromJS){
+	            textEditor = new TextEditor();
+	            indexsource = addPage( textEditor, getEditorInput() );
+	            setPageText( indexsource, "Source" );
+            }
         } catch ( Exception e ) {
             logger
                     .error( "Errors trying to build pages in the SpectrumEditor." );
@@ -458,13 +469,16 @@ public class SpectrumEditor extends FormEditor {
 
     @Override
     public void doSave( IProgressMonitor monitor ) {
-
         this.showBusy( true );
-        //if we are not in source, we need to Synch from JCP to texteditor
-        if(this.getActivePage()!=indexsource)
-        updateTextEditor();
-        // Use textEditor to save
-        textEditor.doSave( monitor );
+    	if(fromJS){
+    		doSaveAs();
+    	}else{
+	        //if we are not in source, we need to Synch from JCP to texteditor
+	        if(this.getActivePage()!=indexsource)
+	        updateTextEditor();
+	        // Use textEditor to save
+	        textEditor.doSave( monitor );
+    	}
         peakTablePage.setDirty( false );
         for ( int i = 0; i < metadataindices.length; i++ ) {
             if ( metadatapages[i] != null ) {
@@ -476,6 +490,8 @@ public class SpectrumEditor extends FormEditor {
     }
 
     public void updateTextEditor() {
+    	if(fromJS)
+    		return;
         String returnVal = null;
         if ( filetype.equals( JCAMP_TYPE ) ) {
             Spectrum jdxspectrum =
@@ -537,13 +553,11 @@ public class SpectrumEditor extends FormEditor {
                         spectrumManager
                                 .saveSpectrum( new JumboSpectrum( spectrum ),
                                                target, filetype );
-                        textEditor.setInput( new FileEditorInput(target) );
+                        if(!fromJS)
+                        	textEditor.setInput( new FileEditorInput(target) );
                         setPartName( target.getName() );
                     } catch ( Exception ex ) {
-                        MessageDialog.openError( this.getSite().getShell(),
-                                                 "Error saving",
-                                                 "Saving failed due to: "
-                                                         + ex.getMessage() );
+                    	LogUtils.handleException(ex, logger, Activator.PLUGIN_ID);
                         correctfiletype = false;
                     }
                 } else {
@@ -575,7 +589,7 @@ public class SpectrumEditor extends FormEditor {
             updateTextEditor();
         } else {
             // TODO this will cause unwanted updates
-            if ( textEditor.isDirty() ) {
+            if (!fromJS && textEditor.isDirty() ) {
                 updateFromTextEditor();
             }
         }
