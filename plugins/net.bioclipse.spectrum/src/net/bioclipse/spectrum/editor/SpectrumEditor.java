@@ -113,6 +113,7 @@ public class SpectrumEditor extends FormEditor {
             		spectrum = Activator.getDefault().getJavaSpectrumManager().create((ISpectrum)file).getJumboObject();
     	            filetype = "net.bioclipse.contenttypes.cml.singleSpectrum";
     	            fromJS=true;
+    	            setPartName( "UNNAMED" );
             	}
             }else{
 	            IFile inputFile = (IFile) file;
@@ -452,6 +453,14 @@ public class SpectrumEditor extends FormEditor {
 	            textEditor = new TextEditor();
 	            indexsource = addPage( textEditor, getEditorInput() );
 	            setPageText( indexsource, "Source" );
+            }else{
+	            peakTablePage.setDirty( true );
+	            for ( int i = 0; i < metadataindices.length; i++ ) {
+	                if ( metadatapages[i] != null ) {
+	                    metadatapages[i].setDirty( true );
+	                }
+	            }
+	            firePropertyChange( IEditorPart.PROP_DIRTY );
             }
         } catch ( Exception e ) {
             logger
@@ -478,14 +487,14 @@ public class SpectrumEditor extends FormEditor {
 	        updateTextEditor();
 	        // Use textEditor to save
 	        textEditor.doSave( monitor );
+	        peakTablePage.setDirty( false );
+	        for ( int i = 0; i < metadataindices.length; i++ ) {
+	            if ( metadatapages[i] != null ) {
+	                metadatapages[i].setDirty( false );
+	            }
+	        }
+	        firePropertyChange( IEditorPart.PROP_DIRTY );
     	}
-        peakTablePage.setDirty( false );
-        for ( int i = 0; i < metadataindices.length; i++ ) {
-            if ( metadatapages[i] != null ) {
-                metadatapages[i].setDirty( false );
-            }
-        }
-        firePropertyChange( IEditorPart.PROP_DIRTY );
         this.showBusy( false );
     }
 
@@ -556,6 +565,13 @@ public class SpectrumEditor extends FormEditor {
                         if(!fromJS)
                         	textEditor.setInput( new FileEditorInput(target) );
                         setPartName( target.getName() );
+            	        peakTablePage.setDirty( false );
+            	        for ( int i = 0; i < metadataindices.length; i++ ) {
+            	            if ( metadatapages[i] != null ) {
+            	                metadatapages[i].setDirty( false );
+            	            }
+            	        }
+            	        firePropertyChange( IEditorPart.PROP_DIRTY );
                     } catch ( Exception ex ) {
                     	LogUtils.handleException(ex, logger, Activator.PLUGIN_ID);
                         correctfiletype = false;
