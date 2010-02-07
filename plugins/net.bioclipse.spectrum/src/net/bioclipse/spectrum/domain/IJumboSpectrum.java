@@ -12,12 +12,17 @@ package net.bioclipse.spectrum.domain;
 
 import net.bioclipse.core.domain.ISpectrum;
 
+import org.xmlcml.cml.element.CMLPeak;
 import org.xmlcml.cml.element.CMLSpectrum;
 
 public interface IJumboSpectrum extends ISpectrum {
 	
 	public CMLSpectrum getJumboObject();
 	
-	public void addPeak(double x, double y);
+	public CMLPeak addPeak(double x, double y);
+	
+	public CMLPeak removePeak(int position);
+	
+	public CMLPeak replacePeak(int position, double x, double y);
 
 }

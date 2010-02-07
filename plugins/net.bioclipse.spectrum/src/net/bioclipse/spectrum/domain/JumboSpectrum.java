@@ -45,12 +45,20 @@ public class JumboSpectrum extends BioObject implements IJumboSpectrum {
 		return new JumboSpectrum();
 	}
 
-	public void addPeak(double x, double y) {
+	public CMLPeak addPeak(double x, double y) {
 		CMLPeak peak = new CMLPeak();
 		peak.setXValue(x);
 		peak.setYValue(y);
 		spectrum.getPeakListElements().get(0).addPeak(peak);
-		
+		return peak;
+	}
+	
+	public CMLPeak removePeak(int position){
+		return (CMLPeak)spectrum.getPeakListElements().get(0).removeChild(spectrum.getPeakListElements().get(0).getChildCMLElement("peak",position));
 	}
 
+	public CMLPeak replacePeak(int position, double x, double y){
+		spectrum.getPeakListElements().get(0).removeChild(spectrum.getPeakListElements().get(0).getChildCMLElement("peak",position));
+		return this.addPeak(x, y);
+	}
 }
