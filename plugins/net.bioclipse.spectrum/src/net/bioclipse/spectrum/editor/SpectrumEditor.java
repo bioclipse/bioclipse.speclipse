@@ -653,7 +653,7 @@ public class SpectrumEditor extends FormEditor {
 
         if ( IContentOutlinePage.class.equals( required ) ) {
             if ( fOutlinePage == null ) {
-                fOutlinePage = new SpectrumOutlinePage( spectrum, this );
+                fOutlinePage = new SpectrumOutlinePage( spectrum );
             }
             return fOutlinePage;
         }

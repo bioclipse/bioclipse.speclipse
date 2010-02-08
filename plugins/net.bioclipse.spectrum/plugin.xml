@@ -26,6 +26,12 @@
                   contentTypeId="net.bioclipse.contenttypes.cml.singleSpectrum">
             </contentTypeBinding>
       </editor>
+      <editor
+            name="2DSpectrumEditor"
+            icon="icons/spectrum.gif"
+            class="net.bioclipse.spectrum.editor.Spectrum2DEditor"
+            id="net.bioclipse.spectrum.editor.Spectrum2DEditor">
+      </editor>
     </extension>
 
     <extension

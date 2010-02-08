@@ -34,7 +34,6 @@ public class SpectrumOutlinePage extends ContentOutlinePage
     private final String CONTRIBUTOR_ID
             ="net.bioclipse.spectrum.outline.SpectrumOutlinePage";
     private CMLSpectrum spectrum;
-    private SpectrumEditor editor;
     private TreeViewer treeViewer;
 
 
@@ -43,11 +42,9 @@ public class SpectrumOutlinePage extends ContentOutlinePage
      * @param editorInput
      * @param spectrumEditor
      */
-    public SpectrumOutlinePage(CMLSpectrum spectrum
-            , SpectrumEditor spectrumEditor) {
+    public SpectrumOutlinePage(CMLSpectrum spectrum) {
         super();
         this.spectrum=spectrum;
-        this.editor=spectrumEditor;
     }
     
     /**
