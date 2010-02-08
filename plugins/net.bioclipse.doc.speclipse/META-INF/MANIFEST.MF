@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Speclipse Manager User Documentation
 Bundle-SymbolicName: net.bioclipse.doc.speclipse;singleton:=true
-Bundle-Version: 2.2.0.RC3
+Bundle-Version: 2.2.0.v20100208
 Bundle-Vendor: The Bioclipse Team@EBI
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.log4j
