@@ -1,10 +1,13 @@
-/*****************************************************************************
- * Copyright (c) 2008 Bioclipse Project All rights reserved. This program and
- * the accompanying materials are made available under the terms of the Eclipse
- * Public License v1.0 which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *****************************************************************************/
-
+/*******************************************************************************
+ * Copyright (c) 2010  Stefan Kuhn <stefan.kuhn@ebi.ac.uk>
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * www.eclipse.org�epl-v10.html <http://www.eclipse.org/legal/epl-v10.html>
+ * 
+ * Contact: http://www.bioclipse.net/
+ ******************************************************************************/
 package net.bioclipse.spectrum.editor;
 
 import java.io.PrintWriter;
@@ -57,8 +60,6 @@ public class Spectrum2DEditor extends FormEditor {
     private static String             filetype;
     private CMLSpectrum               spectrum;
     private TextEditor                textEditor;
-    private int                       indexpeak;
-    private int                       indexchart;
     private int                       indexsource;
     private Spectrum2DDisplay         display2d;
     public final static String        JCAMP_TYPE = "jdx";
