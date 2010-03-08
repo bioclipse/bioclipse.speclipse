@@ -23,14 +23,17 @@
                   contentTypeId="net.bioclipse.contenttypes.jcampdx">
             </contentTypeBinding>
             <contentTypeBinding
-                  contentTypeId="net.bioclipse.contenttypes.cml.singleSpectrum">
+                  contentTypeId="net.bioclipse.contenttypes.cml.singleSpectrum1D">
             </contentTypeBinding>
       </editor>
       <editor
             name="2DSpectrumEditor"
-            icon="icons/spectrum.gif"
+            icon="icons/spectrum2d.gif"
             class="net.bioclipse.spectrum.editor.Spectrum2DEditor"
             id="net.bioclipse.spectrum.editor.Spectrum2DEditor">
+            <contentTypeBinding
+                  contentTypeId="net.bioclipse.contenttypes.cml.singleSpectrum2D">
+            </contentTypeBinding>
       </editor>
     </extension>
 
@@ -44,10 +47,46 @@
           </content-type>
    		<content-type
               base-type="net.bioclipse.contenttypes.cml"
-	          id="net.bioclipse.contenttypes.cml.singleSpectrum"
-              name="CML (Single Spectrum)"
+	          id="net.bioclipse.contenttypes.cml.singleSpectrum1D"
+              name="CML (Single Spectrum 1D)"
               priority="high">
 		 	<describer class="net.bioclipse.spectrum.contenttypes.CmlSpectrumFileDescriber">
+              <parameter
+                    name="type"
+                    value="1D">
+              </parameter>
+              <parameter
+                    name="count"
+                    value="single">
+              </parameter>
+       		</describer>
+        </content-type>
+   		<content-type
+              base-type="net.bioclipse.contenttypes.cml"
+	          id="net.bioclipse.contenttypes.cml.singleSpectrum2D"
+              name="CML (Single Spectrum 2D)"
+              priority="high">
+		 	<describer class="net.bioclipse.spectrum.contenttypes.CmlSpectrumFileDescriber">
+              <parameter
+                    name="type"
+                    value="2D">
+              </parameter>
+              <parameter
+                    name="count"
+                    value="single">
+              </parameter>
+       		</describer>
+        </content-type>
+   		<content-type
+              base-type="net.bioclipse.contenttypes.cml"
+	          id="net.bioclipse.contenttypes.cml.multipleSpectrum"
+              name="CML (Multiple Spectrum)"
+              priority="high">
+		 	<describer class="net.bioclipse.spectrum.contenttypes.CmlSpectrumFileDescriber">
+              <parameter
+                    name="count"
+                    value="multi">
+              </parameter>
        		</describer>
         </content-type>
     </extension>
@@ -179,7 +218,7 @@
 				                <test property="org.eclipse.core.resources.contentTypeId" 
 				           	    	value="net.bioclipse.contenttypes.jcampdx"/>
 				                <test property="org.eclipse.core.resources.contentTypeId" 
-				           	    	value="net.bioclipse.contenttypes.cml.singleSpectrum"/>
+				           	    	value="net.bioclipse.contenttypes.cml.singleSpectrum1D"/>
 				            </or>
 			      		</adapt>
 			   		</iterate>

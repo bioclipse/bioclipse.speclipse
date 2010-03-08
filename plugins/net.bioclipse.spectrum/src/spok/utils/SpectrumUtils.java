@@ -490,7 +490,9 @@ public class SpectrumUtils {
   public final static List<String> SUPPORTED_CONTENT_TYPES =
       new ArrayList<String>() {{
          add("net.bioclipse.contenttypes.jcampdx");
-         add("net.bioclipse.contenttypes.cml.singleSpectrum");
+         add("net.bioclipse.contenttypes.cml.singleSpectrum1D");
+         add("net.bioclipse.contenttypes.cml.singleSpectrum2D");
+         add("net.bioclipse.contenttypes.cml.multipleSpectrum");
       }};
   
   /**

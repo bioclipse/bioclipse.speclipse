@@ -111,7 +111,7 @@ public class SpectrumEditor extends FormEditor {
                                               "Invalid editor input: Does not provide an IFile" );
             	}else{
             		spectrum = Activator.getDefault().getJavaSpectrumManager().create((ISpectrum)file).getJumboObject();
-    	            filetype = "net.bioclipse.contenttypes.cml.singleSpectrum";
+    	            filetype = "net.bioclipse.contenttypes.cml.singleSpectrum1D";
     	            fromJS=true;
     	            setPartName( "UNNAMED" );
             	}

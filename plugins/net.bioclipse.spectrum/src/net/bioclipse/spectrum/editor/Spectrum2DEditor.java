@@ -96,7 +96,7 @@ public class Spectrum2DEditor extends FormEditor {
                                               "Invalid editor input: Does not provide an IFile" );
             	}else{
             		spectrum = Activator.getDefault().getJavaSpectrumManager().create((ISpectrum)file).getJumboObject();
-    	            filetype = "net.bioclipse.contenttypes.cml.singleSpectrum";
+    	            filetype = "net.bioclipse.contenttypes.cml.singleSpectrum2D";
     	            fromJS=true;
     	            setPartName( "UNNAMED" );
             	}
