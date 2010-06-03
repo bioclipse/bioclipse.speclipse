@@ -10,10 +10,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.runtime,
  net.bioclipse.spectrum,
  org.eclipse.ui.views,
- org.xmlcml.cmlxom,
  net.bioclipse.cml,
  net.bioclipse.cdk.ui,
- net.bioclipse.xom,
  org.eclipse.ui.editors;bundle-version="3.4.0",
  net.bioclipse.core;bundle-version="2.0.0",
  org.eclipse.core.resources;bundle-version="3.4.0",
@@ -41,7 +39,10 @@ Require-Bundle: org.eclipse.core.runtime,
  net.sf.cglib;bundle-version="2.1.3",
  org.openscience.cdk.controlbasic;bundle-version="1.3.0"
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.log4j
+Import-Package: nu.xom;version="1.1.0",
+ org.apache.log4j,
+ org.xmlcml.cml.base,
+ org.xmlcml.cml.element
 Bundle-ClassPath: .
 Export-Package: net.bioclipse.specmol,
  net.bioclipse.specmol.business,
