@@ -10,9 +10,10 @@ Require-Bundle: org.eclipse.ui,
  net.bioclipse.specmol;bundle-version="2.0.0",
  net.bioclipse.core,
  org.junit4,
- org.xmlcml.cmlxom;bundle-version="2.0.0",
- net.bioclipse.xom,
  org.eclipse.core.resources;bundle-version="3.4.1"
+Import-Package: org.xmlcml.cml.base,
+ org.xmlcml.cml.element,
+ nu.xom;version="1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: net.bioclipse.specmol.business.test
