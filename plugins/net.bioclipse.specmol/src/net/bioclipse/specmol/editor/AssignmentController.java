@@ -107,7 +107,11 @@ public class AssignmentController {
 	 */
 	private void findAcForPeakList(ArrayList<CMLPeak> peakList2) {
 		if (ac == null) {
-			setSelectedSubstructure(DefaultChemObjectBuilder.getInstance().newAtomContainer());
+			setSelectedSubstructure(
+				DefaultChemObjectBuilder.getInstance().newInstance(
+					IAtomContainer.class
+				)
+			);
 		}
 		else {
 			this.getSelectedSubstructure().removeAllElements();
@@ -116,7 +120,11 @@ public class AssignmentController {
 			String[] atomrefs = peakList.get(j).getAtomRefs();
 			IAtomContainer allac=page.getJcpComposite().getAtomContainer();
 			if (!page.isAssigmentMode()) {
-				page.getJcpComposite().getDrawingPanel().getRenderer2DModel().setExternalSelectedPart(allac.getBuilder().newAtomContainer());
+				page.getJcpComposite().getDrawingPanel().getRenderer2DModel()
+					.setExternalSelectedPart(allac.getBuilder().newInstance(
+						IAtomContainer.class
+					)
+				);
 			}
 			if (atomrefs != null) {
 				for(int i=0;i<atomrefs.length;i++){

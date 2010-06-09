@@ -31,6 +31,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
 import org.openscience.cdk.DefaultChemObjectBuilder;
+import org.openscience.cdk.interfaces.IMolecule;
 
 public class CheatSheetAction extends Action implements ICheatSheetAction {
 
@@ -39,8 +40,11 @@ public class CheatSheetAction extends Action implements ICheatSheetAction {
 	public void run(String[] params, ICheatSheetManager manager) {
 		if(params[0].equals("newstruc")){
 	      //Open editor with content (String) as content
-        ICDKMolecule mol = new CDKMolecule(DefaultChemObjectBuilder
-                                                  .getInstance().newMolecule());
+        ICDKMolecule mol = new CDKMolecule(
+        	DefaultChemObjectBuilder.getInstance().newInstance(
+        		IMolecule.class
+        	)
+        );
         try {
             Activator.getDefault().getUIManager().open( mol, 
                                 "net.bioclipse.cdk.ui.editors.jchempaint.cml" );

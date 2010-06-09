@@ -153,7 +153,11 @@ public class NmrshiftdbManager implements IBioclipseManager {
 				nu.xom.Element mol=cmlelud.getChildElements().get(i);
 				mol.setNamespaceURI(CmlFileDescriber.NS_CML);
 				CMLReader reader = new CMLReader(new ByteArrayInputStream(mol.toXML().getBytes()));
-		        IChemFile file = (IChemFile)reader.read(DefaultChemObjectBuilder.getInstance().newChemFile());
+		        IChemFile file = (IChemFile)reader.read(
+		        	DefaultChemObjectBuilder.getInstance().newInstance(
+		        		IChemFile.class
+		            )
+		        );
 		        
 		        CMLMolecule cmlMol = (CMLMolecule)cmlelud.getChildElements(
                       "molecule",CmlFileDescriber.NS_CML).get(i);
@@ -276,7 +280,13 @@ public class NmrshiftdbManager implements IBioclipseManager {
       monitor.beginTask( "Performing Prediction", IProgressMonitor.UNKNOWN );
       try{
     	  CMLSpectrum spectrum;
-    	  org.openscience.cdk.interfaces.IMolecule cdkmol=DefaultChemObjectBuilder.getInstance().newMolecule(net.bioclipse.cdk.business.Activator.getDefault().getJavaCDKManager().asCDKMolecule(molecule).getAtomContainer());
+    	  org.openscience.cdk.interfaces.IMolecule cdkmol = 
+    		  DefaultChemObjectBuilder.getInstance().newInstance(
+    			  org.openscience.cdk.interfaces.IMolecule.class,
+    			  net.bioclipse.cdk.business.Activator.getDefault()
+    			  	  .getJavaCDKManager().asCDKMolecule(molecule)
+    			  	  .getAtomContainer()
+    		  );
 		if(local){
     		  net.bioclipse.nmrshiftdb.util.PredictionTool predtool= new net.bioclipse.nmrshiftdb.util.PredictionTool();
 	  	  	  	spectrum=new CMLSpectrum();

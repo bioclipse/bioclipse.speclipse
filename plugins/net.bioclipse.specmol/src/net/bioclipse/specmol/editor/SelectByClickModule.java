@@ -44,7 +44,8 @@ public class SelectByClickModule extends ControllerModuleAdapter implements KeyL
 	public void mouseClickedDown(Point2d worldCoord) {
 		IAtom atom = chemModelRelay.getClosestAtom(worldCoord);
 		if (atom != null) {
-			IAtomContainer ac= atom.getBuilder().newAtomContainer();
+			IAtomContainer ac =
+				atom.getBuilder().newInstance(IAtomContainer.class);
 			if(ctrl)
 				ac=chemModelRelay.getRenderer().getRenderer2DModel().getExternalSelectedPart();
 			ac.addAtom(atom);

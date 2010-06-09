@@ -113,7 +113,11 @@ public class SpecMolDrawingComposite extends Composite implements SpecMolListene
 	 * deselect all selected atoms/bonds
 	 */
 	public void unselect() {
-		drawingPanel.getRenderer2DModel().setExternalSelectedPart(DefaultChemObjectBuilder.getInstance().newAtomContainer());		
+		drawingPanel.getRenderer2DModel().setExternalSelectedPart(
+			DefaultChemObjectBuilder.getInstance().newInstance(
+				IAtomContainer.class
+			)
+		);		
 		if (page.getAssignmentController().getSelectedSubstructure() != null) {
 			page.getAssignmentController().getSelectedSubstructure().removeAllElements();
 		}
