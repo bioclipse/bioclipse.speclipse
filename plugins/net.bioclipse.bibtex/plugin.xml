@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-    <extension
-          point="org.eclipse.core.runtime.contentTypes">
-          <content-type
-                id="net.bioclipse.contenttypes.bibtex"
-                name="Bibtex"
-                file-extensions="bib"
-                priority="normal">
-          </content-type>
+    <extension point="org.eclipse.core.contenttype.contentTypes">
+      <content-type base-type="org.eclipse.core.runtime.text"
+        id="net.bioclipse.contenttypes.bibtex"
+        name="Bibtex"
+        file-extensions="bib"
+        priority="normal">
+      </content-type>
     </extension>
+
    <extension
          point="org.eclipse.ui.newWizards">
       <category
