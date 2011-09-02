@@ -24,7 +24,8 @@
    </url>
 
    <requires>
-      <import feature="net.bioclipse.chemoinformatics_feature" version="2.0.1.v20090807"/>
+      <import feature="net.bioclipse.chemoinformatics_feature" version="2.5.0.qualifier"/>
+      <import feature="net.bioclipse.core_feature" version="2.5.0.qualifier"/>
    </requires>
 
    <plugin
@@ -77,20 +78,6 @@
 
    <plugin
          id="net.bioclipse.cml"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.xmlcml.cmlxom"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="net.bioclipse.xom"
          download-size="0"
          install-size="0"
          version="0.0.0"
