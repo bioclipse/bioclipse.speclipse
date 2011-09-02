@@ -41,6 +41,7 @@ import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemFile;
 import org.openscience.cdk.interfaces.IChemModel;
 import org.openscience.cdk.io.CMLReader;
+import org.openscience.cdk.renderer.RendererModel.ExternalHighlightColor;
 import org.xmlcml.cml.base.CMLElement;
 import org.xmlcml.cml.element.CMLCml;
 import org.xmlcml.cml.element.CMLMolecule;
@@ -152,7 +153,10 @@ public class AssignmentPage extends EditorPart {
 			child1 = new SpecMolDrawingComposite(form, SWT.PUSH,this);
 			assignmentController.addSpecMolListener(child1);
 			child1.addFocusListener(focusListener);
-			highlightColor = child1.getDrawingPanel().getRenderer2DModel().getExternalHighlightColor();
+			highlightColor = child1.getDrawingPanel().
+			    getRenderer2DModel().getParameter(
+			    	ExternalHighlightColor.class
+			    ).getValue();
 			
 			child2 = new SpecMolTableComposite(form,SWT.NONE, this);
 			assignmentController.addSpecMolListener(child2);

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: NMRShiftDB Test Plug-in
 Bundle-SymbolicName: net.bioclipse.nmrshiftdb.test
-Bundle-Version: 2.0.0.v20090707
+Bundle-Version: 2.5.0.qualifier
 Bundle-Activator: net.bioclipse.nmrshiftdb.test.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -19,4 +19,5 @@ Require-Bundle: org.eclipse.ui,
 Eclipse-LazyStart: true
 Export-Package: net.bioclipse.nmrshiftdb.business.test
 Import-Package: nu.xom;version="1.1.0",
- org.xmlcml.cml.base
+ org.xmlcml.cml.base,
+ org.xmlcml.cml.element

@@ -14,14 +14,10 @@ import java.util.List;
 import net.bioclipse.cdk.jchempaint.widgets.JChemPaintEditorWidget;
 import net.bioclipse.specmol.listeners.SpecMolListener;
 
-import org.eclipse.jface.action.GroupMarker;
-import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.ui.IWorkbenchActionConstants;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -113,7 +109,11 @@ public class SpecMolDrawingComposite extends Composite implements SpecMolListene
 	 * deselect all selected atoms/bonds
 	 */
 	public void unselect() {
-		drawingPanel.getRenderer2DModel().setExternalSelectedPart(DefaultChemObjectBuilder.getInstance().newAtomContainer());		
+		drawingPanel.getRenderer2DModel().setExternalSelectedPart(
+			DefaultChemObjectBuilder.getInstance().newInstance(
+				IAtomContainer.class
+			)
+		);		
 		if (page.getAssignmentController().getSelectedSubstructure() != null) {
 			page.getAssignmentController().getSelectedSubstructure().removeAllElements();
 		}

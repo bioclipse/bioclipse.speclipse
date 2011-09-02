@@ -1,7 +1,6 @@
 package net.bioclipse.nmrshiftdb.wizards;
 
 import java.io.ByteArrayInputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
@@ -12,7 +11,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.bioclipse.cdk.domain.CDKMolecule;
-import net.bioclipse.core.business.BioclipseException;
 import net.bioclipse.core.util.LogUtils;
 import net.bioclipse.jobs.BioclipseUIJob;
 import net.bioclipse.nmrshiftdb.util.Bc_nmrshiftdbConstants;
@@ -29,7 +27,6 @@ import org.apache.axis.message.SOAPBodyElement;
 import org.apache.axis.utils.Options;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -47,7 +44,6 @@ import org.openscience.cdk.io.CMLReader;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.xmlcml.cml.element.CMLBond;
 import org.xmlcml.cml.element.CMLCml;
 import org.xmlcml.cml.element.CMLConditionList;
@@ -514,7 +510,7 @@ public class SubmitWizard extends Wizard {
                                                                      .getPeakElements()
                                                                      .get( i )
                                                                      .getAtomRefs()[0] )
-                                                        .getHydrogenCount();
+                                                        .getImplicitHydrogenCount();
                                         List<IAtom> connatoms =
                                                 cdkmol
                                                         .getConnectedAtomsList( getAtomById(
