@@ -13,13 +13,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources,
  org.eclipse.ui,
  org.eclipse.core.runtime,
- net.bioclipse.xom,
  net.bioclipse.ui,
  org.springframework.osgi.aopalliance.osgi;bundle-version="1.0.0",
  org.springframework.bundle.spring.aop;bundle-version="2.5.1",
  net.sf.cglib,
  net.bioclipse.chemoinformatics
-Import-Package: org.apache.log4j
+Import-Package: org.apache.log4j,
+ nu.xom;version="1.1.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: net.bioclipse.bibtex,
  net.bioclipse.bibtex.business,

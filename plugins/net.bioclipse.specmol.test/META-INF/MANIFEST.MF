@@ -6,14 +6,14 @@ Bundle-Version: 2.0.0.v20090707
 Bundle-Activator: net.bioclipse.specmol.test.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- net.bioclipse.core.tests;bundle-version="0.1.0",
- net.bioclipse.specmol;bundle-version="2.0.0",
+ net.bioclipse.core.tests,
+ net.bioclipse.specmol,
  net.bioclipse.core,
  org.junit4,
- org.xmlcml.cmlxom;bundle-version="2.0.0",
- net.bioclipse.xom,
- org.eclipse.core.resources;bundle-version="3.4.1"
+ org.eclipse.core.resources
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: net.bioclipse.specmol.business.test
-Bundle-Vendor: The Bioclipse Team@EBI
+Bundle-Vendor: The Bioclipse Team @ EBI
+Import-Package: nu.xom;version="1.1.0",
+ org.xmlcml.cml.base
