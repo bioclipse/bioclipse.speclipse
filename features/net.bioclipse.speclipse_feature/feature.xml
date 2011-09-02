@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="net.bioclipse.speclipse_feature"
-      label="Speclipse_feature Feature"
-      version="2.2.0.v20100208"
-      provider-name="The Bioclipse Team@EBI"
+      label="Speclipse Feature"
+      version="2.5.0.qualifier"
+      provider-name="The Bioclipse Team @ EBI"
       plugin="net.bioclipse.nmrshiftdb">
 
    <description>

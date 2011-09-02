@@ -2,17 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: NMRShiftDB Plug-in
 Bundle-SymbolicName: net.bioclipse.nmrshiftdb; singleton:=true
-Bundle-Version: 2.2.0.v20100208
+Bundle-Version: 2.5.0.qualifier
 Bundle-Activator: net.bioclipse.nmrshiftdb.Activator
-Bundle-Vendor: Bioclipse Team@EBI
+Bundle-Vendor: Bioclipse Team @ EBI
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  net.bioclipse.specmol;bundle-version="2.0.0",
- org.xmlcml.cmlxom;bundle-version="2.0.0",
  net.bioclipse.cdk.business;bundle-version="2.0.0",
  net.bioclipse.core;bundle-version="2.0.0",
  net.bioclipse.spectrum;bundle-version="2.0.0",
- net.bioclipse.xom,
  org.eclipse.core.resources,
  net.bioclipse.webservices;bundle-version="2.0.0",
  org.openscience.cdk.interfaces;bundle-version="1.1.4",
@@ -33,8 +31,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.cheatsheets,
  org.openscience.cdk.standard;bundle-version="1.3.2"
 Bundle-ActivationPolicy: lazy
-Import-Package: org.apache.log4j;version="1.2.15",
- org.openscience.cdk.exception
+Import-Package: org.apache.log4j,
+ org.openscience.cdk.exception,
+ nu.xom;version="1.1.0",
+ nu.xom.converters;version="1.1.0",
+ org.xmlcml.cml.base,
+ org.xmlcml.cml.element
 Export-Package: net.bioclipse.nmrshiftdb,
  net.bioclipse.nmrshiftdb.business
 Bundle-ClassPath: lib/predictor.jar,

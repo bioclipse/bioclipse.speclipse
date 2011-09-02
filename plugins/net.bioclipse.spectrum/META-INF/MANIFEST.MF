@@ -2,39 +2,41 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Spectrum Plug-in
 Bundle-SymbolicName: net.bioclipse.spectrum;singleton:=true
-Bundle-Version: 2.2.0.v20100208
+Bundle-Version: 2.5.0.qualifier
 Bundle-Activator: net.bioclipse.spectrum.Activator
-Bundle-Vendor: The Bioclipse Team@EBI
+Bundle-Vendor: The Bioclipse Team @ EBI
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.core.resources;bundle-version="3.4.0",
+ org.eclipse.core.resources,
  org.eclipse.ui,
- org.eclipse.ui.editors;bundle-version="3.4.0",
- org.xmlcml.cmlxom,
+ org.eclipse.ui.editors,
  net.bioclipse.cml,
- net.bioclipse.core;bundle-version="0.1.0",
+ net.bioclipse.core,
  net.bioclipse.xom,
- org.eclipse.jface.text;bundle-version="3.4.0",
- org.eclipse.ui.forms;bundle-version="3.3.100",
- org.eclipse.ui.views;bundle-version="3.3.0",
- org.eclipse.ui.ide;bundle-version="3.4.0",
- net.bioclipse.ui.business;bundle-version="2.0.0",
- org.xmlpull.xpp3;bundle-version="0.4.0",
- net.bioclipse.ui;bundle-version="2.0.0",
- org.eclipse.ui.cheatsheets;bundle-version="3.3.101",
- net.bioclipse.chemoinformatics;bundle-version="2.0.0",
+ org.eclipse.jface.text,
+ org.eclipse.ui.forms,
+ org.eclipse.ui.views,
+ org.eclipse.ui.ide,
+ net.bioclipse.ui.business,
+ org.xmlpull.xpp3,
+ net.bioclipse.ui,
+ org.eclipse.ui.cheatsheets,
+ net.bioclipse.chemoinformatics,
  net.sf.cglib,
  org.springframework.osgi.aopalliance.osgi,
  org.springframework.bundle.spring.aop
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.commons.logging,
- org.apache.log4j
-Bundle-ClassPath: .,
- lib/JCampParser.jar,
+ org.apache.log4j,
+ nu.xom;version="1.1.0",
+ org.xmlcml.cml.base,
+ org.xmlcml.cml.element
+Bundle-ClassPath: lib/JCampParser.jar,
  lib/antlr-2.7.2.jar,
  lib/regexp-1.2.jar,
  lib/jcommon-1.0.0.jar,
  lib/jfreechart-1.0.1.jar,
- lib/opencsv-1.8.jar
+ lib/opencsv-1.8.jar,
+ .
 Export-Package: net.bioclipse.spectrum,
  net.bioclipse.spectrum.action,
  net.bioclipse.spectrum.action.contribution,
