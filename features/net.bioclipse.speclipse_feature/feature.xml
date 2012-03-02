@@ -26,6 +26,7 @@
    <requires>
       <import feature="net.bioclipse.chemoinformatics_feature"/>
       <import feature="net.bioclipse.core_feature"/>
+      <import plugin="log4j.over.slf4j"/>
    </requires>
 
    <plugin
