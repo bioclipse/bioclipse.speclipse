@@ -11,7 +11,7 @@
    </description>
 
    <copyright>
-      (C) 2005-2009 The Bioclipse Project contributors
+      (C) 2005-2009,2012 The Bioclipse Project contributors
    </copyright>
 
    <license url="http://www.eclipse.org/org/documents/epl-v10.php">
@@ -24,8 +24,8 @@
    </url>
 
    <requires>
-      <import feature="net.bioclipse.chemoinformatics_feature" version="2.5.0.qualifier"/>
-      <import feature="net.bioclipse.core_feature" version="2.5.0.qualifier"/>
+      <import feature="net.bioclipse.chemoinformatics_feature"/>
+      <import feature="net.bioclipse.core_feature"/>
    </requires>
 
    <plugin
