@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cheatsheet title="General Spectrum Cheatsheet">
+<cheatsheet title="General Spectrum Cheat Sheet">
 	<intro>
 		<description>
 			This cheat sheet tells you about things you can do with spectra in Bioclipse. 
-			Note that each step in this cheat sheet is in independent task, so there is no order and steps do not depend on each other. 
+			Note that each step in this cheat sheet is an independent task, so there is no order and steps do not depend on each other. 
 		</description>
 	</intro>
 	<item title="Step 0: Prerequisites">
 		<description>
- 			You need the Speclipse feature installed for this (which you have if you read this and installed via the update site).
+ 			You need the Speclipse feature installed for this (which you have if you read this and installed via the update site).  If you don't have any spectrum files, 
+ 			there's a good idea to create a new Speclipse Sample Data Project before starting with this cheat sheet. This is done by choosing <b>File > New… > Data >
+ 			Speclipse Sample Data Project</b>.
  		</description>
 	</item>
 	<item
        href="/net.bioclipse.spectrum/doc/spectrumEditor.html"
-       title="Option 1: Analyze spectra">
+       title="Step 1: Analyze spectra">
 		<description>
 			The spectrum editor shows spectrum files in any of the allowed formats (see help via ? on top of this section for details). By default, spectrum files 
-			will open in it. If they do not, right click the file and choose Open with -> Spectrum Editor. The editor gives you an insight 
+			will open in it. If they do not, right click the file and choose <b> Open with > Spectrum Editor </b>. The editor gives you an insight 
 			into the content of the file. See the help for explanations. If you want to compare several spectra, you can use the 
 			Compare Spectra view. Open it with the link below and choose as many peak spectra files as you like in the navigator (hold Ctrl). They 
 			will be shown in the same scale (it only makes sense to compare spectra of the same type, e. g. 1H-NMR). Files not 
@@ -26,14 +28,14 @@
 	</item>
 	<item
        href="/net.bioclipse.spectrum/doc/spectrumEditor.html"
-       title="Option 2: Perform a peak picking">
+       title="Step 2: Perform a peak picking">
 		<description>
 			When a file is open in the spectrum editor, you can perform a peak picking via the "Pick peaks" icon in the toolbar.
 		</description>
 	</item>
 	<item
        href="/net.bioclipse.spectrum/doc/new.html"
-       title="Option 3: Creating a new (peak) spectrum">
+       title="Step 3: Creating a new (peak) spectrum">
 		<description>
 			You can create a new spectrum in Speclipe. In practice, this is restricted to peak spectra since you need to enter 
 			the data yourself. See help via ? on top of this section for details.
@@ -42,7 +44,7 @@
 	</item>
 	<item
        href="/net.bioclipse.spectrum/doc/formats.html"
-       title="Option 4: Convert file formats">
+       title="Step 4: Convert file formats">
 		<description>
 			If you have a spectrum file open, you can save it in another format using the Save As... option.
 		</description>
@@ -50,29 +52,29 @@
 	</item>
 	<item
        href="/net.bioclipse.nmrshiftdb/html/search.html#searchbyspectrum"
-       title="Option 5: Find out which structure might be behind an NMR spectrum">
+       title="Step 5: Find out which structure might be behind an NMR spectrum">
 		<description>
 			If you have a peak-picked NMR spectrum, you can try to find out what structure was recorded via searching in 
-			NMRShiftDB. Right click on your spectrum in the navigator and choose "Spectrum Search in NMRShiftDB...". For 
+			NMRShiftDB. Right click on your spectrum in the navigator and choose <b>Spectrum Search in NMRShiftDB..."</b>. For 
 			details, click ? on top of this section.
 		</description>
 	</item>
 	<item
        href="/net.bioclipse.nmrshiftdb/html/predict.html"
-       title="Option 6: Get the NMR spectrum for a structure">
+       title="Step 6: Get the NMR spectrum for a structure">
 		<description>
 			If you want to know what the NMR spectrum of a structure would look like, there are two options: Firstly you can 
-			search NMRShiftDB for it. Right-click your structure in the navigator and choose "Download NMR spectra for this molecule...". This 
+			search NMRShiftDB for it. Right-click your structure in the navigator and choose <b>Download NMR spectra for this molecule...</b>. This 
 			will give you a measured, accurate spectrum given it is in NMRShiftDB. If not, you have the second option of predicting the spectrum 
-			via "Spectrum Prediction"->"NMR from NMRShiftDB". This will give you a result in any case. In most cases this will closely match the 
+			via <b>Spectrum Prediction > NMR from NMRShiftDB</b>. This will give you a result in any case. In most cases this will closely match the 
 			real spectrum, but in rare cases (e. g. exotic elements in your structure) the results can be inaccurate.
 		</description>
 	</item>
 	<item
        href="/net.bioclipse.nmrshiftdb/html/submit"
-       title="Option 7: Assign an (NMR-)spectrum and perhapssubmit it to NMRShiftDB">
+       title="Step 7: Assign an (NMR-)spectrum and perhapssubmit it to NMRShiftDB">
 		<description>
-			There is a separate cheat sheet for this. Click the arrow in the top bar of this cheat sheet and choose "NMRShiftDB Submit Cheat Sheet" or 
+			There is a separate cheat sheet for this. Click the arrow in the top bar of this cheat sheet and choose <b>NMRShiftDB Submit Cheat Sheet</b> or 
 			read the help available via the ?.
 		</description>
 	</item>
