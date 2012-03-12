@@ -9,7 +9,7 @@
 	<item title="Step 0: Prerequisites">
 		<description>
  			You need the Speclipse feature installed for this (which you have if you read this and installed via the update site).  If you don't have any spectrum files, 
- 			there's a good idea to create a new Speclipse Sample Data Project before starting with this cheat sheet. This is done by choosing <b>File > New… > 
+ 			there's a good idea to create a new Speclipse Sample Data Project before starting with this cheat sheet. This is done by choosing <b>File > New… > Data >
  			Speclipse Sample Data Project</b>.
  		</description>
 	</item>
