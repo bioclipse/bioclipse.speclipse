@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cheatsheet title="General Spectrum Cheatsheet">
+<cheatsheet title="General Spectrum Cheat Sheet">
 	<intro>
 		<description>
 			This cheat sheet tells you about things you can do with spectra in Bioclipse. 
-			Note that each step in this cheat sheet is in independent task, so there is no order and steps do not depend on each other. 
+			Note that each step in this cheat sheet is an independent task, so there is no order and steps do not depend on each other. 
 		</description>
 	</intro>
 	<item title="Step 0: Prerequisites">
