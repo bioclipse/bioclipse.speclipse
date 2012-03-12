@@ -17,8 +17,8 @@
 	<item title="Step 1: Creating the structure file">
 		<description>
 			The first thing you need is a file containing the structure you want to submit. If you do no yet have this from another source, you can use the JChemPaint plugin to draw your structure and save it (we 
-			recommand the CML file format). To create a new structure file, use "File"->"New ..."->"Chemistry"->"Molecule" (or use the "Click to perform" below). You can then open the new file by double clicking it and draw the molecule. If you need 
-			help on drawing, use the "Help"->"Help Contents"->"JChemPaint". If your spectra include a 1H spectrum, and you want to assign different shifts to protons at the same heavy atom, you need to have explicit protons there. You can make all protons explicit via "JChempaint"->"Edit"->"Hydrogens ..."->"Make all hydrogens explicit" (in your final submission only protons around chiral centers will be visible, though). Once you have finished the structure save it.
+			recommand the CML file format). To create a new structure file, use <b>File > New... > Chemistry > Molecule</b> (or use the "Click to perform" below). You can then open the new file by double clicking it and draw the molecule. If you need 
+			help on drawing, use the <b>Help > Help Contents > JChemPaint</b>. If your spectra include a 1H spectrum, and you want to assign different shifts to protons at the same heavy atom, you need to have explicit protons there. You can make all protons explicit via <b>JChempaint > Edit > Hydrogens... > Make all hydrogens explicit</b> (in your final submission only protons around chiral centers will be visible, though). Once you have finished the structure save it.
 		</description>
 		<action pluginId="net.bioclipse.nmrshiftdb" class="net.bioclipse.nmrshiftdb.actions.CheatSheetAction" param1="newstruc">
 		</action>
@@ -26,20 +26,20 @@
 	<item title="Step 2: Creating the spectrum (or spectra)">
 		<description>
 			The second thing you need is a file containing the spectrum you want to submit. This can be in JCAMP-DX or CML format. If you do no yet have this from another source, you can use the Spectrum plugin to type your spectrum and save it (we 
-			recommand the CML file format). To create a new spectrum file, use "File"->"New ..."->"Spectrum"->"New Spectrum" (or use the "Click to perform" below). After pressing "Finish", you can open the new file by double clicking it and add the desired peaks. 
-			If you need help, use "Help"->"Help Contents"->"The Spectrum Plugin". Once you have finished the spectrum save it. If you want several spectra (e. g. different nuclei) for the structure, you need to repeat this step.
+			recommand the CML file format). To create a new spectrum file, use <b>File > New... > Spectrum > New Spectrum</b> (or use the "Click to perform" below). After pressing "Finish", you can open the new file by double clicking it and add the desired peaks. 
+			If you need help, use <b>Help > Help Contents > The Spectrum Plugin</b>. Once you have finished the spectrum save it. If you want several spectra (e. g. different nuclei) for the structure, you need to repeat this step.
 		</description>
 		<action pluginId="net.bioclipse.nmrshiftdb" class="net.bioclipse.nmrshiftdb.actions.CheatSheetAction" param1="newspec"/>
 	</item>
 	<item title="Step 3: Creating a literature entry (optional)">
 		<description>
 			If you do not want to have a literature entry in your submission, you can skip this step. If you want a literature entry, you need to have it in a BibTex file. You can take any BibTex tool you like or
-			create one via  "File"->"New ..."->"Other"->"New bibtex file". We recommend to use the template. You can then open the new file by double clicking it and copy/paste the template for your literature type and fill it in. Once you have finished save it.
+			create one via  <b>File > New... > Other > New bibtex file</b>. We recommend to use the template. You can then open the new file by double clicking it and copy/paste the template for your literature type and fill it in. Once you have finished save it.
 		</description>
 	</item>
 	<item title="Step 4: Bringing it all together">
 		<description>
-			You now have got the components you need and just want to combine them. For doing this, create a new "Spectrum and Molecule" file via "File"->"New ..."->"Spectrum related"->"New Assigned Spectrum" (or use the "Click to perform" below). You first need to choose a name for your file (it will get the extension cml, so you need to choose a different name in case you already use cml files for 
+			You now have got the components you need and just want to combine them. For doing this, create a new "Spectrum and Molecule" file via <b>File > New... > Spectrum related > New Assigned Spectrum</b> (or use the "Click to perform" below). You first need to choose a name for your file (it will get the extension cml, so you need to choose a different name in case you already use cml files for 
 			structure or spectrum), then to choose the structure to include (normally the one you entered in step1) and finally the spectra (normally the spectra from step 2). Clicking "Finish" will give you a file ending with cml which you can open by double click and which shows you the structure 
 			and one of your spectra (you can change between them in the outline view). Almost the only thing left are the assignments.
 		</description>
@@ -56,7 +56,7 @@
 	<item title="Step 6: The actual submit">
 		<description>
 			So, you have got all your data. To submit it, right click on the assigned spectrum file created in Step 4 and choose the "Submit to NMRShiftDB" item. A window pops up which requieres you to fill in certain metadata, if not yet done with the spectrum. After that, you are asked for the NMRShiftDB username and password. If you press "Finish", your data go 
-			off to the server. Congratulations and thanks! If you need more detailed info on the actual submit, see the help at "Help"->"Help contents"->"NMRShiftDB plugin"->"About NMRShiftDB plugin"->"Submit to NMRShiftDB".
+			off to the server. Congratulations and thanks! If you need more detailed info on the actual submit, see the help at <b>Help > Help contents > NMRShiftDB plugin > About NMRShiftDB plugin > Submit to NMRShiftDB</b>.
 		</description>
 	</item>
 </cheatsheet>
