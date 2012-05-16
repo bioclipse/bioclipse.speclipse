@@ -40,7 +40,10 @@ Import-Package: nu.xom;version="1.1.0",
  org.xmlcml.cml.element
 Export-Package: net.bioclipse.nmrshiftdb,
  net.bioclipse.nmrshiftdb.business
-Bundle-ClassPath: lib/predictor.jar,
- .,
+Bundle-ClassPath: .,
  lib/JNL.jar,
- lib/torque-3.1.jar
+ lib/torque-3.1.jar,
+ lib/axis.jar,
+ lib/jaxrpc.jar,
+ lib/saaj.jar,
+ lib/wsdl4j-1.5.1.jar
