@@ -34,8 +34,10 @@ import org.apache.axis.utils.Options;
 import org.apache.axis.utils.XMLUtils;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.openscience.cdk.DefaultChemObjectBuilder;
+import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IChemFile;
 import org.openscience.cdk.io.CMLReader;
+import org.openscience.cdk.silent.SilentChemObjectBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -279,9 +281,9 @@ public class NmrshiftdbManager implements IBioclipseManager {
       monitor.beginTask( "Performing Prediction", IProgressMonitor.UNKNOWN );
       try{
     	  CMLSpectrum spectrum;
-    	  org.openscience.cdk.interfaces.IMolecule cdkmol = 
-    		  DefaultChemObjectBuilder.getInstance().newInstance(
-    			  org.openscience.cdk.interfaces.IMolecule.class,
+    	  IAtomContainer cdkmol = 
+    		  SilentChemObjectBuilder.getInstance().newInstance(
+    			  IAtomContainer.class,
     			  net.bioclipse.cdk.business.Activator.getDefault()
     			      .getJavaCDKManager().asCDKMolecule(molecule)
     			      .getAtomContainer()

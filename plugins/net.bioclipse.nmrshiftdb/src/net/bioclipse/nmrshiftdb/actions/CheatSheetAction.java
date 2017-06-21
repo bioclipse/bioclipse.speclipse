@@ -25,7 +25,8 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.cheatsheets.ICheatSheetAction;
 import org.eclipse.ui.cheatsheets.ICheatSheetManager;
-import org.openscience.cdk.DefaultChemObjectBuilder;
+import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.silent.SilentChemObjectBuilder;
 
 public class CheatSheetAction extends Action implements ICheatSheetAction {
 
@@ -35,14 +36,12 @@ public class CheatSheetAction extends Action implements ICheatSheetAction {
 		if(params[0].equals("newstruc")){
 	      //Open editor with content (String) as content
         ICDKMolecule mol = new CDKMolecule(
-        	DefaultChemObjectBuilder.getInstance().newInstance(
-        	    org.openscience.cdk.interfaces.IMolecule.class
-        	)
+        	SilentChemObjectBuilder.getInstance().newInstance( IAtomContainer.class)
         );
         try {
             Activator.getDefault().getUIManager().open( mol, 
                                 "net.bioclipse.cdk.ui.editors.jchempaint.cml" );
-        } catch ( BioclipseException e ) {
+        } catch ( Exception e ) {
             LogUtils.handleException( e, logger, net.bioclipse.nmrshiftdb.Activator.ID );
         }
    }else if(params[0].equals("newspec")){

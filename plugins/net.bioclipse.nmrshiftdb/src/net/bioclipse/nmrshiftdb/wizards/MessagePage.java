@@ -26,8 +26,9 @@ import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Text;
 import org.openscience.cdk.ChemFile;
+import org.openscience.cdk.geometry.BondTools;
+import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
-import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.io.CMLReader;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.xmlcml.cml.element.CMLBond;
@@ -181,11 +182,11 @@ public class MessagePage extends WizardPage {
 		doublebondLabel.setLayoutData(gdmol);
 		try{
 	    	CMLReader cmlreader=new CMLReader(new ByteArrayInputStream(molecule.toXML().getBytes()));
-	    	IMolecule cdkmol=((ChemFile)cmlreader.read(new ChemFile())).getChemSequence(0).getChemModel(0).getMoleculeSet().getMolecule(0);
+	    	IAtomContainer cdkmol=((ChemFile)cmlreader.read(new ChemFile())).getChemSequence(0).getChemModel(0).getMoleculeSet().getAtomContainer(0);
 		    Iterable<IBond> bonds = cdkmol.bonds();
 		    SmilesGenerator sg = new SmilesGenerator();
 		    for(IBond cdkBond : bonds) {
-		      if (sg.isValidDoubleBondConfiguration(cdkmol, cdkBond)) {
+		      if (BondTools.isValidDoubleBondConfiguration(cdkmol, cdkBond)) {
 		    	  Button button=new Button(compositemol,SWT.CHECK);
 		    	  Label label=new Label(compositemol, SWT.NULL);
 		    	  label.setText((cdkmol.getAtomNumber(cdkBond.getAtom(0)) + 1) + " = " + (cdkmol.getAtomNumber(cdkBond.getAtom(1)) + 1));

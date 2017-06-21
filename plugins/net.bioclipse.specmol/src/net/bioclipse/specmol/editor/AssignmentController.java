@@ -14,10 +14,10 @@ import java.util.List;
 
 import net.bioclipse.specmol.listeners.SpecMolListener;
 
-import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.silent.SilentChemObjectBuilder;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import org.xmlcml.cml.element.CMLPeak;
 
@@ -108,7 +108,7 @@ public class AssignmentController {
 	private void findAcForPeakList(ArrayList<CMLPeak> peakList2) {
 		if (ac == null) {
 			setSelectedSubstructure(
-				DefaultChemObjectBuilder.getInstance().
+				SilentChemObjectBuilder.getInstance().
 				newInstance(IAtomContainer.class)
 			);
 		}

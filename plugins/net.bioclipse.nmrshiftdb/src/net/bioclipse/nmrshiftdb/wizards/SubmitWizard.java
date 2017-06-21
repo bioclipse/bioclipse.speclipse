@@ -36,10 +36,10 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.PlatformUI;
 import org.openscience.cdk.ChemFile;
+import org.openscience.cdk.geometry.BondTools;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
-import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.io.CMLReader;
 import org.openscience.cdk.smiles.SmilesGenerator;
 import org.w3c.dom.Document;
@@ -216,15 +216,15 @@ public class SubmitWizard extends Wizard {
             CMLReader cmlreader =
                     new CMLReader( new ByteArrayInputStream( molecule.toXML()
                             .getBytes() ) );
-            IMolecule cdkmol =
+            IAtomContainer cdkmol =
                     ((ChemFile) cmlreader.read( new ChemFile() ))
                             .getChemSequence( 0 ).getChemModel( 0 )
-                            .getMoleculeSet().getMolecule( 0 );
+                            .getMoleculeSet().getAtomContainer( 0 );
             Iterable<IBond> bonds = cdkmol.bonds();
             SmilesGenerator sg = new SmilesGenerator();
             int l = 0;
             for ( IBond cdkBond : bonds ) {
-                if ( sg.isValidDoubleBondConfiguration( cdkmol, cdkBond ) ) {
+                if ( BondTools.isValidDoubleBondConfiguration( cdkmol, cdkBond ) ) {
                     CMLBond bond =
                             molecule
                                     .getBond( molecule.getAtomById( cdkBond
