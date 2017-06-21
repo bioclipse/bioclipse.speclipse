@@ -8,16 +8,16 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  net.bioclipse.core.tests,
  net.bioclipse.core,
- org.junit4,
  org.eclipse.core.resources,
  net.bioclipse.nmrshiftdb,
  net.bioclipse.cml,
  javax.activation,
  net.bioclipse.spectrum,
  net.bioclipse.cdk.business,
- org.openscience.cdk.interfaces
+ org.junit;bundle-version="4.12.0"
 Eclipse-LazyStart: true
 Export-Package: net.bioclipse.nmrshiftdb.business.test
 Import-Package: nu.xom;version="1.1.0",
+ org.openscience.cdk.interfaces;version="1.5.13",
  org.xmlcml.cml.base,
  org.xmlcml.cml.element
